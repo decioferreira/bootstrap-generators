@@ -48,7 +48,7 @@ end
 def generator_list
   {
     :rails        => ['scaffold', 'controller'],
-    :erb       => ['scaffold'],
+    :erubis       => ['scaffold']
   }
 end
 

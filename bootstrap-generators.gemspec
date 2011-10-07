@@ -22,6 +22,8 @@ Gem::Specification.new do |s|
   # s.add_development_dependency "rspec"
   # s.add_runtime_dependency "rest-client"
 
-  s.add_dependency 'railties', '~> 3.0'
-  s.add_development_dependency 'rails', '~> 3.0'
+  s.add_dependency "railties", ">= 3.0.0"
+  s.add_development_dependency "bundler", ">= 1.0.0"
+  s.add_development_dependency "test-unit"
+  s.add_development_dependency "rails", ">= 3.0.0"
 end
