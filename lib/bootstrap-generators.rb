@@ -1,12 +1,15 @@
 require 'rails'
 require 'rails/generators'
 
-module Bootstrap
+module BootstrapGenerators
   module Rails
     class Railtie < ::Rails::Railtie
       if ::Rails.version.to_f >= 3.1
+        # Erubis has the default template engine
         config.app_generators.template_engine :erubis
+        require 'bootstrap-generators/engine'
       else
+        # Erubis has the default template engine
         config.generators.template_engine :erubis
       end
     end
