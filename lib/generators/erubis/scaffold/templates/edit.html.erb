@@ -1,1 +1,9 @@
-edit
+<div class="page-header">
+  <h1>Editing <%= singular_table_name %></h1>
+</div>
+
+<%%= render 'form' %>
+
+<%%= link_to 'Show', @<%= singular_table_name %> %> |
+<%%= link_to 'Back', <%= index_helper %>_path %>
+
