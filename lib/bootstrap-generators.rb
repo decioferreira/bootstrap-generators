@@ -15,6 +15,21 @@ module BootstrapGenerators
       end
     end
   end
+
+  class LayoutGenerator < ::Rails::Generators::Base
+    desc "This generator installs Twitter Bootstrap Layout"
+    source_root File.expand_path('../generators/layout', __FILE__)
+
+    def copy_layout
+      say_status("copying", "layout", :green)
+      copy_file "application.html.erb", "app/views/layouts/application.html.erb"
+    end
+
+    def copy_stylesheet
+      say_status("copying", "layout stylesheet", :green)
+      copy_file "bootstrap-layout.css", "app/assets/stylesheets/bootstrap-layout.css"
+    end
+  end
 end
 
 Rails::Generators.hidden_namespaces << 'rails'
