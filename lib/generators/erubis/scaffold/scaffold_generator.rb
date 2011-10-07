@@ -22,4 +22,3 @@ module Erubis
     end
   end
 end
-
