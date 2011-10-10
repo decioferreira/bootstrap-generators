@@ -11,15 +11,15 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <%%= stylesheet_link_tag    "application" %>
+  <%%= javascript_include_tag "application" %>
+  <%%= csrf_meta_tags %>
 </head>
 <body>
   <div class="topbar">
     <div class="fill">
       <div class="container">
-        <a class="brand" href="#">Project name</a>
+        <%%= link_to "Project name", "#", :class => "brand" %>
         <ul class="nav">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -31,7 +31,7 @@
   <div class="container">
     <div class="row">
       <div class="span16">
-<%= yield %>
+<%%= yield %>
       </div>
     </div>
     <footer>
