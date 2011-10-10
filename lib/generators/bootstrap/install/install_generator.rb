@@ -21,6 +21,7 @@ module Bootstrap
       def create_layout
         template 'application.html.erb', 'app/views/layouts/application.html.erb'
         copy_file 'bootstrap-generators.css.scss', 'app/assets/stylesheets/bootstrap-generators.css.scss'
+        copy_file 'bootstrap-generators.js', 'app/assets/javascripts/bootstrap-generators.js'
       end
     end
   end
