@@ -31,44 +31,4 @@ def copy_routes
   FileUtils.cp File.expand_path(routes), destination
 end
 
-# Asserts the given class exists in the given content. When a block is given,
-# it yields the content of the class.
-#
-#   assert_file "test/functional/accounts_controller_test.rb" do |controller_test|
-#     assert_class "AccountsControllerTest", controller_test do |klass|
-#       assert_match /context "index action"/, klass
-#     end
-#   end
-#
-def assert_class(klass, content)
-  assert content =~ /class #{klass}(\(.+\))?(.*?)\nend/m, "Expected to have class #{klass}"
-  yield $2.strip if block_given?
-end
-
-def generator_list
-  {
-    :rails        => ['scaffold', 'controller'],
-    :erubis       => ['scaffold']
-  }
-end
-
-def path_prefix(name)
-  case name
-  when :rails
-    'rails/generators'
-  else
-    'generators'
-  end
-end
-
-def require_generators(generator_list)
-  generator_list.each do |name, generators|
-    generators.each do |generator_name|
-      require File.join(path_prefix(name), name.to_s, generator_name.to_s, "#{generator_name}_generator")
-    end
-  end
-end
-alias :require_generator :require_generators
-
-require_generators generator_list
-
+require 'generators/bootstrap/install/install_generator'

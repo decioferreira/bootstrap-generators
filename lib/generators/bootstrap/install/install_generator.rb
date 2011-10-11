@@ -6,14 +6,6 @@ module Bootstrap
       desc "Copy BootstrapGenerators default files"
       source_root File.expand_path('../templates', __FILE__)
 
-      def copy_simple_form_inputs
-        directory 'app'
-      end
-
-      def copy_simple_form_config
-        directory 'config'
-      end
-
       def copy_lib
         directory 'lib'
       end

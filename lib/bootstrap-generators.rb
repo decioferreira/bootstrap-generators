@@ -1,3 +1,5 @@
+require 'rails'
+
 module Bootstrap
   module Generators
     class Railtie < ::Rails::Railtie
