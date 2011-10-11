@@ -7,6 +7,12 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
   setup :prepare_destination
   setup :copy_routes
 
+  test "should copy controller templates" do
+    run_generator
+
+    assert_file "lib/templates/erb/controller/view.html.erb"
+  end
+
   test "should copy scaffold templates" do
     run_generator
 
