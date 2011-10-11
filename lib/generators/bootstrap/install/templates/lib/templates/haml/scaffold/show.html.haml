@@ -1,0 +1,10 @@
+.page-header
+  = link_to 'Back', <%= index_helper %>_path, :class => 'btn', :class => 'btn primary'
+  = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>)
+  %h1 Listing <%= plural_table_name %>
+
+%dl
+  <%- for attribute in attributes -%>
+  %dt <%= attribute.human_name %>:
+  %dd= @<%= singular_table_name %>.<%= attribute.name %>
+  <%- end -%>

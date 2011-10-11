@@ -7,15 +7,27 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
   setup :prepare_destination
   setup :copy_routes
 
-  test "should copy controller templates" do
+  test "should copy controller erb templates" do
     run_generator
 
     assert_file "lib/templates/erb/controller/view.html.erb"
   end
 
-  test "should copy scaffold templates" do
+  test "should copy controller haml templates" do
+    run_generator
+
+    assert_file "lib/templates/haml/controller/view.html.haml"
+  end
+
+  test "should copy scaffold erb templates" do
     run_generator
 
     %w(index edit new show _form).each { |view| assert_file "lib/templates/erb/scaffold/#{view}.html.erb" }
+  end
+
+  test "should copy scaffold haml templates" do
+    run_generator
+
+    %w(index edit new show _form).each { |view| assert_file "lib/templates/haml/scaffold/#{view}.html.haml" }
   end
 end

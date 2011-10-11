@@ -4,7 +4,7 @@
 
 Add it to your Gemfile:
 
-  `gem "bootstrap-generators"`
+  `gem 'bootstrap-generators'`
 
 Run the generator:
 
