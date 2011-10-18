@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %title Bootstrap, from Twitter
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "", :name => "author"}
+
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .topbar
+      .fill
+        .container
+          = link_to "Project name", "#", :class => "brand"
+          %ul.nav
+            %li.active
+              %a{:href => "#"} Home
+            %li
+              %a{:href => "#about"} About
+            %li
+              %a{:href => "#contact"} Contact
+    - flash.each do |name, msg|
+      = content_tag :div, :class => "container alert-message #{name == :error ? "error" : "success" }", :"data-alert" => "alert" do
+        %a.close{:href => "#"} ×
+        %p= msg
+    .container
+      .row
+        .span16
+          = yield
+      %footer
+        %p © Company 2011 (haml)

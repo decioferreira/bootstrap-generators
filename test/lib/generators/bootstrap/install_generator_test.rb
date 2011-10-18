@@ -58,4 +58,28 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
 
     assert_file "app/views/layouts/application.html.haml"
   end
+
+  test "should create fluid erb layout" do
+    run_generator %w(--layout fluid)
+
+    assert_file "app/views/layouts/application.html.erb"
+  end
+
+  test "should create container-app erb layout" do
+    run_generator %w(--layout container-app)
+
+    assert_file "app/views/layouts/application.html.erb"
+  end
+
+  test "should create fluid haml layout" do
+    run_generator %w(--template-engine haml --layout fluid)
+
+    assert_file "app/views/layouts/application.html.haml"
+  end
+
+  test "should create container-app haml layout" do
+    run_generator %w(--template-engine haml --layout container-app)
+
+    assert_file "app/views/layouts/application.html.haml"
+  end
 end
