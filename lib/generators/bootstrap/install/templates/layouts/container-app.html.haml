@@ -24,13 +24,23 @@
               %a{:href => "#about"} About
             %li
               %a{:href => "#contact"} Contact
-    - flash.each do |name, msg|
-      = content_tag :div, :class => "container alert-message #{name == :error ? "error" : "success" }", :"data-alert" => "alert" do
-        %a.close{:href => "#"} ×
-        %p= msg
+          %form.pull-right{:action => ""}
+            %input.input-small{:placeholder => "Username", :type => "text"}
+              %input.input-small{:placeholder => "Password", :type => "password"}
+                %button.btn{:type => "submit"} Sign in
     .container
-      .row
-        .span16
-          = yield
+      .content
+        .page-header
+          %h1
+            Page name
+            %small Supporting text or tagline
+        .row
+          .span14
+            - flash.each do |name, msg|
+              = content_tag :div, :class => "alert-message #{name == :error ? "error" : "success" }", :"data-alert" => "alert" do
+                %a.close{:href => "#"} ×
+                %p= msg
+            = yield
       %footer
         %p © Company 2011 (haml)
+
