@@ -6,11 +6,18 @@ module Bootstrap
       desc "Copy BootstrapGenerators default files"
       source_root File.expand_path('../templates', __FILE__)
       class_option :layout, :desc => "Bootstrap layout templates (hero, fluid or container-app)", :default => "hero", :type => :string
+      class_option :form_builder, :desc => "Select your form builder", :type => :string
 
       class_option :template_engine
 
       def copy_lib
         directory "lib/templates/#{options[:template_engine]}"
+      end
+
+      def copy_form_builder
+        if options[:form_builder].nil?
+          copy_file "form_builders/form_helper/_form.html.#{options[:template_engine]}", "lib/templates/#{options[:template_engine]}/scaffold/_form.html.#{options[:template_engine]}"
+        end
       end
 
       def create_layout
