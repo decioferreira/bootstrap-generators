@@ -1,25 +1,14 @@
-<%%= form_for(@<%= singular_table_name %>) do |f| %>
-  <%% if @<%= singular_table_name %>.errors.any? %>
-    <div class="alert-message block-message error">
-      <p><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</p>
+<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
+  <%%= content_tag(:div, f.error_notification, :class => "alert-message error") if f.object && f.object.respond_to?(:errors) && f.object.errors.present? %>
 
-      <ul>
-      <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
-        <li><%%= msg %></li>
-      <%% end %>
-      </ul>
-    </div>
-  <%% end %>
-
-<% attributes.each do |attribute| -%>
-  <div class="clearfix">
-    <%%= f.label :<%= attribute.name %> %>
-    <div class="input">
-      <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "<%= [:datetime_select, :date_select].include?(attribute.field_type) ? 'small' : 'xxlarge' %>" %>
-    </div>
+  <div class="inputs">
+  <%- attributes.each do |attribute| -%>
+    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>, :input_html => { :class => '<%= attribute.simple_form_input_class %>' } %>
+  <%- end -%>
   </div>
-<% end -%>
+
   <div class="actions">
-    <%%= f.submit :class => "btn primary" %>
+    <%%= f.button :submit, :class => "btn primary" %>
   </div>
 <%% end %>
+
