@@ -1,5 +1,5 @@
 = simple_form_for(@<%= singular_table_name %>) do |f|
-  = content_tag(:div, f.error_notification, :class => "alert-message error") if f.object && f.object.respond_to?(:errors) && f.object.errors.present?
+  = f.error_notification
 
   .inputs
   <%- attributes.each do |attribute| -%>

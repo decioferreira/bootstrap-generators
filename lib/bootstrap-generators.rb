@@ -32,3 +32,15 @@ module Rails
   end
 end
 
+require 'simple_form'
+
+module SimpleForm
+  class ErrorNotification
+    def render
+      if has_errors?
+        template.content_tag(:div, template.content_tag(error_notification_tag, error_message, html_options), :class => 'alert-message error')
+      end
+    end
+  end
+end
+
