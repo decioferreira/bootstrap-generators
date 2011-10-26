@@ -3,7 +3,7 @@
 
   .inputs
   <%- attributes.each do |attribute| -%>
-    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>, :input_html => { :class => '<%= attribute.simple_form_input_class %>' }
+    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
   <%- end -%>
 
   .actions

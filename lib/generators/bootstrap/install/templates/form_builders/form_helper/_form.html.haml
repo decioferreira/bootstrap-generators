@@ -11,7 +11,7 @@
   .clearfix
     = f.label :<%= attribute.name %>
     .input
-      = f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "<%= [:datetime_select, :date_select].include?(attribute.field_type) ? 'small' : 'xxlarge' %>"
+      = f.<%= attribute.field_type %> :<%= attribute.name %>
 <% end -%>
   .actions
     = f.submit :class => 'btn primary'

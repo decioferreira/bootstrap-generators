@@ -15,7 +15,7 @@
   <div class="clearfix">
     <%%= f.label :<%= attribute.name %> %>
     <div class="input">
-      <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "<%= [:datetime_select, :date_select].include?(attribute.field_type) ? 'small' : 'xxlarge' %>" %>
+      <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
     </div>
   </div>
 <% end -%>
