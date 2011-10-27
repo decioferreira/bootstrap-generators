@@ -28,3 +28,13 @@ Once you've done that, any time you generate a controller or scaffold, you'll ge
 
   `rails generate bootstrap:install --form_builder=simple_form`
 
+## Layouts
+
+There are three layouts available, based on the quick-start examples:
+
+* hero (default; based on [this template](http://twitter.github.com/bootstrap/examples/hero.html))
+* fluid (based on [this template](http://twitter.github.com/bootstrap/examples/fluid.html))
+* container-app (based on [this template](http://twitter.github.com/bootstrap/examples/container-app.html))
+
+To select one of these layouts just pass the option '--layout=LAYOUT' to the install generator.
+
