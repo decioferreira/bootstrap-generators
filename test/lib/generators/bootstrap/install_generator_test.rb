@@ -95,18 +95,6 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
     assert_file "lib/templates/haml/scaffold/_form.html.haml"
   end
 
-  test "should create erb form partial with formtastic form builder" do
-    run_generator %w(--form-builder formtastic)
-
-    assert_file "lib/templates/erb/scaffold/_form.html.erb"
-  end
-
-  test "should create haml form partial with formtastic form builder" do
-    run_generator %w(--form-builder formtastic --template-engine haml)
-
-    assert_file "lib/templates/haml/scaffold/_form.html.haml"
-  end
-
   test "should copy inputs when simple_form form builder selected" do
     run_generator %w(--form-builder simple_form)
 

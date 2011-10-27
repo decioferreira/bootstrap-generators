@@ -1,5 +1,7 @@
 = simple_form_for(@<%= singular_table_name %>) do |f|
-  = f.error_notification
+  -if @<%= singular_table_name %>.errors.any?
+    .alert-message.error
+      = f.error_notification
 
   .inputs
   <%- attributes.each do |attribute| -%>

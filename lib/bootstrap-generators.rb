@@ -1,4 +1,5 @@
 require 'rails'
+require 'bootstrap/helpers/form_builder'
 
 module Bootstrap
   module Generators

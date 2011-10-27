@@ -8,5 +8,9 @@ class NumericInput < SimpleForm::Inputs::NumericInput
     end
     (options[:label] == false ? "" : label) + "<div class=\"input\">#{content}</div>".html_safe
   end
+
+  def input_html_classes
+    super.unshift("xxlarge")
+  end
 end
 
