@@ -6,7 +6,7 @@ Add it to your Gemfile:
 
   `gem 'bootstrap-generators'`
 
-By default Bootstrap Generators comes with SimpleForm. So for this you have to include also on your Gemfile:
+By default Bootstrap Generators requires SimpleForm. Add the dependency on your Gemfile:
 
   `gem 'simple_form', '~> 1.5'`
 
