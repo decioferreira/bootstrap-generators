@@ -40,11 +40,22 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
     }
   end
 
-  test "should copy css and javascript files" do
+  test "should copy javascript files" do
     run_generator
 
-    assert_file "app/assets/stylesheets/bootstrap-generators.css.scss"
     assert_file "app/assets/javascripts/bootstrap-generators.js"
+  end
+
+  test "should copy css files" do
+    run_generator %w(--stylesheet-engine css)
+
+    assert_file "app/assets/stylesheets/bootstrap-generators.css"
+  end
+
+  test "should copy scss files" do
+    run_generator %w(--stylesheet-engine scss)
+
+    assert_file "app/assets/stylesheets/bootstrap-generators.css.scss"
   end
 
   test "should create erb layout" do

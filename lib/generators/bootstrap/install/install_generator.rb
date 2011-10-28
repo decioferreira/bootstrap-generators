@@ -9,6 +9,7 @@ module Bootstrap
       class_option :form_builder, :desc => "Select your form builder (form_builder or simple_form)", :default => "simple_form", :type => :string
 
       class_option :template_engine
+      class_option :stylesheet_engine
 
       def copy_lib
         directory "lib/templates/#{options[:template_engine]}"
@@ -36,8 +37,17 @@ module Bootstrap
 
       def create_layout
         template "layouts/#{options[:layout]}.html.#{options[:template_engine]}", "app/views/layouts/application.html.#{options[:template_engine]}"
-        copy_file "layouts/#{options[:layout]}.css.scss", "app/assets/stylesheets/bootstrap-generators.css.scss"
-        copy_file "bootstrap-generators.js", "app/assets/javascripts/bootstrap-generators.js"
+      end
+
+      def create_assets
+        if options[:stylesheet_engine].intern == :css
+          stylesheet_extension = 'css'
+        else
+          stylesheet_extension = "css.#{options[:stylesheet_engine]}"
+        end
+
+        copy_file "assets/stylesheets/#{options[:layout]}.#{stylesheet_extension}", "app/assets/stylesheets/bootstrap-generators.#{stylesheet_extension}"
+        copy_file "assets/javascripts/bootstrap-generators.js", "app/assets/javascripts/bootstrap-generators.js"
       end
     end
   end

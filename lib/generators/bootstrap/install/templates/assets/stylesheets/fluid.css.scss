@@ -1,0 +1,22 @@
+/*
+ *= require bootstrap
+*/
+
+body {
+  padding-top: 60px;
+}
+
+.page-header {
+  a.btn {
+    float: right;
+  }
+
+  a.btn + a.btn {
+    margin-right: 8px;
+  }
+}
+
+.form-stacked div.alert-message {
+  margin-left: -10px;
+}
+
