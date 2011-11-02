@@ -40,7 +40,7 @@ module Bootstrap
       end
 
       def create_assets
-        if options[:stylesheet_engine].intern == :css
+        if options[:stylesheet_engine].to_sym == :css
           stylesheet_extension = 'css'
         else
           stylesheet_extension = "css.#{options[:stylesheet_engine]}"
