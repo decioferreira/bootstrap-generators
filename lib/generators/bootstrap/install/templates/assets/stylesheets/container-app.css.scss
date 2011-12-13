@@ -31,7 +31,7 @@ body {
 }
 
 /* The white background content wrapper */
-.content {
+.container > .content {
   background-color: #fff;
   padding: 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
@@ -44,7 +44,7 @@ body {
 }
 
 /* Page header tweaks */
-.content > .page-header {
+.page-header {
   background-color: #f5f5f5;
   padding: 20px 20px 10px;
   margin: -20px -20px 20px;
@@ -53,4 +53,3 @@ body {
 .topbar .btn {
   border: 0;
 }
-
