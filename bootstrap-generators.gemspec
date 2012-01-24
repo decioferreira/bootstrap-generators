@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["decio.ferreira@decioferreira.com"]
   s.homepage    = "https://github.com/decioferreira/bootstrap-generators"
   s.summary     = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1.}
-  s.description = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1. Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites. Checkout http://twitter.github.com/bootstrap.}
+  s.description = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1. Checkout http://twitter.github.com/bootstrap.}
 
   s.rubyforge_project = "bootstrap-generators"
 
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "bundler", "~> 1.0.0"
   s.add_development_dependency "test-unit"
-  s.add_development_dependency "rails", "~> 3.1.0"
+  s.add_development_dependency "rails", "~> 3.1"
 
-  s.add_runtime_dependency "railties", "~> 3.1.0"
+  s.add_runtime_dependency "railties", "~> 3.1"
 end
