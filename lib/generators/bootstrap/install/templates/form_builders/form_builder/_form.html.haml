@@ -1,6 +1,7 @@
 = form_for @<%= singular_table_name %> do |f|
   -if @<%= singular_table_name %>.errors.any?
-    .alert-message.block-message.error
+    .alert-message.block-message.error{:"data-alert" => "alert"}
+      %a.close{:href => "#"} ×
       %p= "#{pluralize(@<%= singular_table_name %>.errors.count, "error")} prohibited this <%= singular_table_name %> from being saved:"
 
       %ul

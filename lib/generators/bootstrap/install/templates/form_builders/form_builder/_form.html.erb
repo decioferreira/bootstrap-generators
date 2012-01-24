@@ -1,6 +1,7 @@
 <%%= form_for(@<%= singular_table_name %>) do |f| %>
   <%% if @<%= singular_table_name %>.errors.any? %>
-    <div class="alert-message block-message error">
+    <div class="alert-message block-message error" data-alert="alert">
+      <a class="close" href="#">×</a>
       <p><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</p>
 
       <ul>

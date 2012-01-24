@@ -1,6 +1,7 @@
 = simple_form_for(@<%= singular_table_name %>) do |f|
   -if @<%= singular_table_name %>.errors.any?
-    .alert-message.error
+    .alert-message.error{:"data-alert" => "alert"}
+      %a.close{:href => "#"} ×
       = f.error_notification
 
   .inputs
