@@ -10,7 +10,7 @@ This gem requires the use of rails 3.1.
 
 In your Gemfile, add this line:
 
-  `gem 'bootstrap-generators'`
+  `gem 'bootstrap-generators', '~> 1.4'`
 
 By default Bootstrap Generators requires SimpleForm. Add the dependency on your Gemfile:
 
