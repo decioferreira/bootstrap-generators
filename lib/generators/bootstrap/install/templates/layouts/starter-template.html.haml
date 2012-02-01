@@ -16,19 +16,18 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
+          %a.btn.btn-navbar{:data => {:toggle => "collapse", :target => ".nav-collapse"}}
+            %span.i-bar
+            %span.i-bar
+            %span.i-bar
           = link_to "Project name", "#", :class => "brand"
-          %ul.nav
-            %li.active
-              %a{:href => "#"} Home
-            %li
-              %a{:href => "#about"} About
-            %li
-              %a{:href => "#contact"} Contact
-    - flash.each do |name, msg|
-      = content_tag :div, :class => "container alert-message #{name == :error ? "error" : "success" }", :"data-alert" => "alert" do
-        %a.close{:href => "#"} ×
-        %p= msg
+          .nav-collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#about"} About
+              %li
+                %a{:href => "#contact"} Contact
     .container
       = yield
-      %footer
-        %p © Company 2012 (haml)

@@ -13,9 +13,9 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .topbar
-      .topbar-inner
-        .container-fluid
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .fluid-container
           %a.brand{:href => "#"} Project name
           %ul.nav
             %li.active
@@ -70,4 +70,3 @@
             = yield
         %footer
           %p © Company 2011 (haml)
-

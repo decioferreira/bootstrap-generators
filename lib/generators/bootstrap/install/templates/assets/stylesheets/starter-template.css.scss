@@ -2,10 +2,6 @@
  *= require bootstrap
 */
 
-body {
-  padding-top: 60px;
-}
-
 .page-header {
   a.btn {
     float: right;
@@ -18,4 +14,9 @@ body {
 
 .form-stacked div.alert-message {
   margin-left: -10px;
+}
+
+/* Override some defaults */
+body {
+  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 }

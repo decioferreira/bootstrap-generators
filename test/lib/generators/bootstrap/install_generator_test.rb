@@ -76,8 +76,8 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
     assert_file "app/views/layouts/application.html.erb"
   end
 
-  test "should create container-app erb layout" do
-    run_generator %w(--layout container-app)
+  test "should create starter-template erb layout" do
+    run_generator %w(--layout starter-template)
 
     assert_file "app/views/layouts/application.html.erb"
   end
@@ -88,8 +88,8 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
     assert_file "app/views/layouts/application.html.haml"
   end
 
-  test "should create container-app haml layout" do
-    run_generator %w(--template-engine haml --layout container-app)
+  test "should create starter-template haml layout" do
+    run_generator %w(--template-engine haml --layout starter-template)
 
     assert_file "app/views/layouts/application.html.haml"
   end
