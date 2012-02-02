@@ -13,7 +13,3 @@ body {
 .page-header a.btn + a.btn {
   margin-right: 8px;
 }
-
-.form-stacked div.alert-message {
-  margin-left: -10px;
-}
