@@ -106,14 +106,6 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
     assert_file "lib/templates/haml/scaffold/_form.html.haml"
   end
 
-  test "should copy inputs when simple_form form builder selected" do
-    run_generator %w(--form-builder simple_form)
-
-    %w(boolean collection date_time file numeric password string text).each { |input|
-      assert_file "app/inputs/#{input}_input.rb"
-    }
-  end
-
   test "should copy config when simple_form form builder selected" do
     run_generator %w(--form-builder simple_form)
 

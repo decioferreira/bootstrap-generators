@@ -16,7 +16,9 @@ By default Bootstrap Generators requires SimpleForm. Add the dependency on your 
 
     gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 
-If you don't want to use SimpleForm, and instead use the default Rails form builder, just call the install generator with `--form_builder=form_builder`.
+If you don't want to use SimpleForm, just pass the `--form_builder=form_builder` option:
+
+    rails generate bootstrap:install --form_builder=form_builder
 
 Run bundle install:
 
@@ -28,32 +30,107 @@ Get started:
 
     rails generate bootstrap:install
 
-To print the options and usage:
-
-    rails generate bootstrap:install --help
-
 Once you've done that, any time you generate a controller or scaffold, you'll get [Bootstrap](http://twitter.github.com/bootstrap/) templates.
 
-Give it a try:
+### Give it a try
 
     rails g scaffold post title:string body:text published:boolean
 
-## Form builders
+## Usage
 
-### Default Rails form builder
+To print the options and usage run the command `rails generate bootstrap:install --help`
 
-    rails generate bootstrap:install --form_builder=form_builder
+    rails generate bootstrap:install [options]
 
-### SimpleForm
+    Options:
+          [--layout=LAYOUT]                         # Bootstrap layout templates (hero, fluid or starter-template)
+                                                    # Default: hero
+          [--form-builder=FORM_BUILDER]             # Select your form builder (form_builder or simple_form)
+                                                    # Default: simple_form
+      -e, [--template-engine=TEMPLATE_ENGINE]       # Indicates when to generate template engine
+                                                    # Default: erb
+      -se, [--stylesheet-engine=STYLESHEET_ENGINE]  # Indicates when to generate stylesheet engine
+                                                    # Default: scss
+
+    Runtime options:
+      -f, [--force]    # Overwrite files that already exist
+      -p, [--pretend]  # Run but do not make any changes
+      -q, [--quiet]    # Supress status output
+      -s, [--skip]     # Skip files that already exist
+
+    Copy BootstrapGenerators default files
+
+### Options
+
+#### Layouts
+
+There are the three available layouts, based on Bootstrap's quick-start examples:
+
+* [Basic marketing site](http://twitter.github.com/bootstrap/examples/hero.html) (default)
+* [Fluid layout](http://twitter.github.com/bootstrap/examples/fluid.html)
+* [Starter template](http://twitter.github.com/bootstrap/examples/starter-template.html)
+
+To select one of these layouts just pass the option `--layout=LAYOUT` to the install generator.
+
+#### Form builders
+
+* SimpleForm
+
+By default Bootstrap Generators requires SimpleForm. Add the dependency on your Gemfile:
+
+    gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+
+And then run:
 
     rails generate bootstrap:install --form_builder=simple_form
 
-## Layouts
+* Default Rails form builder
 
-There are three layouts available, based on the quick-start examples:
+If you don't want to use SimpleForm, just pass the `--form_builder=form_builder` option:
 
-* Basic marketing site (default; based on [this template](http://twitter.github.com/bootstrap/examples/hero.html))
-* Fluid layout (based on [this template](http://twitter.github.com/bootstrap/examples/fluid.html))
-* Starter template (based on [this template](http://twitter.github.com/bootstrap/examples/starter-template.html))
+    rails generate bootstrap:install --form_builder=form_builder
 
-To select one of these layouts just pass the option `--layout=LAYOUT` to the install generator.
+#### Template engines
+
+Supported template engines:
+
+* ERB
+* Haml
+
+Add the dependency on your Gemfile:
+
+    gem 'haml-rails'
+
+And then run:
+
+    rails generate bootstrap:install --template-engine=haml
+
+#### Stylesheet engines
+
+Supported stylesheet engines:
+
+* CSS
+* SCSS
+
+## Assets
+
+### Javascript
+
+Select all jQuery plugins (`app/assets/javascripts/bootstrap.js`)
+
+    //= require bootstrap
+
+Or quickly add only the necessary javascript (Transitions: required for any animation; Popovers: requires Tooltips)
+
+    //= require bootstrap-transition
+    //= require bootstrap-alert
+    //= require bootstrap-modal
+    //= require bootstrap-dropdown
+    //= require bootstrap-scrollspy
+    //= require bootstrap-tab
+    //= require bootstrap-tooltip
+    //= require bootstrap-popover
+    //= require bootstrap-button
+    //= require bootstrap-collapse
+    //= require bootstrap-carousel
+    //= require bootstrap-typeahead

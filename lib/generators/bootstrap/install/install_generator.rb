@@ -23,12 +23,6 @@ module Bootstrap
         end
       end
 
-      def copy_simple_form_inputs
-        if options[:form_builder] == 'simple_form'
-          directory 'app'
-        end
-      end
-
       def copy_simple_form_config
         if options[:form_builder] == 'simple_form'
           directory 'config'
