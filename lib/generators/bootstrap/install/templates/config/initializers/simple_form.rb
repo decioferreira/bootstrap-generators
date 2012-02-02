@@ -44,7 +44,7 @@ SimpleForm.setup do |config|
     b.use :hint,  :tag => :span, :class => :hint
     b.use :error, :tag => :span, :class => :error
   end
-<% if options.bootstrap? %>
+
   config.wrappers :bootstrap, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
     b.use :placeholder
     b.use :label, :class => 'control-label'
@@ -84,10 +84,7 @@ SimpleForm.setup do |config|
   # to learn about the different styles for forms and inputs,
   # buttons and other elements.
   config.default_wrapper = :bootstrap
-<% else %>
-  # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :default
-<% end %>
+
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.
   #   :inline => input + label
@@ -102,9 +99,11 @@ SimpleForm.setup do |config|
 
   # Default tag used for error notification helper.
   # config.error_notification_tag = :p
+  config.error_notification_tag = :span
 
   # CSS class to add for error notification helper.
   # config.error_notification_class = :error_notification
+  config.error_notification_class = nil
 
   # ID to add for error notification helper.
   # config.error_notification_id = nil
@@ -136,7 +135,7 @@ SimpleForm.setup do |config|
   # config.label_class = nil
 
   # You can define the class to use on all forms. Default is simple_form.
-  # config.form_class = :simple_form
+  config.form_class = 'form-horizontal'
 
   # Whether attributes are required by default (or not). Default is true.
   # config.required_by_default = true

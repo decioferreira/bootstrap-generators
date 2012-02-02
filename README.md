@@ -6,15 +6,15 @@ Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1. Bootst
 
 In your Gemfile, add this line:
 
-    gem 'bootstrap-generators', '~> 2.0'
+    gem 'bootstrap-generators', '2.0.0.dev'
 
 Or you can install from latest build:
 
-    gem 'bootstrap-generators', '~> 2.0', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
+    gem 'bootstrap-generators', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
 
 By default Bootstrap Generators requires SimpleForm. Add the dependency on your Gemfile:
 
-    gem 'simple_form', '~> 2.0', :git => 'git://github.com/plataformatec/simple_form.git'
+    gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 
 If you don't want to use SimpleForm, and instead use the default Rails form builder, just call the install generator with `--form_builder=form_builder`.
 
