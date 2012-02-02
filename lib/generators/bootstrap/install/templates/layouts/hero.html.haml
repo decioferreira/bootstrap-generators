@@ -25,10 +25,10 @@
             %li
               %a{:href => "#contact"} Contact
     - flash.each do |name, msg|
-      = content_tag :div, :class => "container alert-message #{name == :error ? "error" : "success" }", :"data-alert" => "alert" do
-        %a.close{:href => "#"} ×
-        %p= msg
-    .container
-      = yield
-      %footer
-        %p © Company 2012 (haml)
+      = content_tag :div, :class => "alert #{name == :error ? "alert-error" : "alert-success" }" do
+        %a.close{:href => "#", :"data-dismiss" => "alert"} ×
+        = msg
+    = yield
+    %hr
+    %footer
+      %p &copy; Company 2012
