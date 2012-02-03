@@ -15,58 +15,79 @@
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
-        .fluid-container
+        .container-fluid
+          %a.btn.btn-navbar{:"data-toggle" => "collapse", :"data-target" => ".nav-collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
           %a.brand{:href => "#"} Project name
-          %ul.nav
-            %li.active
-              %a{:href => "#"} Home
-            %li
-              %a{:href => "#about"} About
-            %li
-              %a{:href => "#contact"} Contact
-          %p.pull-right
-            Logged in as
-            %a{:href => "#"} username
+          .nav-collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#about"} About
+              %li
+                %a{:href => "#contact"} Contact
+            %p.navbar-text.pull-right
+              Logged in as
+              %a{:href => "#"} username
     .container-fluid
-      .sidebar
-        .well
-          %h5 Sidebar
-          %ul
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-          %h5 Sidebar
-          %ul
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-          %h5 Sidebar
-          %ul
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-      - flash.each do |name, msg|
-        = content_tag :div, :class => "container alert-message #{name == :error ? "error" : "success" }", :"data-alert" => "alert" do
-          %a.close{:href => "#"} ×
-          %p= msg
-      .content
-        .row
-          .span16
-            = yield
-        %footer
-          %p © Company 2011 (haml)
+      .row-fluid
+        .span3
+          .well.sidebar-nav
+            %ul.nav.nav-list
+              %li.nav-header
+                Sidebar
+              %li.active
+                %a{:href => "#"}
+                  Link
+              %li
+                %a{:href => "#"}
+                  Link
+              %li
+                %a{:href => "#"}
+                  Link
+              %li
+                %a{:href => "#"}
+                  Link
+              %li.nav-header
+                Sidebar
+              %li
+                %a{:href => "#"}
+                  Link
+              %li
+                %a{:href => "#"}
+                  Link
+              %li
+                %a{:href => "#"}
+                  Link
+              %li
+                %a{:href => "#"}
+                  Link
+              %li
+                %a{:href => "#"}
+                  Link
+              %li
+                %a{:href => "#"}
+                  Link
+              %li.nav-header
+                Sidebar
+              %li
+                %a{:href => "#"}
+                  Link
+              %li
+                %a{:href => "#"}
+                  Link
+              %li
+                %a{:href => "#"}
+                  Link
+        .span9
+          - flash.each do |name, msg|
+            = content_tag :div, :class => "alert #{name == :error ? "alert-error" : "alert-success" }" do
+              %a.close{:href => "#", :"data-dismiss" => "alert"} ×
+              = msg
+          = yield
+      %hr
+      %footer
+        %p &copy; Company 2012
