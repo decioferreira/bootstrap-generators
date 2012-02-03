@@ -16,8 +16,8 @@
   <%%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="topbar">
-    <div class="fill">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
       <div class="container">
         <%%= link_to "Project name", "#", :class => "brand" %>
         <ul class="nav">
@@ -28,20 +28,17 @@
       </div>
     </div>
   </div>
-  <%% flash.each do |name, msg| %>
-    <%%= content_tag :div, :class => "container alert-message #{name == :error ? "error" : "success" }", :"data-alert" => "alert" do %>
-      <a class="close" href="#">×</a>
-      <p><%%= msg %></p>
-    <%% end %>
-  <%% end %>
   <div class="container">
-    <div class="row">
-      <div class="span16">
-<%%= yield %>
-      </div>
-    </div>
+    <%% flash.each do |name, msg| %>
+      <%%= content_tag :div, :class => "alert #{name == :error ? "alert-error" : "alert-success" }" do %>
+        <a class="close" data-dismiss="alert" href="#">×</a>
+        <%%= msg %>
+      <%% end %>
+    <%% end %>
+    <%%= yield %>
+    <hr>
     <footer>
-      <p>&copy; Company 2011</p>
+      <p>&copy; Company 2012</p>
     </footer>
   </div>
 </body>

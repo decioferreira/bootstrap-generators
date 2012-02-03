@@ -1,8 +1,13 @@
-//= require bootstrap-alerts
-//= require bootstrap-dropdown
+//= require bootstrap-transition
+//= require bootstrap-alert
 //= require bootstrap-modal
-//= require bootstrap-twipsy
-//= require bootstrap-popover
+//= require bootstrap-dropdown
 //= require bootstrap-scrollspy
-//= require bootstrap-tabs
-//= require bootstrap-buttons
+//= require bootstrap-tab
+//= require bootstrap-tooltip
+//= require bootstrap-popover
+//= require bootstrap-button
+//= require bootstrap-collapse
+//= require bootstrap-carousel
+//= require bootstrap-typeahead
+

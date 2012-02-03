@@ -3,10 +3,10 @@ require 'rails'
 module Bootstrap
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
-      desc "Copy BootstrapGenerators default files"
+      desc 'Copy BootstrapGenerators default files'
       source_root File.expand_path('../templates', __FILE__)
-      class_option :layout, :desc => "Bootstrap layout templates (hero, fluid or container-app)", :default => "hero", :type => :string
-      class_option :form_builder, :desc => "Select your form builder (form_builder or simple_form)", :default => "simple_form", :type => :string
+      class_option :layout, :desc => 'Bootstrap layout templates (hero or fluid)', :default => 'hero', :type => :string
+      class_option :form_builder, :desc => 'Select your form builder (simple_form or form_builder)', :default => 'simple_form', :type => :string
 
       class_option :template_engine
       class_option :stylesheet_engine
@@ -23,14 +23,8 @@ module Bootstrap
         end
       end
 
-      def copy_simple_form_inputs
-        if options[:form_builder] == "simple_form"
-          directory 'app'
-        end
-      end
-
       def copy_simple_form_config
-        if options[:form_builder] == "simple_form"
+        if options[:form_builder] == 'simple_form'
           directory 'config'
         end
       end
@@ -47,9 +41,8 @@ module Bootstrap
         end
 
         copy_file "assets/stylesheets/#{options[:layout]}.#{stylesheet_extension}", "app/assets/stylesheets/bootstrap-generators.#{stylesheet_extension}"
-        copy_file "assets/javascripts/bootstrap-generators.js", "app/assets/javascripts/bootstrap-generators.js"
+        copy_file 'assets/javascripts/bootstrap-generators.js', 'app/assets/javascripts/bootstrap-generators.js'
       end
     end
   end
 end
-

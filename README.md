@@ -2,47 +2,134 @@
 
 Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1. Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites. Checkout http://twitter.github.com/bootstrap.
 
-## Rails 3.1 setup
-
-This gem requires the use of rails 3.1.
-
-### Installation
+## Installing Gem
 
 In your Gemfile, add this line:
 
-  `gem 'bootstrap-generators', '~> 1.4'`
+    gem 'bootstrap-generators', '2.0.0.dev'
+
+Or you can install from latest build:
+
+    gem 'bootstrap-generators', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
 
 By default Bootstrap Generators requires SimpleForm. Add the dependency on your Gemfile:
 
-  `gem 'simple_form', '~> 1.5'`
+    gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 
-If you don't want to use SimpleForm, and instead use the default Rails form builder, just call the install generator with `--form_builder=form_builder`.
+If you don't want to use SimpleForm, just pass the `--form_builder=form_builder` option:
 
-Then run the following commands:
+    rails generate bootstrap:install --form_builder=form_builder
 
-  `bundle install`
+Run bundle install:
 
-  `rails generate bootstrap:install`
+    bundle install
+
+## Generators
+
+Get started:
+
+    rails generate bootstrap:install
 
 Once you've done that, any time you generate a controller or scaffold, you'll get [Bootstrap](http://twitter.github.com/bootstrap/) templates.
 
-## Form builders
+### Give it a try
 
-### Default Rails form builder
+    rails g scaffold post title:string body:text published:boolean
 
-  `rails generate bootstrap:install --form_builder=form_builder`
+## Usage
 
-### SimpleForm
+To print the options and usage run the command `rails generate bootstrap:install --help`
 
-  `rails generate bootstrap:install --form_builder=simple_form`
+    rails generate bootstrap:install [options]
 
-## Layouts
+    Options:
+          [--layout=LAYOUT]                         # Bootstrap layout templates (hero or fluid)
+                                                    # Default: hero
+          [--form-builder=FORM_BUILDER]             # Select your form builder (simple_form or form_builder)
+                                                    # Default: simple_form
+      -e, [--template-engine=TEMPLATE_ENGINE]       # Indicates when to generate template engine
+                                                    # Default: erb
+      -se, [--stylesheet-engine=STYLESHEET_ENGINE]  # Indicates when to generate stylesheet engine
+                                                    # Default: scss
 
-There are three layouts available, based on the quick-start examples:
+    Runtime options:
+      -f, [--force]    # Overwrite files that already exist
+      -p, [--pretend]  # Run but do not make any changes
+      -q, [--quiet]    # Supress status output
+      -s, [--skip]     # Skip files that already exist
 
-* hero (default; based on [this template](http://twitter.github.com/bootstrap/examples/hero.html))
-* fluid (based on [this template](http://twitter.github.com/bootstrap/examples/fluid.html))
-* container-app (based on [this template](http://twitter.github.com/bootstrap/examples/container-app.html))
+    Copy BootstrapGenerators default files
 
-To select one of these layouts just pass the option '--layout=LAYOUT' to the install generator.
+### Options
 
+#### Layouts
+
+There are the two available layouts, based on Bootstrap's quick-start examples:
+
+* [Basic marketing site](http://twitter.github.com/bootstrap/examples/hero.html) (default)
+* [Fluid layout](http://twitter.github.com/bootstrap/examples/fluid.html)
+
+To select one of these layouts just pass the option `--layout=LAYOUT` to the install generator.
+
+#### Form builders
+
+* SimpleForm
+
+By default Bootstrap Generators requires SimpleForm. Add the dependency on your Gemfile:
+
+    gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+
+And then run:
+
+    rails generate bootstrap:install --form_builder=simple_form
+
+* Default Rails form builder
+
+If you don't want to use SimpleForm, just pass the `--form_builder=form_builder` option:
+
+    rails generate bootstrap:install --form_builder=form_builder
+
+#### Template engines
+
+Supported template engines:
+
+* ERB
+* Haml
+
+Add the dependency on your Gemfile:
+
+    gem 'haml-rails'
+
+And then run:
+
+    rails generate bootstrap:install --template-engine=haml
+
+#### Stylesheet engines
+
+Supported stylesheet engines:
+
+* CSS
+* SCSS
+
+## Assets
+
+### Javascript
+
+Select all jQuery plugins (`app/assets/javascripts/bootstrap.js`)
+
+    //= require bootstrap
+
+Or quickly add only the necessary javascript (Transitions: required for any animation; Popovers: requires Tooltips)
+
+    //= require bootstrap-transition
+    //= require bootstrap-alert
+    //= require bootstrap-modal
+    //= require bootstrap-dropdown
+    //= require bootstrap-scrollspy
+    //= require bootstrap-tab
+    //= require bootstrap-tooltip
+    //= require bootstrap-popover
+    //= require bootstrap-button
+    //= require bootstrap-collapse
+    //= require bootstrap-carousel
+    //= require bootstrap-typeahead

@@ -1,19 +1,16 @@
-<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
+<%%= simple_form_for(@<%= singular_table_name %>, :defaults => { :input_html => { :class => 'input-xxlarge' } }) do |f| %>
   <%% if @<%= singular_table_name %>.errors.any? %>
-    <div class="alert-message error" data-alert="alert">
-      <a class="close" href="#">×</a>
+    <div class="alert alert-error">
+      <a class="close" data-dismiss="alert" href="#">×</a>
       <%%= f.error_notification %>
     </div>
   <%% end %>
 
-  <div class="inputs">
   <%- attributes.each do |attribute| -%>
     <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
   <%- end -%>
-  </div>
 
-  <div class="actions">
-    <%%= f.button :submit, :class => "btn primary" %>
+  <div class="form-actions">
+    <%%= f.button :submit, :class => "btn btn-primary" %>
   </div>
 <%% end %>
-

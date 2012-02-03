@@ -76,20 +76,8 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
     assert_file "app/views/layouts/application.html.erb"
   end
 
-  test "should create container-app erb layout" do
-    run_generator %w(--layout container-app)
-
-    assert_file "app/views/layouts/application.html.erb"
-  end
-
   test "should create fluid haml layout" do
     run_generator %w(--template-engine haml --layout fluid)
-
-    assert_file "app/views/layouts/application.html.haml"
-  end
-
-  test "should create container-app haml layout" do
-    run_generator %w(--template-engine haml --layout container-app)
 
     assert_file "app/views/layouts/application.html.haml"
   end
@@ -104,14 +92,6 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
     run_generator %w(--form-builder simple_form --template-engine haml)
 
     assert_file "lib/templates/haml/scaffold/_form.html.haml"
-  end
-
-  test "should copy inputs when simple_form form builder selected" do
-    run_generator %w(--form-builder simple_form)
-
-    %w(boolean collection date_time file numeric password string text).each { |input|
-      assert_file "app/inputs/#{input}_input.rb"
-    }
   end
 
   test "should copy config when simple_form form builder selected" do

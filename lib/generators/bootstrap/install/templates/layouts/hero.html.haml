@@ -13,8 +13,8 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .topbar
-      .fill
+    .navbar.navbar-fixed-top
+      .navbar-inner
         .container
           = link_to "Project name", "#", :class => "brand"
           %ul.nav
@@ -24,14 +24,12 @@
               %a{:href => "#about"} About
             %li
               %a{:href => "#contact"} Contact
-    - flash.each do |name, msg|
-      = content_tag :div, :class => "container alert-message #{name == :error ? "error" : "success" }", :"data-alert" => "alert" do
-        %a.close{:href => "#"} ×
-        %p= msg
     .container
-      .row
-        .span16
-          = yield
+      - flash.each do |name, msg|
+        = content_tag :div, :class => "alert #{name == :error ? "alert-error" : "alert-success" }" do
+          %a.close{:href => "#", :"data-dismiss" => "alert"} ×
+          = msg
+      = yield
+      %hr
       %footer
-        %p © Company 2011 (haml)
-
+        %p &copy; Company 2012

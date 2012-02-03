@@ -1,9 +1,9 @@
 <div class="page-header">
-  <%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path, :class => 'btn primary' %>
+  <%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path, :class => 'btn btn-primary' %>
   <h1>Listing <%= plural_table_name %></h1>
 </div>
 
-<table class="zebra-striped">
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
 <% attributes.each do |attribute| -%>
