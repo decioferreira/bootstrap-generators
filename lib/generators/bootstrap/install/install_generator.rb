@@ -5,8 +5,8 @@ module Bootstrap
     class InstallGenerator < ::Rails::Generators::Base
       desc 'Copy BootstrapGenerators default files'
       source_root File.expand_path('../templates', __FILE__)
-      class_option :layout, :desc => 'Bootstrap layout templates (hero, fluid or starter-template)', :default => 'hero', :type => :string
-      class_option :form_builder, :desc => 'Select your form builder (form_builder or simple_form)', :default => 'simple_form', :type => :string
+      class_option :layout, :desc => 'Bootstrap layout templates (hero or fluid)', :default => 'hero', :type => :string
+      class_option :form_builder, :desc => 'Select your form builder (simple_form or form_builder)', :default => 'simple_form', :type => :string
 
       class_option :template_engine
       class_option :stylesheet_engine
@@ -46,4 +46,3 @@ module Bootstrap
     end
   end
 end
-

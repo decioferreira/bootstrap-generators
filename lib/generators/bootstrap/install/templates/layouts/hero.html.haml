@@ -24,11 +24,12 @@
               %a{:href => "#about"} About
             %li
               %a{:href => "#contact"} Contact
-    - flash.each do |name, msg|
-      = content_tag :div, :class => "alert #{name == :error ? "alert-error" : "alert-success" }" do
-        %a.close{:href => "#", :"data-dismiss" => "alert"} ×
-        = msg
-    = yield
-    %hr
-    %footer
-      %p &copy; Company 2012
+    .container
+      - flash.each do |name, msg|
+        = content_tag :div, :class => "alert #{name == :error ? "alert-error" : "alert-success" }" do
+          %a.close{:href => "#", :"data-dismiss" => "alert"} ×
+          = msg
+      = yield
+      %hr
+      %footer
+        %p &copy; Company 2012

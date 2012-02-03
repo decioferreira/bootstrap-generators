@@ -43,9 +43,9 @@ To print the options and usage run the command `rails generate bootstrap:install
     rails generate bootstrap:install [options]
 
     Options:
-          [--layout=LAYOUT]                         # Bootstrap layout templates (hero, fluid or starter-template)
+          [--layout=LAYOUT]                         # Bootstrap layout templates (hero or fluid)
                                                     # Default: hero
-          [--form-builder=FORM_BUILDER]             # Select your form builder (form_builder or simple_form)
+          [--form-builder=FORM_BUILDER]             # Select your form builder (simple_form or form_builder)
                                                     # Default: simple_form
       -e, [--template-engine=TEMPLATE_ENGINE]       # Indicates when to generate template engine
                                                     # Default: erb
@@ -64,11 +64,10 @@ To print the options and usage run the command `rails generate bootstrap:install
 
 #### Layouts
 
-There are the three available layouts, based on Bootstrap's quick-start examples:
+There are the two available layouts, based on Bootstrap's quick-start examples:
 
 * [Basic marketing site](http://twitter.github.com/bootstrap/examples/hero.html) (default)
 * [Fluid layout](http://twitter.github.com/bootstrap/examples/fluid.html)
-* [Starter template](http://twitter.github.com/bootstrap/examples/starter-template.html)
 
 To select one of these layouts just pass the option `--layout=LAYOUT` to the install generator.
 
