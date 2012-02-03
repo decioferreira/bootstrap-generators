@@ -1,5 +1,7 @@
 .page-header
-  = link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path, :class => 'btn btn-primary'
+  = link_to new_<%= singular_table_name %>_path, :class => 'btn btn-primary' do
+    %i.icon-plus.icon-white
+    New <%= human_name %>
   %h1 Listing <%= plural_table_name %>
 
 %table.table.table-bordered.table-striped

@@ -20,6 +20,14 @@ If you don't want to use SimpleForm, just pass the `--form_builder=form_builder`
 
     rails generate bootstrap:install --form_builder=form_builder
 
+We recommended you to use LESS as the stylesheet engine, so that you can [customize][] and extend Bootstrap to take advantage of the variables, mixins, and more. Add the dependency on your Gemfile:
+
+    gem 'less-rails'
+
+Then you just have to pass `--stylesheet-engine==less` option:
+
+    rails generate bootstrap:install --stylesheet-engine==less
+
 Run bundle install:
 
     bundle install
@@ -34,7 +42,7 @@ Once you've done that, any time you generate a controller or scaffold, you'll ge
 
 ### Give it a try
 
-    rails g scaffold post title:string body:text published:boolean
+    rails generate scaffold post title:string body:text published:boolean
 
 ## Usage
 
@@ -108,10 +116,130 @@ And then run:
 
 Supported stylesheet engines:
 
+* LESS (recommended)
+
+Add the dependency on your Gemfile:
+
+    gem 'less-rails'
+
+And then run:
+
+    rails generate bootstrap:install --template-engine=haml
+
+Now you can [customize][] the look and feel of Bootstrap.
+
 * CSS
 * SCSS
 
 ## Assets
+
+<a name="customize"></a>
+
+### Customize and extend Bootstrap with LESS
+
+Customize and extend Bootstrap with [LESS](http://lesscss.org/), a CSS preprocessor, to take advantage of the variables, mixins, and more used to build Bootstrap's CSS.
+
+If you select LESS as your stylesheet engine, you will get an `app/assets/stylesheets/bootstrap-generators.css.less` file with all of the [default variables](http://twitter.github.com/bootstrap/less.html#variables) of Bootstrap. This way you can [customize](http://twitter.github.com/bootstrap/download.html#variables) the look and feel of Bootstrap without having to download any extra file:
+
+    // Variables to customize the look and feel of Bootstrap
+    // -----------------------------------------------------
+
+
+
+    // GLOBAL VALUES
+    // --------------------------------------------------
+
+    // Links
+    @linkColor:             #08c;
+    @linkColorHover:        darken(@linkColor, 15%);
+
+    // Grays
+    @black:                 #000;
+    @grayDarker:            #222;
+    @grayDark:              #333;
+    @gray:                  #555;
+    @grayLight:             #999;
+    @grayLighter:           #eee;
+    @white:                 #fff;
+
+    // Accent colors
+    @blue:                  #049cdb;
+    @blueDark:              #0064cd;
+    @green:                 #46a546;
+    @red:                   #9d261d;
+    @yellow:                #ffc40d;
+    @orange:                #f89406;
+    @pink:                  #c3325f;
+    @purple:                #7a43b6;
+
+    // Typography
+    @baseFontSize:          13px;
+    @baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+    @baseLineHeight:        18px;
+    @textColor:             @grayDark;
+
+    // Buttons
+    @primaryButtonBackground:    @linkColor;
+
+
+
+    // COMPONENT VARIABLES
+    // --------------------------------------------------
+
+    // Z-index master list
+    // Used for a bird's eye view of components dependent on the z-axis
+    // Try to avoid customizing these :)
+    @zindexDropdown:        1000;
+    @zindexPopover:         1010;
+    @zindexTooltip:         1020;
+    @zindexFixedNavbar:     1030;
+    @zindexModalBackdrop:   1040;
+    @zindexModal:           1050;
+
+    // Input placeholder text color
+    @placeholderText:       @grayLight;
+
+    // Navbar
+    @navbarHeight:                    40px;
+    @navbarBackground:                @grayDarker;
+    @navbarBackgroundHighlight:       @grayDark;
+
+    @navbarText:                      @grayLight;
+    @navbarLinkColor:                 @grayLight;
+    @navbarLinkColorHover:            @white;
+
+    // Form states and alerts
+    @warningText:             #c09853;
+    @warningBackground:       #fcf8e3;
+    @warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+    @errorText:               #b94a48;
+    @errorBackground:         #f2dede;
+    @errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+    @successText:             #468847;
+    @successBackground:       #dff0d8;
+    @successBorder:           darken(spin(@successBackground, -10), 5%);
+
+    @infoText:                #3a87ad;
+    @infoBackground:          #d9edf7;
+    @infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+
+    // GRID
+    // --------------------------------------------------
+
+    // Default 940px grid
+    @gridColumns:             12;
+    @gridColumnWidth:         60px;
+    @gridGutterWidth:         20px;
+    @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+    // Fluid grid
+    @fluidGridColumnWidth:    6.382978723%;
+    @fluidGridGutterWidth:    2.127659574%;
+
 
 ### Javascript
 
@@ -133,3 +261,5 @@ Or quickly add only the necessary javascript (Transitions: required for any anim
     //= require bootstrap-collapse
     //= require bootstrap-carousel
     //= require bootstrap-typeahead
+
+[customize]: #customize

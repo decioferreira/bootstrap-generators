@@ -1,5 +1,8 @@
 <div class="page-header">
-  <%%= link_to 'Back', <%= index_helper %>_path, :class => 'btn' %>
+  <%%= link_to <%= index_helper %>_path, :class => 'btn' do %>
+    <i class="icon-list-alt"></i>
+    Back
+  <%% end %>
   <h1>New <%= singular_table_name %></h1>
 </div>
 

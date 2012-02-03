@@ -58,6 +58,12 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
     assert_file "app/assets/stylesheets/bootstrap-generators.css.scss"
   end
 
+  test "should copy less files" do
+    run_generator %w(--stylesheet-engine less)
+
+    assert_file "app/assets/stylesheets/bootstrap-generators.css.less"
+  end
+
   test "should create erb layout" do
     run_generator
 

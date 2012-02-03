@@ -1,6 +1,10 @@
 .page-header
-  = link_to 'Back', <%= index_helper %>_path, :class => 'btn'
-  = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-primary'
+  = link_to <%= index_helper %>_path, :class => 'btn' do
+    %i.icon-list-alt
+    Back
+  = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-primary' do
+    %i.icon-pencil.icon-white
+    Edit
   %h1 Listing <%= plural_table_name %>
 
 %dl
