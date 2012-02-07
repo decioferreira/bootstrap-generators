@@ -175,6 +175,12 @@
 
       // Utility classes
       @import "assets/stylesheets/utilities.less"; // Has to be last to override when necessary
+
+      // Bootstrap-generators
+      body.bootstrap-generators {
+        padding-top: @navbarHeight + 20px;
+        padding-bottom: @navbarHeight;
+      }
     </style>
     <link href="assets/stylesheets/prettify.css" rel="stylesheet"></link>
     <link href="assets/stylesheets/docs.css" rel="stylesheet"></link>
@@ -414,6 +420,23 @@
         </tbody>
       </table>
 
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Button</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a class="btn btn-warning" href="#">Warning</a></td>
+            <td><code>.btn-warning</code></td>
+            <td>Indicates caution should be taken with this action</td>
+          </tr>
+        </tbody>
+      </table>
+
       <div class="page-header">
         <h1>Components</h1>
       </div>
@@ -514,6 +537,58 @@
         </tbody>
       </table>
 
+      <h3>Static navbar example</h3>
+
+      <p>An example of a static (not fixed to the top) navbar with project name, navigation, and search form.</p>
+
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container" style="width: auto;">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Project name</a>
+            <div class="nav-collapse">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="navbar-search pull-left" action="" _lpchecked="1">
+                <input type="text" class="search-query span2" placeholder="Search">
+              </form>
+              <ul class="nav pull-right">
+                <li><a href="#">Link</a></li>
+                <li class="divider-vertical"></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.nav-collapse -->
+          </div>
+        </div><!-- /navbar-inner -->
+      </div>
+
       <h2>Form states and alerts</h2>
 
       <table class="table table-bordered table-striped">
@@ -583,6 +658,30 @@
           </tr>
         </tbody>
       </table>
+
+      <h3>Example alerts</h3>
+
+      <p>Wrap your message and an optional close icon in a div with simple class.</p>
+
+      <div class="alert">
+        <a class="close">×</a>
+        <strong>Warning!</strong> Best check yo self, you're not looking too good.
+      </div>
+      
+      <div class="alert alert-error">
+        <a class="close">×</a>
+        <strong>Oh snap!</strong> Change a few things up and try submitting again.
+      </div>
+
+      <div class="alert alert-success">
+        <a class="close">×</a>
+        <strong>Well done!</strong> You successfully read this important alert message.
+      </div>
+      
+      <div class="alert alert-info">
+        <a class="close">×</a>
+        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+      </div>
 
       <div class="page-header">
         <h1>Scaffolding</h1>
@@ -660,7 +759,7 @@
         <h1>Customize</h1>
       </div>
 
-      <pre class="prettyprint linenums">
+      <pre id="variables" class="prettyprint linenums">
 // Variables.less
 // Variables to customize the look and feel of Bootstrap
 // -----------------------------------------------------
@@ -759,8 +858,7 @@
 
 // Fluid grid
 @fluidGridColumnWidth:    6.382978723%;
-@fluidGridGutterWidth:    2.127659574%;
-      </pre>
+@fluidGridGutterWidth:    2.127659574%;</pre>
 
       <hr>
 

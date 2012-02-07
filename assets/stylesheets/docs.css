@@ -49,11 +49,6 @@
 
 /* Boostrap-generators
 -------------------------------------------------- */
-body.bootstrap-generators {
-  padding-top: 60px;
-  padding-bottom: 40px;
-}
-
 body.bootstrap-generators .table input {
   margin-bottom: 0;
 }

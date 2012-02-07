@@ -12,10 +12,29 @@ $(function() {
       }
     });
 
+    if($(this).hasClass("variable-color")) {
+      var color = $(this).val() || $(this).attr("placeholder");
+      $(this).parent().next().find("span.swatch").css("background-color", color);
+    }
+
+    // reload style
     $("head").append($("<style type='text/less'>" + newStyle + "</style>"));
     less.refreshStyles();
+
+    // update variables code
+    var variablesStyle = newStyle.replace(/^\s*/g, '');
+    
+    console.log(variablesStyle);
+    
+    variablesStyle = variablesStyle.substring(variablesStyle.search(/\/\/ Variables\.less/));
+    variablesStyle = variablesStyle.substring(-(variablesStyle.search(/^\s*@import \"assets\/stylesheets\/mixins/)));
+
+    $("#variables").html(variablesStyle);
+
+    // make code pretty
+    window.prettyPrint && prettyPrint();
   });
 
   // make code pretty
-  window.prettyPrint && prettyPrint()
+  window.prettyPrint && prettyPrint();
 });
