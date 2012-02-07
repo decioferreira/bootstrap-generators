@@ -23,3 +23,45 @@
 .show-grid .show-grid [class*="span"] {
   background-color: #ccc;
 }
+
+/* Color swatches on LESS docs page
+-------------------------------------------------- */
+/* Sets the width of the td */
+.swatch-col {
+  width: 30px;
+}
+/* Le swatch */
+.swatch {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  margin: -6px 0;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+/* For white swatches, give a border */
+.swatch-bordered {
+  width: 28px;
+  height: 18px;
+  border: 1px solid #eee;
+}
+
+/* Boostrap-generators
+-------------------------------------------------- */
+body.bootstrap-generators {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+body.bootstrap-generators .table input {
+  margin-bottom: 0;
+}
+
+body.bootstrap-generators .table td {
+  vertical-align: middle;
+}
+
+body.bootstrap-generators .description-col {
+  width: 190px;
+}

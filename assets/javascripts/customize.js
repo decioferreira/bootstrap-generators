@@ -1,11 +1,21 @@
 window.bootstrapLess = document.getElementById('bootstrap-less').innerHTML;
 
 $(function() {
-  $("input").change(function(e) {
-    var oldVariable = new RegExp("@" + $(e.target).attr('name') + ":\s*.+;"),
-      newVariable = "@" + $(e.target).attr('name') + ": " + $(e.target).val() + ";",
-      newStyle = $("<style type='text/less'>" + bootstrapLess.replace(oldVariable, newVariable) + "</style>");
-    $("head").append(newStyle);
+  $("input.variable").change(function() {
+    var oldVariable, newVariable, newStyle = bootstrapLess;
+
+    $("input.variable").each(function() {
+      if($(this).val() != "") {
+        oldVariable = new RegExp("@" + $(this).attr('name') + ":\s*.+;");
+        newVariable = "@" + $(this).attr('name') + ": " + $(this).val() + ";";
+        newStyle = newStyle.replace(oldVariable, newVariable);
+      }
+    });
+
+    $("head").append($("<style type='text/less'>" + newStyle + "</style>"));
     less.refreshStyles();
   });
+
+  // make code pretty
+  window.prettyPrint && prettyPrint()
 });
