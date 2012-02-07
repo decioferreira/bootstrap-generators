@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap Generators</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <style id="bootstrap-less" type="text/less">
+      /*!
+       * Bootstrap v2.0.0
+       *
+       * Copyright 2012 Twitter, Inc
+       * Licensed under the Apache License v2.0
+       * http://www.apache.org/licenses/LICENSE-2.0
+       *
+       * Designed and built with all the love in the world @twitter by @mdo and @fat.
+       */
+
+      // CSS Reset
+      @import "assets/stylesheets/reset.less";
+
+      // Core variables and mixins
+
+      // Variables.less
+      // Variables to customize the look and feel of Bootstrap
+      // -----------------------------------------------------
+
+
+
+      // GLOBAL VALUES
+      // --------------------------------------------------
+
+      // Links
+      @linkColor:             #08c;
+      @linkColorHover:        darken(@linkColor, 15%);
+
+      // Grays
+      @black:                 #000;
+      @grayDarker:            #222;
+      @grayDark:              #333;
+      @gray:                  #555;
+      @grayLight:             #999;
+      @grayLighter:           #eee;
+      @white:                 #fff;
+
+      // Accent colors
+      @blue:                  #049cdb;
+      @blueDark:              #0064cd;
+      @green:                 #46a546;
+      @red:                   #9d261d;
+      @yellow:                #ffc40d;
+      @orange:                #f89406;
+      @pink:                  #c3325f;
+      @purple:                #7a43b6;
+
+      // Typography
+      @baseFontSize:          13px;
+      @baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+      @baseLineHeight:        18px;
+      @textColor:             @grayDark;
+
+      // Buttons
+      @primaryButtonBackground:    @linkColor;
+
+
+
+      // COMPONENT VARIABLES
+      // --------------------------------------------------
+
+      // Z-index master list
+      // Used for a bird's eye view of components dependent on the z-axis
+      // Try to avoid customizing these :)
+      @zindexDropdown:        1000;
+      @zindexPopover:         1010;
+      @zindexTooltip:         1020;
+      @zindexFixedNavbar:     1030;
+      @zindexModalBackdrop:   1040;
+      @zindexModal:           1050;
+
+      // Input placeholder text color
+      @placeholderText:       @grayLight;
+
+      // Navbar
+      @navbarHeight:                    40px;
+      @navbarBackground:                @grayDarker;
+      @navbarBackgroundHighlight:       @grayDark;
+
+      @navbarText:                      @grayLight;
+      @navbarLinkColor:                 @grayLight;
+      @navbarLinkColorHover:            @white;
+
+      // Form states and alerts
+      @warningText:             #c09853;
+      @warningBackground:       #fcf8e3;
+      @warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+      @errorText:               #b94a48;
+      @errorBackground:         #f2dede;
+      @errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+      @successText:             #468847;
+      @successBackground:       #dff0d8;
+      @successBorder:           darken(spin(@successBackground, -10), 5%);
+
+      @infoText:                #3a87ad;
+      @infoBackground:          #d9edf7;
+      @infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+
+      // GRID
+      // --------------------------------------------------
+
+      // Default 940px grid
+      @gridColumns:             12;
+      @gridColumnWidth:         60px;
+      @gridGutterWidth:         20px;
+      @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+      // Fluid grid
+      @fluidGridColumnWidth:    6.382978723%;
+      @fluidGridGutterWidth:    2.127659574%;
+
+      @import "assets/stylesheets/mixins.less";
+
+      // Grid system and page structure
+      @import "assets/stylesheets/scaffolding.less";
+      @import "assets/stylesheets/grid.less";
+      @import "assets/stylesheets/layouts.less";
+
+      // Base CSS
+      @import "assets/stylesheets/type.less";
+      @import "assets/stylesheets/code.less";
+      @import "assets/stylesheets/forms.less";
+      @import "assets/stylesheets/tables.less";
+
+      // Components: common
+      @import "assets/stylesheets/sprites.less";
+      @import "assets/stylesheets/dropdowns.less";
+      @import "assets/stylesheets/wells.less";
+      @import "assets/stylesheets/component-animations.less";
+      @import "assets/stylesheets/close.less";
+
+      // Components: Buttons &amp; Alerts
+      @import "assets/stylesheets/buttons.less";
+      @import "assets/stylesheets/button-groups.less";
+      @import "assets/stylesheets/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+      // Components: Nav
+      @import "assets/stylesheets/navs.less";
+      @import "assets/stylesheets/navbar.less";
+      @import "assets/stylesheets/breadcrumbs.less";
+      @import "assets/stylesheets/pagination.less";
+      @import "assets/stylesheets/pager.less";
+
+      // Components: Popovers
+      @import "assets/stylesheets/modals.less";
+      @import "assets/stylesheets/tooltip.less";
+      @import "assets/stylesheets/popovers.less";
+
+      // Components: Misc
+      @import "assets/stylesheets/thumbnails.less";
+      @import "assets/stylesheets/labels.less";
+      @import "assets/stylesheets/progress-bars.less";
+      @import "assets/stylesheets/accordion.less";
+      @import "assets/stylesheets/carousel.less";
+      @import "assets/stylesheets/hero-unit.less";
+
+      // Utility classes
+      @import "assets/stylesheets/utilities.less"; // Has to be last to override when necessary
+    </style>
+    <link href="assets/stylesheets/docs.css" rel="stylesheet"></link>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <script src="assets/javascripts/jquery.js"></script>
+    <script src="assets/javascripts/customize.js"></script>
+    <script src="assets/javascripts/less-1.2.1.min.js"></script>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Bootstrap Generators</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="#scaffolding">Scaffolding</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Bootstrap Generators</h1>
+        <p>Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1. <a href="http://twitter.github.com/bootstrap">Bootstrap</a> is a toolkit from Twitter designed to kickstart development of webapps and sites.</p>
+        <p><a href="https://github.com/decioferreira/bootstrap-generators" class="btn btn-primary btn-large">View project on GitHub &raquo;</a></p>
+      </div>
+
+      <div class="page-header">
+        <h1>Scaffolding</h1>
+      </div>
+
+      <div class="row show-grid">
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+        <div class="span1">1</div>
+      </div>
+      <div class="row show-grid">
+        <div class="span4" data-original-title="">4</div>
+        <div class="span4">4</div>
+        <div class="span4">4</div>
+      </div>
+      <div class="row show-grid">
+        <div class="span4" data-original-title="">4</div>
+        <div class="span8">8</div>
+      </div>
+      <div class="row show-grid">
+        <div class="span6" data-original-title="">6</div>
+        <div class="span6">6</div>
+      </div>
+      <div class="row show-grid">
+        <div class="span12">12</div>
+      </div>
+
+      <input type="text" class="color" name="linkColor" placeholder="#08c" />
+      <input type="text" class="color" name="linkColorHover" placeholder="darken(@linkColor, 15%)" />
+
+      <hr>
+
+      <footer>
+        <p>&copy; Décio Ferreira 2012</p>
+      </footer>
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/javascripts/bootstrap-transition.js"></script>
+    <script src="assets/javascripts/bootstrap-alert.js"></script>
+    <script src="assets/javascripts/bootstrap-modal.js"></script>
+    <script src="assets/javascripts/bootstrap-dropdown.js"></script>
+    <script src="assets/javascripts/bootstrap-scrollspy.js"></script>
+    <script src="assets/javascripts/bootstrap-tab.js"></script>
+    <script src="assets/javascripts/bootstrap-tooltip.js"></script>
+    <script src="assets/javascripts/bootstrap-popover.js"></script>
+    <script src="assets/javascripts/bootstrap-button.js"></script>
+    <script src="assets/javascripts/bootstrap-collapse.js"></script>
+    <script src="assets/javascripts/bootstrap-carousel.js"></script>
+    <script src="assets/javascripts/bootstrap-typeahead.js"></script>
+  </body>
+</html>
