@@ -128,7 +128,7 @@ And then run:
 
     rails generate bootstrap:install --template-engine=haml
 
-Now you can [customize][] the look and feel of Bootstrap.
+Now you can [customize](http://decioferreira.github.com/bootstrap-generators/) the look and feel of Bootstrap.
 
 * CSS
 * SCSS
@@ -141,7 +141,7 @@ Now you can [customize][] the look and feel of Bootstrap.
 
 Customize and extend Bootstrap with [LESS](http://lesscss.org/), a CSS preprocessor, to take advantage of the variables, mixins, and more used to build Bootstrap's CSS.
 
-If you select LESS as your stylesheet engine, you will get an `app/assets/stylesheets/bootstrap-generators.css.less` file with all of the [default variables](http://twitter.github.com/bootstrap/less.html#variables) of Bootstrap. This way you can [customize](http://twitter.github.com/bootstrap/download.html#variables) the look and feel of Bootstrap without having to download any extra file:
+If you select LESS as your stylesheet engine, you will get an `app/assets/stylesheets/bootstrap-generators.css.less` file with all of the [default variables](http://twitter.github.com/bootstrap/less.html#variables) of Bootstrap. This way you can [customize](http://decioferreira.github.com/bootstrap-generators/) the look and feel of Bootstrap without having to download any extra file:
 
     // Variables to customize the look and feel of Bootstrap
     // -----------------------------------------------------
