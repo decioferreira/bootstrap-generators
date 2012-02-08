@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Bootstrap::Generators::VERSION
   s.authors     = ["Décio Ferreira"]
   s.email       = ["decio.ferreira@decioferreira.com"]
-  s.homepage    = "https://github.com/decioferreira/bootstrap-generators"
+  s.homepage    = "http://decioferreira.github.com/bootstrap-generators/"
   s.summary     = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1.}
   s.description = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1. Checkout http://twitter.github.com/bootstrap.}
 

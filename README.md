@@ -1,6 +1,6 @@
 # Bootstrap Generators
 
-Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1. Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites. Checkout http://twitter.github.com/bootstrap.
+Bootstrap-generators provides [Twitter Bootstrap](http://twitter.github.com/bootstrap/) generators for Rails 3.1. Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites. Checkout http://decioferreira.github.com/bootstrap-generators.
 
 ## Installing Gem
 
@@ -12,7 +12,7 @@ Or you can install from latest build:
 
     gem 'bootstrap-generators', '~> 2.0', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
 
-By default Bootstrap Generators requires SimpleForm. Add the dependency on your Gemfile:
+By default Bootstrap Generators requires [SimpleForm](https://github.com/plataformatec/simple_form). Add the dependency on your Gemfile:
 
     gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 
@@ -20,7 +20,7 @@ If you don't want to use SimpleForm, just pass the `--form_builder=form_builder`
 
     rails generate bootstrap:install --form_builder=form_builder
 
-We recommended you to use LESS as the stylesheet engine, so that you can [customize][] and extend Bootstrap to take advantage of the variables, mixins, and more. Add the dependency on your Gemfile:
+We recommended you to use [LESS](http://lesscss.org/) as the stylesheet engine, so that you can [customize](http://decioferreira.github.com/bootstrap-generators) and extend Bootstrap to take advantage of the variables, mixins, and more. Add the [less-rails](https://github.com/metaskills/less-rails) dependency on your Gemfile:
 
     gem 'less-rails'
 
@@ -43,6 +43,8 @@ Once you've done that, any time you generate a controller or scaffold, you'll ge
 ### Give it a try
 
     rails generate scaffold post title:string body:text published:boolean
+
+You can easily [customize colors, grid system, fonts, and much more](http://decioferreira.github.com/bootstrap-generators) with Bootstrap-generators and LESS. Visit http://decioferreira.github.com/bootstrap-generators.
 
 ## Usage
 
