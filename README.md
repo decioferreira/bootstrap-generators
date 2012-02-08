@@ -24,9 +24,9 @@ We recommended you to use [LESS](http://lesscss.org/) as the stylesheet engine, 
 
     gem 'less-rails'
 
-Then you just have to pass `--stylesheet-engine==less` option:
+Then you just have to pass `--stylesheet-engine=less` option:
 
-    rails generate bootstrap:install --stylesheet-engine==less
+    rails generate bootstrap:install --stylesheet-engine=less
 
 Run bundle install:
 
