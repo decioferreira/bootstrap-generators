@@ -16,11 +16,6 @@ $(function() {
       }
     });
 
-    if($(this).hasClass("variable-color")) {
-      var color = $(this).val() || $(this).attr("placeholder");
-      $(this).parent().next().find("span.swatch").css("background-color", color);
-    }
-
     // reload style
     $("head").append($("<style type='text/less'>" + newStyle + "</style>"));
     less.refreshStyles();

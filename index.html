@@ -180,10 +180,47 @@
       body.bootstrap-generators {
         padding-top: @navbarHeight + 20px;
         padding-bottom: @navbarHeight;
-      }
 
-      body.bootstrap-generators section {
-        padding-top: @navbarHeight;
+        section {
+          padding-top: @navbarHeight;
+        }
+
+        .linkColor {background-color: @linkColor}
+        .linkColorHover {background-color: @linkColorHover}
+        .black {background-color: @black}
+        .grayDarker {background-color: @grayDarker}
+        .grayDark {background-color: @grayDark}
+        .gray {background-color: @gray}
+        .grayLight {background-color: @grayLight}
+        .grayLighter {background-color: @grayLighter}
+        .white {background-color: @white}
+        .blue {background-color: @blue}
+        .blueDark {background-color: @blueDark}
+        .green {background-color: @green}
+        .red {background-color: @red}
+        .yellow {background-color: @yellow}
+        .orange {background-color: @orange}
+        .pink {background-color: @pink}
+        .purple {background-color: @purple}
+        .textColor {background-color: @textColor}
+        .primaryButtonBackground {background-color: @primaryButtonBackground}
+        .placeholderText {background-color: @placeholderText}
+        .navbarBackground {background-color: @navbarBackground}
+        .navbarBackgroundHighlight {background-color: @navbarBackgroundHighlight}
+        .navbarText {background-color: @navbarText}
+        .navbarLinkColor {background-color: @navbarLinkColor}
+        .navbarLinkColorHover {background-color: @navbarLinkColorHover}
+        .warningText {background-color: @warningText}
+        .warningBackground {background-color: @warningBackground}
+        .warningBorder {background-color: @warningBorder}
+        .errorText {background-color: @errorText}
+        .errorBackground {background-color: @errorBackground}
+        .errorBorder {background-color: @errorBorder}
+        .successText {background-color: @successText}
+        .successBackground {background-color: @successBackground}
+        .successBorder {background-color: @successBorder}
+        .infoText {background-color: @infoText}
+        .infoBackground {background-color: @infoBackground}
       }
     </style>
     <link href="assets/stylesheets/prettify.css" rel="stylesheet"></link>
@@ -269,7 +306,7 @@
               <td>#08c</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #08c;"></span></td>
               <td><input type="text" class="variable variable-color" name="linkColor" placeholder="#08c" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #08c;"></span></td>
+              <td class="swatch-col"><span class="swatch linkColor"></span></td>
               <td class="description-col">Default link text color</td>
             </tr>
             <tr>
@@ -277,7 +314,7 @@
               <td><code>darken(@linkColor, 15%)</code></td>
               <td class="swatch-col"><span class="swatch" style="background-color: #005580;"></span></td>
               <td><input type="text" class="variable variable-color" name="linkColorHover" placeholder="darken(@linkColor, 15%)" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #005580;"></span></td>
+              <td class="swatch-col"><span class="swatch linkColorHover"></span></td>
               <td class="description-col">Default link text hover color</td>
             </tr>
           </tbody>
@@ -336,49 +373,49 @@
               <td>#000</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #000;"></span></td>
               <td><input type="text" class="variable variable-color" name="black" placeholder="#000" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #000;"></span></td>
+              <td class="swatch-col"><span class="swatch black"></span></td>
             </tr>
             <tr>
               <td><code>@grayDarker</code></td>
               <td>#222</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #222;"></span></td>
               <td><input type="text" class="variable variable-color" name="grayDarker" placeholder="#222" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #222;"></span></td>
+              <td class="swatch-col"><span class="swatch grayDarker"></span></td>
             </tr>
             <tr>
               <td><code>@grayDark</code></td>
               <td>#333</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
               <td><input type="text" class="variable variable-color" name="grayDark" placeholder="#333" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
+              <td class="swatch-col"><span class="swatch grayDark"></span></td>
             </tr>
             <tr>
               <td><code>@gray</code></td>
               <td>#555</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #555;"></span></td>
               <td><input type="text" class="variable variable-color" name="gray" placeholder="#555" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #555;"></span></td>
+              <td class="swatch-col"><span class="swatch gray"></span></td>
             </tr>
             <tr>
               <td><code>@grayLight</code></td>
               <td>#999</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
               <td><input type="text" class="variable variable-color" name="grayLight" placeholder="#999" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
+              <td class="swatch-col"><span class="swatch grayLight"></span></td>
             </tr>
             <tr>
               <td><code>@grayLighter</code></td>
               <td>#eee</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #eee;"></span></td>
               <td><input type="text" class="variable variable-color" name="grayLighter" placeholder="#eee" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #eee;"></span></td>
+              <td class="swatch-col"><span class="swatch grayLighter"></span></td>
             </tr>
             <tr>
               <td><code>@white</code></td>
               <td>#fff</td>
               <td><span class="swatch swatch-bordered" style="background-color: #fff;"></span></td>
               <td><input type="text" class="variable variable-color" name="white" placeholder="#fff" /></td>
-              <td><span class="swatch swatch-bordered" style="background-color: #fff;"></span></td>
+              <td><span class="swatch swatch-bordered white"></span></td>
             </tr>
           </tbody>
         </table>
@@ -399,49 +436,56 @@
               <td>#049cdb</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #049cdb;"></span></td>
               <td><input type="text" class="variable variable-color" name="blue" placeholder="#049cdb" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #049cdb;"></span></td>
+              <td class="swatch-col"><span class="swatch blue"></span></td>
+            </tr>
+            <tr>
+              <td class="span2"><code>@blueDark</code></td>
+              <td>#0064cd</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #0064cd;"></span></td>
+              <td><input type="text" class="variable variable-color" name="blueDark" placeholder="#0064cd" /></td>
+              <td class="swatch-col"><span class="swatch blueDark"></span></td>
             </tr>
             <tr>
               <td><code>@green</code></td>
               <td>#46a546</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #46a546;"></span></td>
               <td><input type="text" class="variable variable-color" name="green" placeholder="#46a546" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #46a546;"></span></td>
+              <td class="swatch-col"><span class="swatch green"></span></td>
             </tr>
             <tr>
               <td><code>@red</code></td>
               <td>#9d261d</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #9d261d;"></span></td>
               <td><input type="text" class="variable variable-color" name="red" placeholder="#9d261d" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #9d261d;"></span></td>
+              <td class="swatch-col"><span class="swatch red"></span></td>
             </tr>
             <tr>
               <td><code>@yellow</code></td>
               <td>#ffc40d</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #ffc40d;"></span></td>
               <td><input type="text" class="variable variable-color" name="yellow" placeholder="#ffc40d" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #ffc40d;"></span></td>
+              <td class="swatch-col"><span class="swatch yellow"></span></td>
             </tr>
             <tr>
               <td><code>@orange</code></td>
               <td>#f89406</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #f89406;"></span></td>
               <td><input type="text" class="variable variable-color" name="orange" placeholder="#f89406" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #f89406;"></span></td>
+              <td class="swatch-col"><span class="swatch orange"></span></td>
             </tr>
             <tr>
               <td><code>@pink</code></td>
               <td>#c3325f</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #c3325f;"></span></td>
               <td><input type="text" class="variable variable-color" name="pink" placeholder="#c3325f" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #c3325f;"></span></td>
+              <td class="swatch-col"><span class="swatch pink"></span></td>
             </tr>
             <tr>
               <td><code>@purple</code></td>
               <td>#7a43b6</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #7a43b6;"></span></td>
               <td><input type="text" class="variable variable-color" name="purple" placeholder="#7a43b6" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #7a43b6;"></span></td>
+              <td class="swatch-col"><span class="swatch purple"></span></td>
             </tr>
           </tbody>
         </table>
@@ -486,7 +530,7 @@
               <td><code>@linkColor</code></td>
               <td class="swatch-col"><span class="swatch" style="background-color: #08c;"></span></td>
               <td><input type="text" class="variable variable-color" name="primaryButtonBackground" placeholder="@linkColor" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #08c;"></span></td>
+              <td class="swatch-col"><span class="swatch primaryButtonBackground"></span></td>
             </tr>
           </tbody>
         </table>
@@ -526,7 +570,7 @@
               <td><code>@grayLight</code></td>
               <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
               <td><input type="text" class="variable variable-color" name="placeholderText" placeholder="@grayLight" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
+              <td class="swatch-col"><span class="swatch placeholderText"></span></td>
             </tr>
           </tbody>
         </table>
@@ -553,35 +597,35 @@
                 <td><code>@grayDarker</code></td>
                 <td class="swatch-col"><span class="swatch" style="background-color: #222;"></span></td>
                 <td><input type="text" class="variable variable-color" name="navbarBackground" placeholder="@grayDarker" /></td>
-                <td class="swatch-col"><span class="swatch" style="background-color: #222;"></span></td>
+                <td class="swatch-col"><span class="swatch navbarBackground"></span></td>
               </tr>
               <tr>
                 <td><code>@navbarBackgroundHighlight</code></td>
                 <td><code>@grayDark</code></td>
                 <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
                 <td><input type="text" class="variable variable-color" name="navbarBackgroundHighlight" placeholder="@grayDark" /></td>
-                <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
+                <td class="swatch-col"><span class="swatch navbarBackgroundHighlight"></span></td>
               </tr>
               <tr>
                 <td><code>@navbarText</code></td>
                 <td><code>@grayLight</code></td>
                 <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
                 <td><input type="text" class="variable variable-color" name="navbarText" placeholder="@grayLight" /></td>
-                <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
+                <td class="swatch-col"><span class="swatch navbarText"></span></td>
               </tr>
               <tr>
                 <td><code>@navbarLinkColor</code></td>
                 <td><code>@grayLight</code></td>
                 <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
                 <td><input type="text" class="variable variable-color" name="navbarLinkColor" placeholder="@grayLight" /></td>
-                <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
+                <td class="swatch-col"><span class="swatch navbarLinkColor"></span></td>
               </tr>
               <tr>
                 <td><code>@navbarLinkColorHover</code></td>
                 <td><code>@white</code></td>
                 <td><span class="swatch swatch-bordered" style="background-color: #fff;"></span></td>
                 <td><input type="text" class="variable variable-color" name="navbarLinkColorHover" placeholder="@white" /></td>
-                <td><span class="swatch swatch-bordered" style="background-color: #fff;"></span></td>
+                <td><span class="swatch swatch-bordered navbarLinkColorHover"></span></td>
               </tr>
             </tbody>
           </table>
@@ -655,56 +699,56 @@
               <td>#f3edd2</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #f3edd2;"></span></td>
               <td><input type="text" class="variable variable-color" name="warningText" placeholder="#f3edd2" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #f3edd2;"></span></td>
+              <td class="swatch-col"><span class="swatch warningText"></span></td>
             </tr>
             <tr>
               <td><code>@warningBackground</code></td>
               <td>#c09853</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #c09853;"></span></td>
               <td><input type="text" class="variable variable-color" name="warningBackground" placeholder="#c09853" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #c09853;"></span></td>
+              <td class="swatch-col"><span class="swatch warningBackground"></span></td>
             </tr>
             <tr>
               <td><code>@errorText</code></td>
               <td>#b94a48</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #b94a48;"></span></td>
               <td><input type="text" class="variable variable-color" name="errorText" placeholder="#b94a48" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #b94a48;"></span></td>
+              <td class="swatch-col"><span class="swatch errorText"></span></td>
             </tr>
             <tr>
               <td><code>@errorBackground</code></td>
               <td>#f2dede</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #f2dede;"></span></td>
               <td><input type="text" class="variable variable-color" name="errorBackground" placeholder="#f2dede" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #f2dede;"></span></td>
+              <td class="swatch-col"><span class="swatch errorBackground"></span></td>
             </tr>
             <tr>
               <td><code>@successText</code></td>
               <td>#468847</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #468847;"></span></td>
               <td><input type="text" class="variable variable-color" name="successText" placeholder="#468847" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #468847;"></span></td>
+              <td class="swatch-col"><span class="swatch successText"></span></td>
             </tr>
             <tr>
               <td><code>@successBackground</code></td>
               <td>#dff0d8</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #dff0d8;"></span></td>
               <td><input type="text" class="variable variable-color" name="successBackground" placeholder="#dff0d8" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #dff0d8;"></span></td>
+              <td class="swatch-col"><span class="swatch successBackground"></span></td>
             </tr>
             <tr>
               <td><code>@infoText</code></td>
               <td>#3a87ad</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #3a87ad;"></span></td>
               <td><input type="text" class="variable variable-color" name="infoText" placeholder="#3a87ad" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #3a87ad;"></span></td>
+              <td class="swatch-col"><span class="swatch infoText"></span></td>
             </tr>
             <tr>
               <td><code>@infoBackground</code></td>
               <td>#d9edf7</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #d9edf7;"></span></td>
               <td><input type="text" class="variable variable-color" name="infoBackground" placeholder="#d9edf7" /></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #d9edf7;"></span></td>
+              <td class="swatch-col"><span class="swatch infoBackground"></span></td>
             </tr>
           </tbody>
         </table>
