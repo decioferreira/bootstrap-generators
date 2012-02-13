@@ -45,6 +45,7 @@ $(function() {
         var color = ( $(this).attr("placeholder") == '#08c' || $(this).attr("placeholder") == '@linkColor' ? '#F30' : '#08C' );
         return "Type down <strong>" + color + "</strong> and click outside the input tag!";
       }
+      return "";
     },
     trigger: 'focus'
   });
