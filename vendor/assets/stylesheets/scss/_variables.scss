@@ -1,22 +1,3 @@
-body {
-  padding-top: 60px;
-  padding-bottom: 40px;
-}
-
-.sidebar-nav {
-  padding: 9px 0;
-}
-
-.page-header {
-  a.btn {
-    float: right;
-  }
-
-  a.btn + a.btn {
-    margin-right: 8px;
-  }
-}
-
 // Variables.less
 // Variables to customize the look and feel of Bootstrap
 // -----------------------------------------------------
@@ -116,5 +97,3 @@ $gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth 
 // Fluid grid
 $fluidGridColumnWidth:    6.382978723% !default;
 $fluidGridGutterWidth:    2.127659574% !default;
-
-@import "scss/bootstrap";
