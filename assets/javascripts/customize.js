@@ -2,31 +2,42 @@ window.bootstrapLess = document.getElementById('bootstrap-less').innerHTML;
 window.styleHasChanged = false;
 
 $(function() {
+  window.bootstrapScss = $('#scss-variables').html();
+
   $("input.variable").change(function() {
-    var oldVariable, newVariable, newStyle = bootstrapLess;
+    var oldVariable, newVariable, newLessStyle = bootstrapLess, newScssStyle = bootstrapScss;
 
     // Flag change
     window.styleHasChanged = true;
 
     $("input.variable").each(function() {
       if($(this).val() != "") {
+        // LESS
         oldVariable = new RegExp("@" + $(this).attr('name') + ":\s*.+;");
         newVariable = "@" + $(this).attr('name') + ": " + $(this).val() + ";";
-        newStyle = newStyle.replace(oldVariable, newVariable);
+        newLessStyle = newLessStyle.replace(oldVariable, newVariable);
+
+        // SCSS
+        oldVariable = new RegExp("\\$" + $(this).attr('name') + ":\s*.+!default;");
+        newVariable = "$" + $(this).attr('name') + ": " + $(this).val() + " !default;";
+        newScssStyle = newScssStyle.replace(oldVariable, newVariable);
       }
     });
 
     // reload style
-    $("head").append($("<style type='text/less'>" + newStyle + "</style>"));
+    $("head").append($("<style type='text/less'>" + newLessStyle + "</style>"));
     less.refreshStyles();
 
-    // update variables code
-    var variablesStyle = newStyle.replace(/^ +/gm, '');
-    variablesStyle = variablesStyle.substring(variablesStyle.search(/\/\/ Variables\.less/) - 1);
-    variablesStyle = variablesStyle.substring(0, variablesStyle.search(/@import \"assets\/stylesheets\/mixins/));
-    variablesStyle = variablesStyle.trim();
+    // update LESS variables code
+    var lessVariablesStyle = newLessStyle.replace(/^ +/gm, '');
+    lessVariablesStyle = lessVariablesStyle.substring(lessVariablesStyle.search(/\/\/ Variables\.less/) - 1);
+    lessVariablesStyle = lessVariablesStyle.substring(0, lessVariablesStyle.search(/@import \"assets\/stylesheets\/mixins/));
+    lessVariablesStyle = lessVariablesStyle.trim();
 
-    $("#variables").html(variablesStyle);
+    $("#less-variables").html(lessVariablesStyle);
+
+    // update SCSS variables code
+    $("#scss-variables").html(newScssStyle);
 
     // make code pretty
     window.prettyPrint && prettyPrint();
@@ -49,7 +60,6 @@ $(function() {
     },
     trigger: 'focus'
   });
-
 
   // Start here link
   $("#start-here").click(function() {
