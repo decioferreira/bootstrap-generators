@@ -36,7 +36,7 @@ Once you've done that, any time you generate a controller or scaffold, you'll ge
 
     rails generate scaffold post title:string body:text published:boolean
 
-You can easily [customize colors, grid system, fonts, and much more](http://decioferreira.github.com/bootstrap-generators) with Bootstrap-generators and LESS. Visit http://decioferreira.github.com/bootstrap-generators.
+You can easily [customize colors, grid system, fonts, and much more](http://decioferreira.github.com/bootstrap-generators) with Bootstrap-generators and LESS or SCSS. Visit http://decioferreira.github.com/bootstrap-generators.
 
 ## Usage
 
@@ -139,9 +139,7 @@ Now you can [customize](http://decioferreira.github.com/bootstrap-generators/) t
 
 <a name="customize"></a>
 
-### Customize and extend Bootstrap with LESS
-
-Customize and extend Bootstrap with [LESS](http://lesscss.org/), a CSS preprocessor, to take advantage of the variables, mixins, and more used to build Bootstrap's CSS.
+### Customize and extend Bootstrap
 
 If you select LESS or SCSS as your stylesheet engine, you will get an `app/assets/stylesheets/bootstrap-variables.css.[less|scss]` file with all of the [default variables](http://twitter.github.com/bootstrap/less.html#variables) of Bootstrap. This way you can [customize](http://decioferreira.github.com/bootstrap-generators/) the look and feel of Bootstrap without having to download any extra file:
 
