@@ -38,6 +38,7 @@ module Bootstrap
           stylesheet_extension = 'css'
         else
           stylesheet_extension = "css.#{options[:stylesheet_engine]}"
+          copy_file "assets/stylesheets/bootstrap-variables.#{stylesheet_extension}", "app/assets/stylesheets/bootstrap-variables.#{stylesheet_extension}"
         end
 
         copy_file "assets/stylesheets/#{options[:layout]}.#{stylesheet_extension}", "app/assets/stylesheets/bootstrap-generators.#{stylesheet_extension}"

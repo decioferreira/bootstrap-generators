@@ -20,14 +20,6 @@ If you don't want to use SimpleForm, just pass the `--form_builder=form_builder`
 
     rails generate bootstrap:install --form_builder=form_builder
 
-We recommended you to use [LESS](http://lesscss.org/) as the stylesheet engine, so that you can [customize](http://decioferreira.github.com/bootstrap-generators) and extend Bootstrap to take advantage of the variables, mixins, and more. Add the [less-rails](https://github.com/metaskills/less-rails) dependency on your Gemfile:
-
-    gem 'less-rails'
-
-Then you just have to pass `--stylesheet-engine=less` option:
-
-    rails generate bootstrap:install --stylesheet-engine=less
-
 Run bundle install:
 
     bundle install
@@ -118,7 +110,20 @@ And then run:
 
 Supported stylesheet engines:
 
-* LESS (recommended)
+* CSS
+* SCSS
+
+Make sure you have `sass-rails` dependency on your Gemfile:
+
+    gem 'sass-rails'
+
+And then run:
+
+    rails generate bootstrap:install --stylesheet-engine=scss
+
+Now you can [customize](http://decioferreira.github.com/bootstrap-generators/) the look and feel of Bootstrap.
+
+* LESS
 
 Add the dependency on your Gemfile:
 
@@ -126,12 +131,9 @@ Add the dependency on your Gemfile:
 
 And then run:
 
-    rails generate bootstrap:install --template-engine=haml
+    rails generate bootstrap:install --stylesheet-engine=less
 
 Now you can [customize](http://decioferreira.github.com/bootstrap-generators/) the look and feel of Bootstrap.
-
-* CSS
-* SCSS
 
 ## Assets
 
@@ -141,7 +143,9 @@ Now you can [customize](http://decioferreira.github.com/bootstrap-generators/) t
 
 Customize and extend Bootstrap with [LESS](http://lesscss.org/), a CSS preprocessor, to take advantage of the variables, mixins, and more used to build Bootstrap's CSS.
 
-If you select LESS as your stylesheet engine, you will get an `app/assets/stylesheets/bootstrap-generators.css.less` file with all of the [default variables](http://twitter.github.com/bootstrap/less.html#variables) of Bootstrap. This way you can [customize](http://decioferreira.github.com/bootstrap-generators/) the look and feel of Bootstrap without having to download any extra file:
+If you select LESS or SCSS as your stylesheet engine, you will get an `app/assets/stylesheets/bootstrap-variables.css.[less|scss]` file with all of the [default variables](http://twitter.github.com/bootstrap/less.html#variables) of Bootstrap. This way you can [customize](http://decioferreira.github.com/bootstrap-generators/) the look and feel of Bootstrap without having to download any extra file:
+
+LESS version:
 
     // Variables to customize the look and feel of Bootstrap
     // -----------------------------------------------------
@@ -242,6 +246,107 @@ If you select LESS as your stylesheet engine, you will get an `app/assets/styles
     @fluidGridColumnWidth:    6.382978723%;
     @fluidGridGutterWidth:    2.127659574%;
 
+SCSS version:
+
+    // Variables.less
+    // Variables to customize the look and feel of Bootstrap
+    // -----------------------------------------------------
+
+
+
+    // GLOBAL VALUES
+    // --------------------------------------------------
+
+    // Links
+    $linkColor:             #08c !default;
+    $linkColorHover:        darken($linkColor, 15%) !default;
+
+    // Grays
+    $black:                 #000 !default;
+    $grayDarker:            #222 !default;
+    $grayDark:              #333 !default;
+    $gray:                  #555 !default;
+    $grayLight:             #999 !default;
+    $grayLighter:           #eee !default;
+    $white:                 #fff !default;
+
+    // Accent colors
+    $blue:                  #049cdb !default;
+    $blueDark:              #0064cd !default;
+    $green:                 #46a546 !default;
+    $red:                   #9d261d !default;
+    $yellow:                #ffc40d !default;
+    $orange:                #f89406 !default;
+    $pink:                  #c3325f !default;
+    $purple:                #7a43b6 !default;
+
+    // Typography
+    $baseFontSize:          13px !default;
+    $baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+    $baseLineHeight:        18px !default;
+    $textColor:             $grayDark !default;
+
+    // Buttons
+    $primaryButtonBackground:    $linkColor !default;
+
+
+
+    // COMPONENT VARIABLES
+    // --------------------------------------------------
+
+    // Z-index master list
+    // Used for a bird's eye view of components dependent on the z-axis
+    // Try to avoid customizing these :)
+    $zindexDropdown:        1000;
+    $zindexPopover:         1010;
+    $zindexTooltip:         1020;
+    $zindexFixedNavbar:     1030;
+    $zindexModalBackdrop:   1040;
+    $zindexModal:           1050;
+
+    // Input placeholder text color
+    $placeholderText:       $grayLight !default;
+
+    // Navbar
+    $navbarHeight:                    40px !default;
+    $navbarBackground:                $grayDarker !default;
+    $navbarBackgroundHighlight:       $grayDark !default;
+
+    $navbarText:                      $grayLight !default;
+    $navbarLinkColor:                 $grayLight !default;
+    $navbarLinkColorHover:            $white !default;
+
+    // Form states and alerts
+    $warningText:             #c09853 !default;
+    $warningBackground:       #fcf8e3 !default;
+    $warningBorder:           darken(adjust-hue($warningBackground, -10), 3%) !default;
+
+    $errorText:               #b94a48 !default;
+    $errorBackground:         #f2dede !default;
+    $errorBorder:             darken(adjust-hue($errorBackground, -10), 3%) !default;
+
+    $successText:             #468847 !default;
+    $successBackground:       #dff0d8 !default;
+    $successBorder:           darken(adjust-hue($successBackground, -10), 5%) !default;
+
+    $infoText:                #3a87ad !default;
+    $infoBackground:          #d9edf7 !default;
+    $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
+
+
+
+    // GRID
+    // --------------------------------------------------
+
+    // Default 940px grid
+    $gridColumns:             12 !default;
+    $gridColumnWidth:         60px !default;
+    $gridGutterWidth:         20px !default;
+    $gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
+
+    // Fluid grid
+    $fluidGridColumnWidth:    6.382978723% !default;
+    $fluidGridGutterWidth:    2.127659574% !default;
 
 ### Javascript
 
