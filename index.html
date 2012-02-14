@@ -235,7 +235,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
   </head>
-  <body class="bootstrap-generators" data-spy="scroll" data-offset="60">
+  <body class="bootstrap-generators" data-spy="scroll" data-offset="60" data-target=".navbar-fixed-top">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -852,12 +852,12 @@
         </div>
 
         <ul id="variables" class="nav nav-tabs">
-          <li class="active"><a href="#scss-variables-tab" data-toggle="tab">SCSS</a></li>
-          <li><a href="#less-variables-tab" data-toggle="tab">LESS</a></li>
+          <li><a href="#scss-variables-tab" data-toggle="tab">SCSS</a></li>
+          <li class="active"><a href="#less-variables-tab" data-toggle="tab">LESS</a></li>
         </ul>
 
         <div class="tab-content">
-          <div class="tab-pane active" id="scss-variables-tab">
+          <div class="tab-pane" id="scss-variables-tab">
             <p>After you've edited Bootstrap's variables, you can copy this code to your <code>bootstrap-generators.css.scss</code>.</p>
             <pre id="scss-variables" class="prettyprint linenums">
 // Variables.less
@@ -960,7 +960,7 @@ $gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth 
 $fluidGridColumnWidth:    6.382978723% !default;
 $fluidGridGutterWidth:    2.127659574% !default;</pre>
           </div>
-          <div class="tab-pane" id="less-variables-tab">
+          <div class="tab-pane active" id="less-variables-tab">
             <p>After you've edited Bootstrap's variables, you can copy this code to your <code>bootstrap-generators.css.less</code> (if you installed Bootstrap-generators Gem) or <code>variables.less</code> (on any other case).</p>
             <pre id="less-variables" class="prettyprint linenums">
 // Variables.less
