@@ -12,7 +12,7 @@ Or you can install from latest build:
 
     gem 'bootstrap-generators', '~> 2.0', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
 
-By default Bootstrap Generators requires [SimpleForm 2 RC](https://github.com/plataformatec/simple_form). Add the dependency on your Gemfile:
+By default Bootstrap Generators requires [SimpleForm 2.0.0.rc](https://github.com/plataformatec/simple_form). Add the dependency on your Gemfile:
 
     gem 'simple_form', '2.0.0.rc'
 
@@ -77,9 +77,9 @@ To select one of these layouts just pass the option `--layout=LAYOUT` to the ins
 
 * SimpleForm
 
-By default Bootstrap Generators requires SimpleForm. Add the dependency on your Gemfile:
+By default Bootstrap Generators requires SimpleForm 2.0.0.rc. Add the dependency on your Gemfile:
 
-    gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+    gem 'simple_form', '2.0.0.rc'
 
 And then run:
 
