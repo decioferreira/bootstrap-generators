@@ -41,13 +41,13 @@ SimpleForm.setup do |config|
 
     ## Inputs
     b.use :label_input
-    b.use :hint, :wrap_with => { :tag => :span, :class => :hint }
+    b.use :hint,  :wrap_with => { :tag => :span, :class => :hint }
     b.use :error, :wrap_with => { :tag => :span, :class => :error }
   end
 
   config.wrappers :bootstrap, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
     b.use :placeholder
-    b.use :label, :wrap_with => { :class => 'control-label' }
+    b.use :label
     b.wrapper :tag => 'div', :class => 'controls' do |ba|
       ba.use :input
       ba.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
@@ -57,24 +57,24 @@ SimpleForm.setup do |config|
 
   config.wrappers :prepend, :tag => 'div', :class => "control-group", :error_class => 'error' do |b|
     b.use :placeholder
-    b.use :label, :wrap_with => { :class => 'control-label' }
-    b.use :hint, :wrap_with => { :tag => 'span', :class => 'help-block' }
+    b.use :label
     b.wrapper :tag => 'div', :class => 'controls' do |input|
       input.wrapper :tag => 'div', :class => 'input-prepend' do |prepend|
         prepend.use :input
       end
+      input.use :hint,  :wrap_with => { :tag => 'span', :class => 'help-block' }
       input.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
     end
   end
 
   config.wrappers :append, :tag => 'div', :class => "control-group", :error_class => 'error' do |b|
     b.use :placeholder
-    b.use :label, :wrap_with => { :class => 'control-label' }
-    b.use :hint, :wrap_with => { :tag => 'span', :class => 'help-block' }
+    b.use :label
     b.wrapper :tag => 'div', :class => 'controls' do |input|
       input.wrapper :tag => 'div', :class => 'input-append' do |append|
         append.use :input
       end
+      input.use :hint,  :wrap_with => { :tag => 'span', :class => 'help-block' }
       input.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
     end
   end
@@ -98,12 +98,10 @@ SimpleForm.setup do |config|
   # config.error_method = :first
 
   # Default tag used for error notification helper.
-  # config.error_notification_tag = :p
-  config.error_notification_tag = :span
+  config.error_notification_tag = :div
 
   # CSS class to add for error notification helper.
-  # config.error_notification_class = :error_notification
-  config.error_notification_class = nil
+  config.error_notification_class = 'alert alert-error'
 
   # ID to add for error notification helper.
   # config.error_notification_id = nil
@@ -132,10 +130,13 @@ SimpleForm.setup do |config|
   # config.label_text = lambda { |label, required| "#{required} #{label}" }
 
   # You can define the class to use on all labels. Default is nil.
-  # config.label_class = nil
+  config.label_class = 'control-label'
 
   # You can define the class to use on all forms. Default is simple_form.
   config.form_class = 'form-horizontal'
+
+  # You can define which elements should obtain additional classes
+  # config.generate_additional_classes_for = [:wrapper, :label, :input]
 
   # Whether attributes are required by default (or not). Default is true.
   # config.required_by_default = true
@@ -167,6 +168,6 @@ SimpleForm.setup do |config|
   # Automatically discover new inputs in Rails' autoload path.
   # config.inputs_discovery = true
 
-  # Cache simple form inputs discovery
+  # Cache SimpleForm inputs discovery
   # config.cache_discovery = !Rails.env.development?
 end

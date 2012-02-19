@@ -3,12 +3,13 @@
   %head
     %meta{:charset => "utf-8"}
     %title Bootstrap, from Twitter
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
 
-    / Le HTML5 shim, for IE6-8 support of HTML elements
+    / Le HTML5 shim, for IE6-8 support of HTML5 elements
     /[if lt IE 9]
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -16,18 +17,23 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
+          %a.btn.btn-navbar{:data => {:toggle => "collapse", :target => ".nav-collapse"} }
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
           = link_to "Project name", "#", :class => "brand"
-          %ul.nav
-            %li.active
-              %a{:href => "#"} Home
-            %li
-              %a{:href => "#about"} About
-            %li
-              %a{:href => "#contact"} Contact
+          .nav-collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#about"} About
+              %li
+                %a{:href => "#contact"} Contact
     .container
       - flash.each do |name, msg|
         = content_tag :div, :class => "alert #{name == :error ? "alert-error" : "alert-success" }" do
-          %a.close{:href => "#", :"data-dismiss" => "alert"} ×
+          %a.close{:href => "#", :data => {:dismiss => "alert"} } ×
           = msg
       = yield
       %hr
