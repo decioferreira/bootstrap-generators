@@ -12,20 +12,47 @@ task :default => :test
 desc "Converts LESS stylesheets to SCSS"
 task :less_to_scss do
   Dir.glob('vendor/assets/stylesheets/less/*.less') do |less_file|
-    file = File.new(less_file, "r")
-    puts less_file
-    while(line = file.gets)
-      puts line
+    tree = []; level = 0
+    input_file = File.new(less_file, "r")
+
+    scss_file = File.basename(less_file, ".less")
+    output_file = File.new("vendor/assets/stylesheets/scss/#{scss_file}.scss", "w")
+
+    while(line = input_file.gets)
+      # IDs
+      if line.match(/^\s*#(\w+) {/)
+        tree.push(line.match(/^\s*#(\w+) {/)[1])
+      end
+
+      # Level
+      if line.match(/{/)
+        level += 1
+      end
+
+      if line.match(/}/)
+        level -= 1
+        tree = tree.first(level)
+      end
 
       # Variables
-      line.gsub!(/@(\w+)/, '$\1')
-      # Includes
-      line.gsub!(/\.(\S+\(.*\)\s*;)/, '@include \1')
-      # Mixins
-      line.gsub!(/\.(\S+\(.*\)\s*{)/, '@mixin \1')
+      line.gsub!(/@(\w+)/) do |s|
+        s.gsub(/@(\w+)/, '$\1') unless s == '@media'
+      end
 
-      puts line
+      # Includes
+      line.gsub!(/(#(\w+) > )*\.(\S+\(.*\)\s*;)/) do |s|
+        s.gsub(/ > (#|\.)/, '-').gsub(/#(.*;)/, '@include \1')
+      end
+
+      # Mixins
+      line.gsub!(/\s*\.(\S+\(.*\)\s*{)/) do |s|
+        "@mixins #{[tree, s.match(/\.(\S+\(.*\)\s*{)/)[1]].flatten.join('-')}"
+      end
+
+      output_file.puts line
     end
-    file.close
+
+    input_file.close
+    output_file.close
   end
 end
