@@ -20,9 +20,9 @@ task :less_to_scss do
       # Variables
       line.gsub!(/@(\w+)/, '$\1')
       # Includes
-      line.gsub!(/\.(\S+\([^\)]*\)\s*;)/, '@include \1')
+      line.gsub!(/\.(\S+\(.*\)\s*;)/, '@include \1')
       # Mixins
-      line.gsub!(/\.(\S+\([^\)]*\)\s*{)/, '@mixin \1')
+      line.gsub!(/\.(\S+\(.*\)\s*{)/, '@mixin \1')
 
       puts line
     end
