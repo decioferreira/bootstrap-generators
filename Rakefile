@@ -39,7 +39,7 @@ task :less_to_scss do
 
       # Variables
       line.gsub!(/@(\w+)/) do |s|
-        ['@media', '@import'].include?(s) ? s : s.gsub(/@(\w+)/, '$\1')
+        ['@media', '@import', '@keyframes'].include?(s) ? s : s.gsub(/@(\w+)/, '$\1')
       end
 
       # Includes
