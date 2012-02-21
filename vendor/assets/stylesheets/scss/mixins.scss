@@ -21,6 +21,10 @@
   }
 }
 
+.clearfix {
+  @include clearfix();
+}
+
 // Webkit-style focus
 // ------------------
 @mixin tab-focus() {
@@ -118,15 +122,15 @@
   line-height: $lineHeight;
 }
 @mixin font-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
-  @include font-family-serif;
+  @include font-family-serif();
   @include font-shorthand($size, $weight, $lineHeight);
 }
 @mixin font-sans-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
-  @include font-family-sans-serif;
+  @include font-family-sans-serif();
   @include font-shorthand($size, $weight, $lineHeight);
 }
 @mixin font-monospace($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
-  @include font-family-monospace;
+  @include font-family-monospace();
   @include font-shorthand($size, $weight, $lineHeight);
 }
 
@@ -149,7 +153,7 @@
 
 @mixin gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns) {
   width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
-} 
+}
 @mixin gridSystem-offset($gridColumnWidth, $gridGutterWidth, $columns) {
   margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1)) + ($gridGutterWidth * 2);
 }
@@ -201,7 +205,7 @@
 // -------------------------
 
 @mixin fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns) {
-  width: 1% * ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
+  width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
 }
 @mixin fluidGridSystem-gridColumn($fluidGridGutterWidth) {
   float: left;
@@ -530,7 +534,7 @@
   // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
   &:active,
   &.active {
-    background-color: darken($endColor, 10%) #{"\9"};
+    background-color: darken($endColor, 10%) \9;
   }
 }
 
