@@ -14,7 +14,7 @@
     <!-- Le styles -->
     <style id="bootstrap-less" type="text/less">
       /*!
-       * Bootstrap v2.0.0
+       * Bootstrap v2.0.1
        *
        * Copyright 2012 Twitter, Inc
        * Licensed under the Apache License v2.0
@@ -77,20 +77,28 @@
       // Z-index master list
       // Used for a bird's eye view of components dependent on the z-axis
       // Try to avoid customizing these :)
-      @zindexDropdown:        1000;
-      @zindexPopover:         1010;
-      @zindexTooltip:         1020;
-      @zindexFixedNavbar:     1030;
-      @zindexModalBackdrop:   1040;
-      @zindexModal:           1050;
+      @zindexDropdown:          1000;
+      @zindexPopover:           1010;
+      @zindexTooltip:           1020;
+      @zindexFixedNavbar:       1030;
+      @zindexModalBackdrop:     1040;
+      @zindexModal:             1050;
+
+      // Sprite icons path
+      @iconSpritePath:          "./assets/images/glyphicons-halflings.png";
+      @iconWhiteSpritePath:     "./assets/images/glyphicons-halflings-white.png";
 
       // Input placeholder text color
-      @placeholderText:       @grayLight;
+      @placeholderText:         @grayLight;
+
+      // Hr border color
+      @hrBorder:                @grayLighter;
 
       // Navbar
       @navbarHeight:                    40px;
       @navbarBackground:                @grayDarker;
       @navbarBackgroundHighlight:       @grayDark;
+      @navbarLinkBackgroundHover:       transparent;
 
       @navbarText:                      @grayLight;
       @navbarLinkColor:                 @grayLight;
@@ -148,7 +156,7 @@
       @import "assets/stylesheets/component-animations.less";
       @import "assets/stylesheets/close.less";
 
-      // Components: Buttons &amp; Alerts
+      // Components: Buttons & Alerts
       @import "assets/stylesheets/buttons.less";
       @import "assets/stylesheets/button-groups.less";
       @import "assets/stylesheets/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
@@ -187,6 +195,7 @@
 
         .linkColor {background-color: @linkColor}
         .linkColorHover {background-color: @linkColorHover}
+        .textColor {background-color: @textColor}
         .black {background-color: @black}
         .grayDarker {background-color: @grayDarker}
         .grayDark {background-color: @grayDark}
@@ -205,8 +214,10 @@
         .textColor {background-color: @textColor}
         .primaryButtonBackground {background-color: @primaryButtonBackground}
         .placeholderText {background-color: @placeholderText}
+        .hrBorder {background-color: @hrBorder}
         .navbarBackground {background-color: @navbarBackground}
         .navbarBackgroundHighlight {background-color: @navbarBackgroundHighlight}
+        .navbarLinkBackgroundHover {background-color: @navbarLinkBackgroundHover}
         .navbarText {background-color: @navbarText}
         .navbarLinkColor {background-color: @navbarLinkColor}
         .navbarLinkColorHover {background-color: @navbarLinkColorHover}
@@ -221,6 +232,7 @@
         .successBorder {background-color: @successBorder}
         .infoText {background-color: @infoText}
         .infoBackground {background-color: @infoBackground}
+        .infoBorder {background-color: @infoBorder}
       }
     </style>
     <link href="assets/stylesheets/prettify.css" rel="stylesheet" />
@@ -330,29 +342,37 @@
           <thead>
             <tr>
               <th>Variable</th>
-              <th>Default value</th>
-              <th>Value</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><code>@baseFontSize</code></td>
-              <td>13px</td>
-              <td><input type="text" class="variable variable-pixels" name="baseFontSize" placeholder="13px" /></td>
+              <td colspan="2">13px</td>
+              <td colspan="2"><input type="text" class="variable variable-pixels" name="baseFontSize" placeholder="13px" /></td>
               <td>Default base font-size used throughout</td>
             </tr>
             <tr>
               <td><code>@baseFontFamily</code></td>
-              <td><code>"Helvetica Neue", Helvetica, Arial, sans-serif</code></td>
-              <td><input type="text" class="variable variable-array" name="baseFontFamily" placeholder='"Helvetica Neue", Helvetica, Arial, sans-serif' /></td>
+              <td colspan="2"><code>"Helvetica Neue", Helvetica, Arial, sans-serif</code></td>
+              <td colspan="2"><input type="text" class="variable variable-array" name="baseFontFamily" placeholder='"Helvetica Neue", Helvetica, Arial, sans-serif' /></td>
               <td>Default base line-height</td>
             </tr>
             <tr>
               <td><code>@baseLineHeight</code></td>
-              <td>18px</td>
-              <td><input type="text" class="variable variable-pixels" name="baseLineHeight" placeholder="18px" /></td>
+              <td colspan="2">18px</td>
+              <td colspan="2"><input type="text" class="variable variable-pixels" name="baseLineHeight" placeholder="18px" /></td>
               <td>Default base line-height</td>
+            </tr>
+            <tr>
+              <td class="span2"><code>@textColor</code></td>
+              <td>@grayDark</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
+              <td><input type="text" class="input-small variable variable-color" name="textColor" placeholder="@grayDark" /></td>
+              <td class="swatch-col"><span class="swatch textColor"></span></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
@@ -575,6 +595,31 @@
           </tbody>
         </table>
 
+        <h2>Horizontal line</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="span3"><code>@hrBorder</code></td>
+              <td><code>@grayLighter</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #eee;"></span></td>
+              <td><input type="text" class="variable variable-color" name="hrBorder" placeholder="@grayLighter" /></td>
+              <td class="swatch-col"><span class="swatch hrBorder"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Horizontal line example</h3>
+
+        <hr>
+
         <section id="navbar">
           <h2>Navbar</h2>
 
@@ -605,6 +650,13 @@
                 <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
                 <td><input type="text" class="variable variable-color" name="navbarBackgroundHighlight" placeholder="@grayDark" /></td>
                 <td class="swatch-col"><span class="swatch navbarBackgroundHighlight"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarLinkBackgroundHover</code></td>
+                <td><code>transparent</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: transparent;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarLinkBackgroundHover" placeholder="transparent" /></td>
+                <td class="swatch-col"><span class="swatch navbarLinkBackgroundHover"></span></td>
               </tr>
               <tr>
                 <td><code>@navbarText</code></td>
@@ -696,17 +748,24 @@
           <tbody>
             <tr>
               <td class="span3"><code>@warningText</code></td>
-              <td>#f3edd2</td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #f3edd2;"></span></td>
-              <td><input type="text" class="variable variable-color" name="warningText" placeholder="#f3edd2" /></td>
+              <td>#c09853</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #c09853;"></span></td>
+              <td><input type="text" class="variable variable-color" name="warningText" placeholder="#c09853" /></td>
               <td class="swatch-col"><span class="swatch warningText"></span></td>
             </tr>
             <tr>
               <td><code>@warningBackground</code></td>
-              <td>#c09853</td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #c09853;"></span></td>
-              <td><input type="text" class="variable variable-color" name="warningBackground" placeholder="#c09853" /></td>
+              <td>#fcf8e3</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fcf8e3;"></span></td>
+              <td><input type="text" class="variable variable-color" name="warningBackground" placeholder="#fcf8e3" /></td>
               <td class="swatch-col"><span class="swatch warningBackground"></span></td>
+            </tr>
+            <tr>
+              <td><code>@warningBorder</code></td>
+              <td>darken(spin(@warningBackground, -10), 3%)</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fbeed5;"></span></td>
+              <td><input type="text" class="variable variable-color" name="warningBorder" placeholder="darken(spin(@warningBackground, -10), 3%)" /></td>
+              <td class="swatch-col"><span class="swatch warningBorder"></span></td>
             </tr>
             <tr>
               <td><code>@errorText</code></td>
@@ -723,6 +782,13 @@
               <td class="swatch-col"><span class="swatch errorBackground"></span></td>
             </tr>
             <tr>
+              <td><code>@errorBorder</code></td>
+              <td>darken(spin(@errorBackground, -10), 3%)</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #eed3d7;"></span></td>
+              <td><input type="text" class="variable variable-color" name="errorBorder" placeholder="darken(spin(@errorBackground, -10), 3%)" /></td>
+              <td class="swatch-col"><span class="swatch errorBorder"></span></td>
+            </tr>
+            <tr>
               <td><code>@successText</code></td>
               <td>#468847</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #468847;"></span></td>
@@ -737,6 +803,13 @@
               <td class="swatch-col"><span class="swatch successBackground"></span></td>
             </tr>
             <tr>
+              <td><code>@successBorder</code></td>
+              <td>darken(spin(@successBackground, -10), 5%)</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #d6e9c6;"></span></td>
+              <td><input type="text" class="variable variable-color" name="successBorder" placeholder="darken(spin(@successBackground, -10), 5%)" /></td>
+              <td class="swatch-col"><span class="swatch successBorder"></span></td>
+            </tr>
+            <tr>
               <td><code>@infoText</code></td>
               <td>#3a87ad</td>
               <td class="swatch-col"><span class="swatch" style="background-color: #3a87ad;"></span></td>
@@ -749,6 +822,13 @@
               <td class="swatch-col"><span class="swatch" style="background-color: #d9edf7;"></span></td>
               <td><input type="text" class="variable variable-color" name="infoBackground" placeholder="#d9edf7" /></td>
               <td class="swatch-col"><span class="swatch infoBackground"></span></td>
+            </tr>
+            <tr>
+              <td><code>@infoBorder</code></td>
+              <td>darken(spin(@infoBackground, -10), 7%)</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #bce8f1;"></span></td>
+              <td><input type="text" class="variable variable-color" name="infoBorder" placeholder="darken(spin(@infoBackground, -10), 7%)" /></td>
+              <td class="swatch-col"><span class="swatch infoBorder"></span></td>
             </tr>
           </tbody>
         </table>
@@ -860,7 +940,7 @@
           <div class="tab-pane" id="scss-variables-tab">
             <p>After you've edited Bootstrap's variables, you can copy this code to your <code>bootstrap-generators.css.scss</code>.</p>
             <pre id="scss-variables" class="prettyprint linenums">
-// Variables.less
+// Variables
 // Variables to customize the look and feel of Bootstrap
 // -----------------------------------------------------
 
@@ -909,20 +989,28 @@ $primaryButtonBackground:    $linkColor !default;
 // Z-index master list
 // Used for a bird's eye view of components dependent on the z-axis
 // Try to avoid customizing these :)
-$zindexDropdown:        1000;
-$zindexPopover:         1010;
-$zindexTooltip:         1020;
-$zindexFixedNavbar:     1030;
-$zindexModalBackdrop:   1040;
-$zindexModal:           1050;
+$zindexDropdown:          1000 !default;
+$zindexPopover:           1010 !default;
+$zindexTooltip:           1020 !default;
+$zindexFixedNavbar:       1030 !default;
+$zindexModalBackdrop:     1040 !default;
+$zindexModal:             1050 !default;
+
+// Sprite icons path
+$iconSpritePath:          "glyphicons-halflings.png";
+$iconWhiteSpritePath:     "glyphicons-halflings-white.png";
 
 // Input placeholder text color
-$placeholderText:       $grayLight !default;
+$placeholderText:         $grayLight !default;
+
+// Hr border color
+$hrBorder:                $grayLighter !default;
 
 // Navbar
 $navbarHeight:                    40px !default;
 $navbarBackground:                $grayDarker !default;
 $navbarBackgroundHighlight:       $grayDark !default;
+$navbarLinkBackgroundHover:       transparent !default;
 
 $navbarText:                      $grayLight !default;
 $navbarLinkColor:                 $grayLight !default;
@@ -1012,20 +1100,28 @@ $fluidGridGutterWidth:    2.127659574% !default;</pre>
 // Z-index master list
 // Used for a bird's eye view of components dependent on the z-axis
 // Try to avoid customizing these :)
-@zindexDropdown:        1000;
-@zindexPopover:         1010;
-@zindexTooltip:         1020;
-@zindexFixedNavbar:     1030;
-@zindexModalBackdrop:   1040;
-@zindexModal:           1050;
+@zindexDropdown:          1000;
+@zindexPopover:           1010;
+@zindexTooltip:           1020;
+@zindexFixedNavbar:       1030;
+@zindexModalBackdrop:     1040;
+@zindexModal:             1050;
+
+// Sprite icons path
+@iconSpritePath:          "glyphicons-halflings.png";
+@iconWhiteSpritePath:     "glyphicons-halflings-white.png";
 
 // Input placeholder text color
-@placeholderText:       @grayLight;
+@placeholderText:         @grayLight;
+
+// Hr border color
+@hrBorder:                @grayLighter;
 
 // Navbar
 @navbarHeight:                    40px;
 @navbarBackground:                @grayDarker;
 @navbarBackgroundHighlight:       @grayDark;
+@navbarLinkBackgroundHover:       transparent;
 
 @navbarText:                      @grayLight;
 @navbarLinkColor:                 @grayLight;

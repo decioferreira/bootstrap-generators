@@ -1,6 +1,12 @@
 window.bootstrapLess = document.getElementById('bootstrap-less').innerHTML;
 window.styleHasChanged = false;
 
+function lessVariableToScss(lessVar) {
+  var scssVar = lessVar.replace(new RegExp("spin\\("), "adjust-hue(");
+  scssVar = scssVar.replace(new RegExp("\@"), "\$");
+  return scssVar;
+}
+
 $(function() {
   window.bootstrapScss = $('#scss-variables').html();
 
@@ -13,13 +19,14 @@ $(function() {
     $("input.variable").each(function() {
       if($(this).val() != "") {
         // LESS
-        oldVariable = new RegExp("@" + $(this).attr('name') + ":\s*.+;");
-        newVariable = "@" + $(this).attr('name') + ": " + $(this).val() + ";";
+        oldVariable = new RegExp("@" + $(this).attr('name') + ":( *).+;");
+        newVariable = "@" + $(this).attr('name') + ":$1" + $(this).val() + ";";
         newLessStyle = newLessStyle.replace(oldVariable, newVariable);
+        newLessStyle = newLessStyle.replace(new RegExp("./assets/images/", "g"), "");
 
         // SCSS
-        oldVariable = new RegExp("\\$" + $(this).attr('name') + ":\s*.+!default;");
-        newVariable = "$" + $(this).attr('name') + ": " + $(this).val() + " !default;";
+        oldVariable = new RegExp("\\$" + $(this).attr('name') + ":( *).+!default;");
+        newVariable = "$" + $(this).attr('name') + ":$1" + lessVariableToScss($(this).val()) + " !default;";
         newScssStyle = newScssStyle.replace(oldVariable, newVariable);
       }
     });
