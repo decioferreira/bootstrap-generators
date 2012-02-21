@@ -1,4 +1,4 @@
-// Reset.less
+// Reset
 // Adapted from Normalize.css http://github.com/necolas/normalize.css
 // ------------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ html {
 }
 // Focus states
 a:focus {
-  .tab-focus();
+  @include tab-focus();
 }
 // Hover & Active
 a:hover,

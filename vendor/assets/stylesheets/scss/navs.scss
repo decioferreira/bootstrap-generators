@@ -73,7 +73,7 @@
 // Common styles
 .nav-tabs,
 .nav-pills {
-  .clearfix();
+  @include clearfix();
 }
 .nav-tabs > li,
 .nav-pills > li {
@@ -105,7 +105,7 @@
   padding-top: 9px;
   padding-bottom: 9px;
   border: 1px solid transparent;
-  .border-radius(4px 4px 0 0);
+  @include border-radius(4px 4px 0 0);
   &:hover {
     border-color: $grayLighter $grayLighter #ddd;
   }
@@ -129,7 +129,7 @@
   padding-bottom: 8px;
   margin-top: 2px;
   margin-bottom: 2px;
-  .border-radius(5px);
+  @include border-radius(5px);
 }
 
 // Active state
@@ -158,13 +158,13 @@
 }
 .nav-tabs.nav-stacked > li > a {
   border: 1px solid #ddd;
-  .border-radius(0);
+  @include border-radius(0);
 }
 .nav-tabs.nav-stacked > li:first-child > a {
-  .border-radius(4px 4px 0 0);
+  @include border-radius(4px 4px 0 0);
 }
 .nav-tabs.nav-stacked > li:last-child > a {
-  .border-radius(0 0 4px 4px);
+  @include border-radius(0 0 4px 4px);
 }
 .nav-tabs.nav-stacked > li > a:hover {
   border-color: #ddd;
@@ -191,7 +191,7 @@
   border-width: 1px;
 }
 .nav-pills .dropdown-menu {
-  .border-radius(4px);
+  @include border-radius(4px);
 }
 
 // Default dropdown links
@@ -234,7 +234,7 @@
 .nav .open.active .caret,
 .nav .open a:hover .caret {
   border-top-color: $white;
-  .opacity(100);
+  @include opacity(100);
 }
 
 // Dropdowns in stacked tabs
@@ -253,7 +253,7 @@
 
 // Clear any floats
 .tabbable {
-  .clearfix();
+  @include clearfix();
 }
 .tab-content {
   overflow: hidden; // prevent content from running below tabs
@@ -288,7 +288,7 @@
   margin-bottom: 0;
 }
 .tabs-below .nav-tabs > li > a {
-  .border-radius(0 0 4px 4px);
+  @include border-radius(0 0 4px 4px);
   &:hover {
     border-bottom-color: transparent;
     border-top-color: #ddd;
@@ -322,7 +322,7 @@
 }
 .tabs-left .nav-tabs > li > a {
   margin-right: -1px;
-  .border-radius(4px 0 0 4px);
+  @include border-radius(4px 0 0 4px);
 }
 .tabs-left .nav-tabs > li > a:hover {
   border-color: $grayLighter #ddd $grayLighter $grayLighter;
@@ -341,7 +341,7 @@
 }
 .tabs-right .nav-tabs > li > a {
   margin-left: -1px;
-  .border-radius(0 4px 4px 0);
+  @include border-radius(0 4px 4px 0);
 }
 .tabs-right .nav-tabs > li > a:hover {
   border-color: $grayLighter $grayLighter $grayLighter #ddd;

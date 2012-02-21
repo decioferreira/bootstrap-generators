@@ -24,6 +24,9 @@ task :less_to_scss do
         tree.push(line.match(/^\s*#(\w+) {/)[1])
       end
 
+      # Less extensions
+      line.gsub!(/\.less/, '')
+
       # Level
       if line.match(/{/)
         level += 1
@@ -36,18 +39,26 @@ task :less_to_scss do
 
       # Variables
       line.gsub!(/@(\w+)/) do |s|
-        s.gsub(/@(\w+)/, '$\1') unless s == '@media'
+        ['@media', '@import'].include?(s) ? s : s.gsub(/@(\w+)/, '$\1')
       end
 
       # Includes
       line.gsub!(/(#(\w+) > )*\.(\S+\(.*\)\s*;)/) do |s|
-        s.gsub(/ > (#|\.)/, '-').gsub(/#(.*;)/, '@include \1')
+        s.gsub(/ > (#|\.)/, '-').gsub(/(#|\.)(.*;)/, '@include \2')
+      end
+
+      line.gsub!(/(#(\w+) > )+\.(\S+(\(.*\))?\s*;)/) do |s|
+        s.gsub(/ > (#|\.)/, '-').gsub(/(#|\.)(.*;)/, '@include \2')
       end
 
       # Mixins
       line.gsub!(/\s*\.(\S+\(.*\)\s*{)/) do |s|
-        "@mixins #{[tree, s.match(/\.(\S+\(.*\)\s*{)/)[1]].flatten.join('-')}"
+        "@mixin #{[tree, s.match(/\.(\S+\(.*\)\s*{)/)[1]].flatten.join('-')}"
       end
+
+      # Functions
+      line.gsub!(/spin\(/, 'adjust-hue(') # spin to adjust-hue
+      line.gsub!(/[:\( ]e\(([^\)]*)\)/, ' #{\1}')
 
       output_file.puts line
     end

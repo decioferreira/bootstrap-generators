@@ -5,7 +5,7 @@
   padding: 60px;
   margin-bottom: 30px;
   background-color: #f5f5f5;
-  .border-radius(6px);
+  @include border-radius(6px);
   h1 {
     margin-bottom: 0;
     font-size: 60px;

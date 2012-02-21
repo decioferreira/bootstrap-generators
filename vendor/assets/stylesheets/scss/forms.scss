@@ -1,4 +1,4 @@
-// Forms.less
+// Forms
 // Base styles for various input types, form layouts, and states
 // -------------------------------------------------------------
 
@@ -72,7 +72,7 @@ select,
   line-height: $baseLineHeight;
   color: $gray;
   border: 1px solid #ccc;
-  .border-radius(3px);
+  @include border-radius(3px);
 }
 .uneditable-textarea {
   width: auto;
@@ -97,7 +97,7 @@ input[type="radio"] {
   *margin-top: 0; /* IE7 */
   line-height: normal;
   cursor: pointer;
-  .border-radius(0);
+  @include border-radius(0);
   border: 0 \9; /* IE9 and down */
 }
 input[type="image"] {
@@ -112,7 +112,7 @@ input[type="file"] {
   border: initial;
   background-color: $white;
   background-color: initial;
-  .box-shadow(none);
+  @include box-shadow(none);
 }
 
 // Help out input buttons
@@ -150,7 +150,7 @@ select[size] {
 
 // Remove shadow from image inputs
 input[type="image"] {
-  .box-shadow(none);
+  @include box-shadow(none);
 }
 
 // Make textarea height behave
@@ -206,15 +206,15 @@ input[type="hidden"] {
 
 input,
 textarea {
-  .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
   $transition: border linear .2s, box-shadow linear .2s;
-  .transition($transition);
+  @include transition($transition);
 }
 input:focus,
 textarea:focus {
   border-color: rgba(82,168,236,.8);
   $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
-  .box-shadow($shadow);
+  @include box-shadow($shadow);
   outline: 0;
   outline: thin dotted \9; /* IE6-9 */
 }
@@ -222,8 +222,8 @@ input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus,
 select:focus {
-  .box-shadow(none); // override for file inputs
-  .tab-focus();
+  @include box-shadow(none); // override for file inputs
+  @include tab-focus();
 }
 
 
@@ -281,15 +281,15 @@ textarea[readonly] {
 
 // Warning
 .control-group.warning {
-  .formFieldState($warningText, $warningText, $warningBackground);
+  @include formFieldState($warningText, $warningText, $warningBackground);
 }
 // Error
 .control-group.error {
-  .formFieldState($errorText, $errorText, $errorBackground);
+  @include formFieldState($errorText, $errorText, $errorBackground);
 }
 // Success
 .control-group.success {
-  .formFieldState($successText, $successText, $successBackground);
+  @include formFieldState($successText, $successText, $successBackground);
 }
 
 // HTML5 invalid states
@@ -301,7 +301,7 @@ select:focus:required:invalid {
   border-color: #ee5f5b;
   &:focus {
     border-color: darken(#ee5f5b, 10%);
-    .box-shadow(0 0 6px lighten(@include ee5f5b, 20%));    
+    @include box-shadow(0 0 6px lighten(#ee5f5b, 20%));    
   }
 }
 
@@ -323,12 +323,12 @@ select:focus:required:invalid {
   display: block;
   background-color: $white;
   border-color: #eee;
-  .box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
+  @include box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
   cursor: not-allowed;
 }
 
 // Placeholder text gets special styles; can't be bundled together though for some reason
-.placeholder($grayLight);
+@include placeholder($grayLight);
 
 
 
@@ -344,7 +344,7 @@ select:focus:required:invalid {
 
 .help-inline {
   display: inline-block;
-  .ie7-inline-block();
+  @include ie7-inline-block();
   margin-bottom: 9px;
   vertical-align: middle;
   padding-left: 5px;
@@ -359,10 +359,10 @@ select:focus:required:invalid {
 .input-prepend,
 .input-append {
   margin-bottom: 5px;
-  .clearfix(); // Clear the float to prevent wrapping
+  @include clearfix(); // Clear the float to prevent wrapping
   input,
   .uneditable-input {
-    .border-radius(0 3px 3px 0);
+    @include border-radius(0 3px 3px 0);
     &:focus {
       position: relative;
       z-index: 2;
@@ -386,7 +386,7 @@ select:focus:required:invalid {
     text-shadow: 0 1px 0 $white;
     background-color: #f5f5f5;
     border: 1px solid #ccc;
-    .border-radius(3px 0 0 3px);
+    @include border-radius(3px 0 0 3px);
   }
   .active {
     background-color: lighten($green, 30);
@@ -402,7 +402,7 @@ select:focus:required:invalid {
   input,
   .uneditable-input {
     float: left;
-    .border-radius(3px 0 0 3px);
+    @include border-radius(3px 0 0 3px);
   }
   .uneditable-input {
     border-left-color: #eee;
@@ -411,7 +411,7 @@ select:focus:required:invalid {
   .add-on {
     margin-right: 0;
     margin-left: -1px;
-    .border-radius(0 3px 3px 0);
+    @include border-radius(0 3px 3px 0);
   }
   input:first-child {
     // In IE7, having a hasLayout container (from clearfix's zoom:1) can make the first input
@@ -433,7 +433,7 @@ select:focus:required:invalid {
   padding-left: 14px;
   padding-right: 14px;
   margin-bottom: 0; // remove the default margin on all inputs
-  .border-radius(14px);
+  @include border-radius(14px);
 }
 
 
@@ -502,7 +502,7 @@ legend + .control-group {
   // Increase spacing between groups
   .control-group {
     margin-bottom: $baseLineHeight;
-    .clearfix();
+    @include clearfix();
   }
   // Float the labels left
   .control-label {

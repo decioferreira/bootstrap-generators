@@ -26,7 +26,7 @@
   border-left:  4px solid transparent;
   border-right: 4px solid transparent;
   border-top:   4px solid $black;
-  .opacity(30);
+  @include opacity(30);
   content: "\2193";
 }
 .dropdown .caret {
@@ -35,7 +35,7 @@
 }
 .dropdown:hover .caret,
 .open.dropdown .caret {
-  .opacity(100);
+  @include opacity(100);
 }
 // The dropdown menu (ul)
 .dropdown-menu {
@@ -55,8 +55,8 @@
   border-color: rgba(0,0,0,.2);
   border-style: solid;
   border-width: 1px;
-  .border-radius(0 0 5px 5px);
-  .box-shadow(0 5px 10px rgba(0,0,0,.2));
+  @include border-radius(0 0 5px 5px);
+  @include box-shadow(0 5px 10px rgba(0,0,0,.2));
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -126,5 +126,5 @@
 // Typeahead
 .typeahead {
   margin-top: 2px; // give it some space to breathe
-  .border-radius(4px);
+  @include border-radius(4px);
 }

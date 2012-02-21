@@ -8,7 +8,7 @@
  * Designed and built with all the love in the world $twitter by $mdo and $fat.
  */
 
-// Responsive.less
+// Responsive
 // For phone and tablet devices
 // -------------------------------------------------------------
 
@@ -17,8 +17,8 @@
 // -------------------------
 // Required since we compile the responsive stuff separately
 
-$import "variables.less"; // Modify this for custom colors, font-sizes, etc
-$import "mixins.less";
+@import "variables"; // Modify this for custom colors, font-sizes, etc
+@import "mixins";
 
 
 // RESPONSIVE CLASSES
@@ -36,7 +36,7 @@ $import "mixins.less";
 // UP TO LANDSCAPE PHONE
 // ---------------------
 
- (max-width: 480px) {
+@media (max-width: 480px) {
 
   // Smooth out the collapsing/expanding nav
   .nav-collapse {
@@ -123,7 +123,7 @@ $import "mixins.less";
 // LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
 // --------------------------------------------------
 
- (max-width: 767px) {
+@media (max-width: 767px) {
   // GRID & CONTAINERS
   // -----------------
   // Remove width from containers
@@ -154,7 +154,7 @@ $import "mixins.less";
 // PORTRAIT TABLET TO DEFAULT DESKTOP
 // ----------------------------------
 
- (min-width: 768px) and (max-width: 979px) {
+@media (min-width: 768px) and (max-width: 979px) {
 
   // Fixed grid
   @include gridSystem-generate(12, 42px, 20px);
@@ -171,7 +171,7 @@ $import "mixins.less";
 
 // TABLETS AND BELOW
 // -----------------
- (max-width: 979px) {
+@media (max-width: 979px) {
 
   // UNFIX THE TOPBAR
   // ----------------
@@ -225,7 +225,7 @@ $import "mixins.less";
     padding: 6px 15px;
     font-weight: bold;
     color: $navbarLinkColor;
-    .border-radius(3px);
+    @include border-radius(3px);
   }
   .navbar .dropdown-menu li + li a {
     margin-bottom: 2px;
@@ -246,8 +246,8 @@ $import "mixins.less";
     padding: 0;
     background-color: transparent;
     border: none;
-    .border-radius(0);
-    .box-shadow(none);
+    @include border-radius(0);
+    @include box-shadow(none);
   }
   .navbar .dropdown-menu:before,
   .navbar .dropdown-menu:after {
@@ -265,7 +265,7 @@ $import "mixins.less";
     border-top: 1px solid $navbarBackground;
     border-bottom: 1px solid $navbarBackground;
     $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
-    .box-shadow($shadow);
+    @include box-shadow($shadow);
   }
   // Pull right (secondary) nav content
   .navbar .nav.pull-right {
@@ -294,7 +294,7 @@ $import "mixins.less";
 // DEFAULT DESKTOP
 // ---------------
 
- (min-width: 980px) {
+@media (min-width: 980px) {
   .nav-collapse.collapse {
     height: auto !important;
   }
@@ -305,7 +305,7 @@ $import "mixins.less";
 // LARGE DESKTOP & UP
 // ------------------
 
- (min-width: 1200px) {
+@media (min-width: 1200px) {
 
   // Fixed grid
   @include gridSystem-generate(12, 70px, 30px);

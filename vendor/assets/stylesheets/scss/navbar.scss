@@ -15,9 +15,9 @@
   padding-left:  20px;
   padding-right: 20px;
   @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
-  .border-radius(4px);
+  @include border-radius(4px);
   $shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
-  .box-shadow($shadow);
+  @include box-shadow($shadow);
 }
 
 // Navbar button for toggling navbar items in responsive layouts
@@ -27,17 +27,17 @@
   padding: 7px 10px;
   margin-left: 5px;
   margin-right: 5px;
-  .buttonBackground($navbarBackgroundHighlight, $navbarBackground);
+  @include buttonBackground($navbarBackgroundHighlight, $navbarBackground);
   $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075);
-  .box-shadow($shadow);
+  @include box-shadow($shadow);
 }
 .btn-navbar .icon-bar {
   display: block;
   width: 18px;
   height: 2px;
   background-color: #f5f5f5;
-  .border-radius(1px);
-  .box-shadow(0 1px 0 rgba(0,0,0,.25));
+  @include border-radius(1px);
+  @include box-shadow(0 1px 0 rgba(0,0,0,.25));
 }
 .btn-navbar .icon-bar + .icon-bar {
   margin-top: 3px;
@@ -88,7 +88,7 @@
 // Navbar forms
 .navbar-form {
   margin-bottom: 0; // remove default bottom margin
-  .clearfix();
+  @include clearfix();
   input,
   select {
     display: inline-block;
@@ -129,11 +129,11 @@
     background: rgba(255,255,255,.3);
     border: 1px solid #111;
     $shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.15);
-    .box-shadow($shadow);
-    .transition(none);
+    @include box-shadow($shadow);
+    @include transition(none);
 
     // Placeholder text gets special styles; can't be bundled together though for some reason
-    .placeholder($grayLighter);
+    @include placeholder($grayLighter);
 
     // Hover states
     &:hover {
@@ -149,7 +149,7 @@
       text-shadow: 0 1px 0 $white;
       background-color: $white;
       border: 0;
-      .box-shadow(0 0 3px rgba(0,0,0,.15));
+      @include box-shadow(0 0 3px rgba(0,0,0,.15));
       outline: 0;
     }
   }
@@ -169,7 +169,7 @@
 .navbar-fixed-top .navbar-inner {
   padding-left:  0;
   padding-right: 0;
-  .border-radius(0);
+  @include border-radius(0);
 }
 
 
@@ -239,7 +239,7 @@
 // Menu position and menu carets
 .navbar .dropdown-menu {
   margin-top: 1px;
-  .border-radius(4px);
+  @include border-radius(4px);
   &:before {
     content: '';
     display: inline-block;
@@ -269,7 +269,7 @@
   border-top-color: $white;
 }
 .navbar .nav .active .caret {
-  .opacity(100);
+  @include opacity(100);
 }
 
 // Remove background color from open dropdown

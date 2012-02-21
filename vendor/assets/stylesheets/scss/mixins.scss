@@ -1,4 +1,4 @@
-// Mixins.less
+// Mixins
 // Snippets of reusable CSS to develop faster and keep code readable
 // -----------------------------------------------------------------
 
@@ -9,7 +9,7 @@
 // Clearfix
 // --------
 // For clearing floats like a boss h5bp.com/q
-.clearfix {
+@mixin clearfix() {
   *zoom: 1;
   &:before,
   &:after {
@@ -23,7 +23,7 @@
 
 // Webkit-style focus
 // ------------------
-@mixins tab-focus() {
+@mixin tab-focus() {
   // Default
   outline: thin dotted #333;
   // Webkit
@@ -33,7 +33,7 @@
 
 // Center-align a block level element
 // ----------------------------------
-@mixins center-block() {
+@mixin center-block() {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -41,7 +41,7 @@
 
 // IE7 inline-block
 // ----------------
-@mixins ie7-inline-block() {
+@mixin ie7-inline-block() {
   *display: inline; /* IE7 inline-block hack */
   *zoom: 1;
 }
@@ -52,7 +52,7 @@
 // right version is for icons, which come before. Applying both is ok, but it will
 // mean that space between those elements will be .6em (~2 space characters) in IE7,
 // instead of the 1 space in other browsers.
-@mixins ie7-restore-left-whitespace() {
+@mixin ie7-restore-left-whitespace() {
   *margin-left: .3em;
 
   &:first-child {
@@ -60,7 +60,7 @@
   }
 }
 
-@mixins ie7-restore-right-whitespace() {
+@mixin ie7-restore-right-whitespace() {
   *margin-right: .3em;
 
   &:last-child {
@@ -70,17 +70,17 @@
 
 // Sizing shortcuts
 // -------------------------
-@mixins size($height: 5px, $width: 5px) {
+@mixin size($height: 5px, $width: 5px) {
   width: $width;
   height: $height;
 }
-@mixins square($size: 5px) {
-  .size($size, $size);
+@mixin square($size: 5px) {
+  @include size($size, $size);
 }
 
 // Placeholder text
 // -------------------------
-@mixins placeholder($color: $placeholderText) {
+@mixin placeholder($color: $placeholderText) {
   :-moz-placeholder {
     color: $color;
   }
@@ -92,7 +92,7 @@
 // Text overflow
 // -------------------------
 // Requires inline-block or block for proper styling
-@mixins text-overflow() {
+@mixin text-overflow() {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -103,35 +103,31 @@
 // FONTS
 // --------------------------------------------------
 
-#font {
-  #family {
-@mixins font-family-serif() {
-      font-family: Georgia, "Times New Roman", Times, serif;
-    }
-@mixins font-family-sans-serif() {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
-@mixins font-family-monospace() {
-      font-family: Menlo, Monaco, "Courier New", monospace;
-    }
-  }
-@mixins font-shorthand($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
-    font-size: $size;
-    font-weight: $weight;
-    line-height: $lineHeight;
-  }
-@mixins font-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
-    #font > #family > .serif;
-    @include font-shorthand($size, $weight, $lineHeight);
-  }
-@mixins font-sans-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
-    #font > #family > .sans-serif;
-    @include font-shorthand($size, $weight, $lineHeight);
-  }
-@mixins font-monospace($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
-    #font > #family > .monospace;
-    @include font-shorthand($size, $weight, $lineHeight);
-  }
+@mixin font-family-serif() {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+@mixin font-family-sans-serif() {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@mixin font-family-monospace() {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+@mixin font-shorthand($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}
+@mixin font-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+  @include font-family-serif;
+  @include font-shorthand($size, $weight, $lineHeight);
+}
+@mixin font-sans-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+  @include font-family-sans-serif;
+  @include font-shorthand($size, $weight, $lineHeight);
+}
+@mixin font-monospace($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+  @include font-family-monospace;
+  @include font-shorthand($size, $weight, $lineHeight);
 }
 
 
@@ -141,143 +137,138 @@
 
 // Site container
 // -------------------------
-@mixins container-fixed() {
+@mixin container-fixed() {
   width: $gridRowWidth;
   margin-left: auto;
   margin-right: auto;
-  .clearfix();
+  @include clearfix();
 }
 
 // Le grid system
 // -------------------------
-#gridSystem {
-  // Setup the mixins to be used
-@mixins gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns) {
-    width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
-  } 
-@mixins gridSystem-offset($gridColumnWidth, $gridGutterWidth, $columns) {
-    margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1)) + ($gridGutterWidth * 2);
+
+@mixin gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns) {
+  width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
+} 
+@mixin gridSystem-offset($gridColumnWidth, $gridGutterWidth, $columns) {
+  margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1)) + ($gridGutterWidth * 2);
+}
+@mixin gridSystem-gridColumn($gridGutterWidth) {
+  float: left;
+  margin-left: $gridGutterWidth;
+}
+
+// Take these values and mixins, and make 'em do their thang
+@mixin gridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth) {
+  // Row surrounds the columns
+  .row {
+    margin-left: $gridGutterWidth * -1;
+    @include clearfix();
   }
-@mixins gridSystem-gridColumn($gridGutterWidth) {
-    float: left;
-    margin-left: $gridGutterWidth;
+  // Find all .span# classes within .row and give them the necessary properties for grid columns (supported by all browsers back to IE7, thanks $dhg)
+  [class*="span"] {
+    @include gridSystem-gridColumn($gridGutterWidth);
   }
-  // Take these values and mixins, and make 'em do their thang
-@mixins gridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth) {
-    // Row surrounds the columns
-    .row {
-      margin-left: $gridGutterWidth * -1;
-      .clearfix();
-    }
-    // Find all .span# classes within .row and give them the necessary properties for grid columns (supported by all browsers back to IE7, thanks $dhg)
-    [class*="span"] {
-      @include gridSystem-gridColumn($gridGutterWidth);
-    }
-    // Default columns
-    .span1     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 1); }
-    .span2     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 2); }
-    .span3     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 3); }
-    .span4     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 4); }
-    .span5     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 5); }
-    .span6     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 6); }
-    .span7     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 7); }
-    .span8     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 8); }
-    .span9     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 9); }
-    .span10    { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 10); }
-    .span11    { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 11); }
-    .span12,
-    .container { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 12); }
-    // Offset column options
-    .offset1   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 1); }
-    .offset2   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 2); }
-    .offset3   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 3); }
-    .offset4   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 4); }
-    .offset5   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 5); }
-    .offset6   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 6); }
-    .offset7   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 7); }
-    .offset8   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 8); }
-    .offset9   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 9); }
-    .offset10  { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 10); }
-    .offset11  { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 11); }
-  }
+  // Default columns
+  .span1     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 1); }
+  .span2     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 2); }
+  .span3     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 3); }
+  .span4     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 4); }
+  .span5     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 5); }
+  .span6     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 6); }
+  .span7     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 7); }
+  .span8     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 8); }
+  .span9     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 9); }
+  .span10    { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 10); }
+  .span11    { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 11); }
+  .span12,
+  .container { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 12); }
+  // Offset column options
+  .offset1   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 1); }
+  .offset2   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 2); }
+  .offset3   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 3); }
+  .offset4   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 4); }
+  .offset5   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 5); }
+  .offset6   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 6); }
+  .offset7   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 7); }
+  .offset8   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 8); }
+  .offset9   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 9); }
+  .offset10  { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 10); }
+  .offset11  { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 11); }
 }
 
 // Fluid grid system
 // -------------------------
-#fluidGridSystem {
-  // Setup the mixins to be used
-@mixins fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns) {
-    width: 1% * ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
-  }
-@mixins fluidGridSystem-gridColumn($fluidGridGutterWidth) {
-    float: left;
-    margin-left: $fluidGridGutterWidth;
-  }
-  // Take these values and mixins, and make 'em do their thang
-@mixins fluidGridSystem-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth) {
-    // Row surrounds the columns
-    .row-fluid {
-      width: 100%;
-      .clearfix();
 
-      // Find all .span# classes within .row and give them the necessary properties for grid columns (supported by all browsers back to IE7, thanks $dhg)
-      > [class*="span"] {
-        @include fluidGridSystem-gridColumn($fluidGridGutterWidth);
-      }
-      > [class*="span"]:first-child {
-        margin-left: 0;
-      }
-      // Default columns
-      > .span1     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 1); }
-      > .span2     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 2); }
-      > .span3     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 3); }
-      > .span4     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 4); }
-      > .span5     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 5); }
-      > .span6     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 6); }
-      > .span7     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 7); }
-      > .span8     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 8); }
-      > .span9     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 9); }
-      > .span10    { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 10); }
-      > .span11    { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 11); }
-      > .span12    { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 12); }
+@mixin fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns) {
+  width: 1% * ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
+}
+@mixin fluidGridSystem-gridColumn($fluidGridGutterWidth) {
+  float: left;
+  margin-left: $fluidGridGutterWidth;
+}
+// Take these values and mixins, and make 'em do their thang
+@mixin fluidGridSystem-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth) {
+  // Row surrounds the columns
+  .row-fluid {
+    width: 100%;
+    @include clearfix();
+
+    // Find all .span# classes within .row and give them the necessary properties for grid columns (supported by all browsers back to IE7, thanks $dhg)
+    > [class*="span"] {
+      @include fluidGridSystem-gridColumn($fluidGridGutterWidth);
     }
+    > [class*="span"]:first-child {
+      margin-left: 0;
+    }
+    // Default columns
+    > .span1     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 1); }
+    > .span2     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 2); }
+    > .span3     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 3); }
+    > .span4     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 4); }
+    > .span5     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 5); }
+    > .span6     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 6); }
+    > .span7     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 7); }
+    > .span8     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 8); }
+    > .span9     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 9); }
+    > .span10    { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 10); }
+    > .span11    { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 11); }
+    > .span12    { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 12); }
   }
 }
 
 // Input grid system
 // -------------------------
-#inputGridSystem {
-@mixins inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns) {
-    width: (($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 10;
-  }
-@mixins inputGridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth) {
-    input,
-    textarea,
-    .uneditable-input {
-      &.span1     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 1); }
-      &.span2     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 2); }
-      &.span3     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 3); }
-      &.span4     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 4); }
-      &.span5     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 5); }
-      &.span6     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 6); }
-      &.span7     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 7); }
-      &.span8     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 8); }
-      &.span9     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 9); }
-      &.span10    { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 10); }
-      &.span11    { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 11); }
-      &.span12    { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 12); }
-    }
+@mixin inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns) {
+  width: (($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 10;
+}
+@mixin inputGridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth) {
+  input,
+  textarea,
+  .uneditable-input {
+    &.span1     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 1); }
+    &.span2     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 2); }
+    &.span3     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 3); }
+    &.span4     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 4); }
+    &.span5     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 5); }
+    &.span6     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 6); }
+    &.span7     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 7); }
+    &.span8     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 8); }
+    &.span9     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 9); }
+    &.span10    { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 10); }
+    &.span11    { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 11); }
+    &.span12    { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 12); }
   }
 }
 
 // Make a Grid
 // -------------------------
 // Use .makeRow and .makeColumn to assign semantic layouts grid system behavior
-@mixins makeRow() {
+@mixin makeRow() {
   margin-left: $gridGutterWidth * -1;
-  .clearfix();
+  @include clearfix();
 }
-@mixins makeColumn($columns: 1) {
+@mixin makeColumn($columns: 1) {
   float: left;
   margin-left: $gridGutterWidth;
   width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
@@ -285,11 +276,11 @@
 
 
 
-// Form field states (used in forms.less)
+// Form field states (used in forms)
 // --------------------------------------------------
 
 // Mixin for form field states
-@mixins formFieldState($textColor: #555, $borderColor: #ccc, $backgroundColor: #f5f5f5) {
+@mixin formFieldState($textColor: #555, $borderColor: #ccc, $backgroundColor: #f5f5f5) {
   // Set the text color
   > label,
   .help-block,
@@ -304,7 +295,7 @@
     border-color: $borderColor;
     &:focus {
       border-color: darken($borderColor, 10%);
-      .box-shadow(0 0 6px lighten($borderColor, 20%));
+      @include box-shadow(0 0 6px lighten($borderColor, 20%));
     }
   }
   // Give a small background color for input-prepend/-append
@@ -322,21 +313,21 @@
 // --------------------------------------------------
 
 // Border Radius
-@mixins border-radius($radius: 5px) {
+@mixin border-radius($radius: 5px) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
           border-radius: $radius;
 }
 
 // Drop shadows
-@mixins box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
+@mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
   -webkit-box-shadow: $shadow;
      -moz-box-shadow: $shadow;
           box-shadow: $shadow;
 }
 
 // Transitions
-@mixins transition($transition) {
+@mixin transition($transition) {
   -webkit-transition: $transition;
      -moz-transition: $transition;
       -ms-transition: $transition;
@@ -345,35 +336,35 @@
 }
 
 // Transformations
-@mixins rotate($degrees) {
+@mixin rotate($degrees) {
   -webkit-transform: rotate($degrees);
      -moz-transform: rotate($degrees);
       -ms-transform: rotate($degrees);
        -o-transform: rotate($degrees);
           transform: rotate($degrees);
 }
-@mixins scale($ratio) {
+@mixin scale($ratio) {
   -webkit-transform: scale($ratio);
      -moz-transform: scale($ratio);
       -ms-transform: scale($ratio);
        -o-transform: scale($ratio);
           transform: scale($ratio);
 }
-@mixins translate($x: 0, $y: 0) {
+@mixin translate($x: 0, $y: 0) {
   -webkit-transform: translate($x, $y);
      -moz-transform: translate($x, $y);
       -ms-transform: translate($x, $y);
        -o-transform: translate($x, $y);
           transform: translate($x, $y);
 }
-@mixins skew($x: 0, $y: 0) {
+@mixin skew($x: 0, $y: 0) {
   -webkit-transform: skew($x, $y);
      -moz-transform: skew($x, $y);
       -ms-transform: skew($x, $y);
        -o-transform: skew($x, $y);
           transform: skew($x, $y);
 }
-@mixins translate3d($x: 0, $y: 0, $z: 0) {
+@mixin translate3d($x: 0, $y: 0, $z: 0) {
   -webkit-transform: translate($x, $y, $z);
      -moz-transform: translate($x, $y, $z);
       -ms-transform: translate($x, $y, $z);
@@ -383,14 +374,14 @@
 
 // Background clipping
 // Heads up: FF 3.6 and under need "padding" instead of "padding-box"
-@mixins background-clip($clip) {
+@mixin background-clip($clip) {
   -webkit-background-clip: $clip;
      -moz-background-clip: $clip;
           background-clip: $clip;
 }
 
 // Background sizing
-@mixins background-size($size){
+@mixin background-size($size){
   -webkit-background-size: $size;
      -moz-background-size: $size;
        -o-background-size: $size;
@@ -399,7 +390,7 @@
 
 
 // Box sizing
-@mixins box-sizing($boxmodel) {
+@mixin box-sizing($boxmodel) {
   -webkit-box-sizing: $boxmodel;
      -moz-box-sizing: $boxmodel;
           box-sizing: $boxmodel;
@@ -407,7 +398,7 @@
 
 // User select
 // For selecting text on the page
-@mixins user-select($select) {
+@mixin user-select($select) {
   -webkit-user-select: $select;
      -moz-user-select: $select;
        -o-user-select: $select;
@@ -415,13 +406,13 @@
 }
 
 // Resize anything
-@mixins resizable($direction: both) {
+@mixin resizable($direction: both) {
   resize: $direction; // Options: horizontal, vertical, both
   overflow: auto; // Safari fix
 }
 
 // CSS3 Content Columns
-@mixins content-columns($columnCount, $columnGap: $gridColumnGutter) {
+@mixin content-columns($columnCount, $columnGap: $gridColumnGutter) {
   -webkit-column-count: $columnCount;
      -moz-column-count: $columnCount;
           column-count: $columnCount;
@@ -431,9 +422,9 @@
 }
 
 // Opacity
-@mixins opacity($opacity: 100) {
+@mixin opacity($opacity: 100) {
   opacity: $opacity / 100;
-   filter: e(%("alpha(opacity=%d)", $opacity));
+   filter: alpha(opacity=$opacity);
 }
 
 
@@ -442,98 +433,94 @@
 // --------------------------------------------------
 
 // Add an alphatransparency value to any background or border color (via Elyse Holladay)
-#translucent {
-@mixins translucent-background($color: $white, $alpha: 1) {
-    background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
-  }
-@mixins translucent-border($color: $white, $alpha: 1) {
-    border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
-    .background-clip(padding-box);
-  }
+@mixin translucent-background($color: $white, $alpha: 1) {
+  background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+@mixin translucent-border($color: $white, $alpha: 1) {
+  border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+  @include background-clip(padding-box);
 }
 
 // Gradient Bar Colors for buttons and alerts
-@mixins gradientBar($primaryColor, $secondaryColor) {
+@mixin gradientBar($primaryColor, $secondaryColor) {
   @include gradient-vertical($primaryColor, $secondaryColor);
   border-color: $secondaryColor $secondaryColor darken($secondaryColor, 15%);
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
 }
 
 // Gradients
-#gradient {
-@mixins gradient-horizontal($startColor: #555, $endColor: #333) {
-    background-color: $endColor;
-    background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
-    background-image: -ms-linear-gradient(left, $startColor, $endColor); // IE10
-    background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
-    background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
-    background-image: -o-linear-gradient(left, $startColor, $endColor); // Opera 11.10
-    background-image: linear-gradient(left, $startColor, $endColor); // Le standard
-    background-repeat: repeat-x;
-    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",$startColor,$endColor)); // IE9 and down
-  }
-@mixins gradient-vertical($startColor: #555, $endColor: #333) {
-    background-color: mix($startColor, $endColor, 60%);
-    background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
-    background-image: -ms-linear-gradient(top, $startColor, $endColor); // IE10
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
-    background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
-    background-image: -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
-    background-image: linear-gradient(top, $startColor, $endColor); // The standard
-    background-repeat: repeat-x;
-    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",$startColor,$endColor)); // IE9 and down
-  }
-@mixins gradient-directional($startColor: #555, $endColor: #333, $deg: 45deg) {
-    background-color: $endColor;
-    background-repeat: repeat-x;
-    background-image: -moz-linear-gradient($deg, $startColor, $endColor); // FF 3.6+
-    background-image: -ms-linear-gradient($deg, $startColor, $endColor); // IE10
-    background-image: -webkit-linear-gradient($deg, $startColor, $endColor); // Safari 5.1+, Chrome 10+
-    background-image: -o-linear-gradient($deg, $startColor, $endColor); // Opera 11.10
-    background-image: linear-gradient($deg, $startColor, $endColor); // The standard
-  }
-@mixins gradient-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
-    background-color: mix($midColor, $endColor, 80%);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
-    background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
-    background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
-    background-image: -ms-linear-gradient($startColor, $midColor $colorStop, $endColor);
-    background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor);
-    background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
-    background-repeat: no-repeat;
-    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",$startColor,$endColor)); // IE9 and down, gets no color-stop at all for proper fallback
-  }
-@mixins gradient-radial($innerColor: #555, $outerColor: #333)  {
-    background-color: $outerColor;
-    background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($innerColor), to($outerColor));
-    background-image: -webkit-radial-gradient(circle, $innerColor, $outerColor);
-    background-image: -moz-radial-gradient(circle, $innerColor, $outerColor);
-    background-image: -ms-radial-gradient(circle, $innerColor, $outerColor);
-    background-repeat: no-repeat;
-    // Opera cannot do radial gradients yet
-  }
-@mixins gradient-striped($color, $angle: -45deg) {
-    background-color: $color;
-    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
-    background-image: -webkit-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-    background-image: -moz-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-    background-image: -ms-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-    background-image: -o-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-    background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
-  }
+@mixin gradient-horizontal($startColor: #555, $endColor: #333) {
+  background-color: $endColor;
+  background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
+  background-image: -ms-linear-gradient(left, $startColor, $endColor); // IE10
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(left, $startColor, $endColor); // Opera 11.10
+  background-image: linear-gradient(left, $startColor, $endColor); // Le standard
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=1), $startColor, $endColor; // IE9 and down
 }
-// Reset filters for IE
-@mixins reset-filter() {
-  filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+@mixin gradient-vertical($startColor: #555, $endColor: #333) {
+  background-color: mix($startColor, $endColor, 60%);
+  background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
+  background-image: -ms-linear-gradient(top, $startColor, $endColor); // IE10
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
+  background-image: linear-gradient(top, $startColor, $endColor); // The standard
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0),$startColor,$endColor; // IE9 and down
+}
+@mixin gradient-directional($startColor: #555, $endColor: #333, $deg: 45deg) {
+  background-color: $endColor;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient($deg, $startColor, $endColor); // FF 3.6+
+  background-image: -ms-linear-gradient($deg, $startColor, $endColor); // IE10
+  background-image: -webkit-linear-gradient($deg, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient($deg, $startColor, $endColor); // Opera 11.10
+  background-image: linear-gradient($deg, $startColor, $endColor); // The standard
+}
+@mixin gradient-vertical-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f) {
+  background-color: mix($midColor, $endColor, 80%);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
+  background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
+  background-image: -ms-linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0), $startColor, $endColor; // IE9 and down, gets no color-stop at all the proper fallback
+}
+@mixin gradient-radial($innerColor: #555, $outerColor: #333)  {
+  background-color: $outerColor;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($innerColor), to($outerColor));
+  background-image: -webkit-radial-gradient(circle, $innerColor, $outerColor);
+  background-image: -moz-radial-gradient(circle, $innerColor, $outerColor);
+  background-image: -ms-radial-gradient(circle, $innerColor, $outerColor);
+  background-repeat: no-repeat;
+  // Opera cannot do radial gradients yet
+}
+@mixin gradient-striped($color, $angle: -45deg) {
+  background-color: $color;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient($angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
 }
 
+// Reset filters for IE
+@mixin reset-filter() {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
 
 // Mixin for generating button backgrounds
 // ---------------------------------------
-@mixins buttonBackground($startColor, $endColor) {
+@mixin buttonBackground($startColor, $endColor) {
   // gradientBar will set the background to a pleasing blend of these, to support IE<=9
-  .gradientBar($startColor, $endColor);
-  .reset-filter();
+  @include gradientBar($startColor, $endColor);
+  @include reset-filter();
 
   // in these cases the gradient won't cover the background, so we override
   &:hover, &:active, &.active, &.disabled, &[disabled] {
@@ -543,7 +530,7 @@
   // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
   &:active,
   &.active {
-    background-color: darken($endColor, 10%) e("\9");
+    background-color: darken($endColor, 10%) #{"\9"};
   }
 }
 
@@ -554,37 +541,35 @@
 // POPOVER ARROWS
 // -------------------------
 // For tipsies and popovers
-#popoverArrow {
-@mixins popoverArrow-top($arrowWidth: 5px) {
-    bottom: 0;
-    left: 50%;
-    margin-left: -$arrowWidth;
-    border-left: $arrowWidth solid transparent;
-    border-right: $arrowWidth solid transparent;
-    border-top: $arrowWidth solid $black;
-  }
-@mixins popoverArrow-left($arrowWidth: 5px) {
-    top: 50%;
-    right: 0;
-    margin-top: -$arrowWidth;
-    border-top: $arrowWidth solid transparent;
-    border-bottom: $arrowWidth solid transparent;
-    border-left: $arrowWidth solid $black;
-  }
-@mixins popoverArrow-bottom($arrowWidth: 5px) {
-    top: 0;
-    left: 50%;
-    margin-left: -$arrowWidth;
-    border-left: $arrowWidth solid transparent;
-    border-right: $arrowWidth solid transparent;
-    border-bottom: $arrowWidth solid $black;
-  }
-@mixins popoverArrow-right($arrowWidth: 5px) {
-    top: 50%;
-    left: 0;
-    margin-top: -$arrowWidth;
-    border-top: $arrowWidth solid transparent;
-    border-bottom: $arrowWidth solid transparent;
-    border-right: $arrowWidth solid $black;
-  }
+@mixin popoverArrow-top($arrowWidth: 5px) {
+  bottom: 0;
+  left: 50%;
+  margin-left: -$arrowWidth;
+  border-left: $arrowWidth solid transparent;
+  border-right: $arrowWidth solid transparent;
+  border-top: $arrowWidth solid $black;
+}
+@mixin popoverArrow-left($arrowWidth: 5px) {
+  top: 50%;
+  right: 0;
+  margin-top: -$arrowWidth;
+  border-top: $arrowWidth solid transparent;
+  border-bottom: $arrowWidth solid transparent;
+  border-left: $arrowWidth solid $black;
+}
+@mixin popoverArrow-bottom($arrowWidth: 5px) {
+  top: 0;
+  left: 50%;
+  margin-left: -$arrowWidth;
+  border-left: $arrowWidth solid transparent;
+  border-right: $arrowWidth solid transparent;
+  border-bottom: $arrowWidth solid $black;
+}
+@mixin popoverArrow-right($arrowWidth: 5px) {
+  top: 50%;
+  left: 0;
+  margin-top: -$arrowWidth;
+  border-top: $arrowWidth solid transparent;
+  border-bottom: $arrowWidth solid transparent;
+  border-right: $arrowWidth solid $black;
 }
