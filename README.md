@@ -142,10 +142,11 @@ Now you can [customize](http://decioferreira.github.com/bootstrap-generators/) t
 
 ### Customize and extend Bootstrap
 
-If you select LESS or SCSS as your stylesheet engine, you will get an `app/assets/stylesheets/bootstrap-variables.css.[less|scss]` file with all of the [default variables](http://twitter.github.com/bootstrap/less.html#variables) of Bootstrap. This way you can [customize](http://decioferreira.github.com/bootstrap-generators/) the look and feel of Bootstrap without having to download any extra file:
+If you select LESS or SCSS as your stylesheet engine, you will get an `app/assets/stylesheets/bootstrap-variables.[less|css.scss]` file with all of the [default variables](http://twitter.github.com/bootstrap/less.html#variables) of Bootstrap. This way you can [customize](http://decioferreira.github.com/bootstrap-generators/) the look and feel of Bootstrap without having to download any extra file:
 
 LESS version:
 
+    // Variables.less
     // Variables to customize the look and feel of Bootstrap
     // -----------------------------------------------------
 
@@ -194,20 +195,28 @@ LESS version:
     // Z-index master list
     // Used for a bird's eye view of components dependent on the z-axis
     // Try to avoid customizing these :)
-    @zindexDropdown:        1000;
-    @zindexPopover:         1010;
-    @zindexTooltip:         1020;
-    @zindexFixedNavbar:     1030;
-    @zindexModalBackdrop:   1040;
-    @zindexModal:           1050;
+    @zindexDropdown:          1000;
+    @zindexPopover:           1010;
+    @zindexTooltip:           1020;
+    @zindexFixedNavbar:       1030;
+    @zindexModalBackdrop:     1040;
+    @zindexModal:             1050;
+
+    // Sprite icons path
+    @iconSpritePath:          "glyphicons-halflings.png";
+    @iconWhiteSpritePath:     "glyphicons-halflings-white.png";
 
     // Input placeholder text color
-    @placeholderText:       @grayLight;
+    @placeholderText:         @grayLight;
+
+    // Hr border color
+    @hrBorder:                @grayLighter;
 
     // Navbar
     @navbarHeight:                    40px;
     @navbarBackground:                @grayDarker;
     @navbarBackgroundHighlight:       @grayDark;
+    @navbarLinkBackgroundHover:       transparent;
 
     @navbarText:                      @grayLight;
     @navbarLinkColor:                 @grayLight;
@@ -247,7 +256,7 @@ LESS version:
 
 SCSS version:
 
-    // Variables.less
+    // Variables
     // Variables to customize the look and feel of Bootstrap
     // -----------------------------------------------------
 
@@ -296,20 +305,28 @@ SCSS version:
     // Z-index master list
     // Used for a bird's eye view of components dependent on the z-axis
     // Try to avoid customizing these :)
-    $zindexDropdown:        1000;
-    $zindexPopover:         1010;
-    $zindexTooltip:         1020;
-    $zindexFixedNavbar:     1030;
-    $zindexModalBackdrop:   1040;
-    $zindexModal:           1050;
+    $zindexDropdown:          1000 !default;
+    $zindexPopover:           1010 !default;
+    $zindexTooltip:           1020 !default;
+    $zindexFixedNavbar:       1030 !default;
+    $zindexModalBackdrop:     1040 !default;
+    $zindexModal:             1050 !default;
+
+    // Sprite icons path
+    $iconSpritePath:          "glyphicons-halflings.png";
+    $iconWhiteSpritePath:     "glyphicons-halflings-white.png";
 
     // Input placeholder text color
-    $placeholderText:       $grayLight !default;
+    $placeholderText:         $grayLight !default;
+
+    // Hr border color
+    $hrBorder:                $grayLighter !default;
 
     // Navbar
     $navbarHeight:                    40px !default;
     $navbarBackground:                $grayDarker !default;
     $navbarBackgroundHighlight:       $grayDark !default;
+    $navbarLinkBackgroundHover:       transparent !default;
 
     $navbarText:                      $grayLight !default;
     $navbarLinkColor:                 $grayLight !default;
