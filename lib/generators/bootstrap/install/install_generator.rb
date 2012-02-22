@@ -36,6 +36,9 @@ module Bootstrap
       def create_assets
         if options[:stylesheet_engine].nil? || options[:stylesheet_engine].to_sym == :css
           stylesheet_extension = 'css'
+        elsif options[:stylesheet_engine].to_sym == :less
+          stylesheet_extension = "css.#{options[:stylesheet_engine]}"
+          copy_file "assets/stylesheets/bootstrap-variables.less", "app/assets/stylesheets/bootstrap-variables.less"
         else
           stylesheet_extension = "css.#{options[:stylesheet_engine]}"
           copy_file "assets/stylesheets/bootstrap-variables.#{stylesheet_extension}", "app/assets/stylesheets/bootstrap-variables.#{stylesheet_extension}"

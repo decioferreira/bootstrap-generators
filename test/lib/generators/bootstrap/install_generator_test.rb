@@ -63,7 +63,7 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
     run_generator %w(--stylesheet-engine less)
 
     assert_file "app/assets/stylesheets/bootstrap-generators.css.less"
-    assert_file "app/assets/stylesheets/bootstrap-variables.css.less"
+    assert_file "app/assets/stylesheets/bootstrap-variables.less"
   end
 
   test "should create erb layout" do
