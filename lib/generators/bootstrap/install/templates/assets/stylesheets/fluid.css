@@ -1,5 +1,7 @@
 /*
  *= require bootstrap
+ *= require_self
+ *= require bootstrap-responsive
 */
 
 body {
