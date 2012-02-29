@@ -1,4 +1,4 @@
-= form_for @<%= singular_table_name %> do |f|
+= form_for @<%= singular_table_name %>, :html => { :class => "form-horizontal" } do |f|
   -if @<%= singular_table_name %>.errors.any?
     .alert.alert-error
       %a.close{:href => "#", :"data-dismiss" => "alert"} ×
@@ -12,7 +12,7 @@
   .control-group
     = f.label :<%= attribute.name %>, :class => 'control-label'
     .controls
-      = f.<%= attribute.field_type %> :<%= attribute.name %>, :class => 'input-xxlarge'
+      = f.<%= attribute.field_type %> :<%= attribute.name %>, :class => 'input-xlarge'
 <% end -%>
   .actions
     = f.submit :class => 'btn btn-primary'
