@@ -1,6 +1,0 @@
-[submodule "vendor/twitter/bootstrap"]
-	path = vendor/twitter/bootstrap
-	url = git://github.com/twitter/bootstrap.git
-[submodule "vendor/twitter/sass/bootstrap"]
-	path = vendor/twitter/sass/bootstrap
-	url = git://github.com/jlong/sass-twitter-bootstrap.git

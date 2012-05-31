@@ -28,7 +28,14 @@ def copy_routes
   routes = File.expand_path(File.join(File.dirname(__FILE__), 'fixtures', 'routes.rb'))
   destination = File.join(Rails.root, "config")
   FileUtils.mkdir_p(destination)
-  FileUtils.cp File.expand_path(routes), destination
+  FileUtils.cp routes, destination
+end
+
+def copy_application_javascript
+  application_js = File.expand_path(File.join(File.dirname(__FILE__), 'fixtures', 'application.js'))
+  destination = File.join(Rails.root, "app", "assets", "javascripts")
+  FileUtils.mkdir_p(destination)
+  FileUtils.cp application_js, destination
 end
 
 require 'generators/bootstrap/install/install_generator'

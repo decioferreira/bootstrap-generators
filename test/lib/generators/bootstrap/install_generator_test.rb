@@ -7,6 +7,7 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
 
   setup :prepare_destination
   setup :copy_routes
+  setup :copy_application_javascript
 
   test "should copy controller erb templates" do
     run_generator
@@ -40,10 +41,10 @@ class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCas
     }
   end
 
-  test "should copy javascript files" do
+  test "should require javascript bootstrap file" do
     run_generator
 
-    assert_file "app/assets/javascripts/bootstrap-generators.js"
+    assert_file "app/assets/javascripts/application.js", /require bootstrap/ 
   end
 
   test "should copy css files" do

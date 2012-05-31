@@ -1,12 +1,12 @@
 @import "bootstrap-variables";
-@import "scss/bootstrap";
+@import "bootstrap";
 
 body {
   padding-top: $navbarHeight + 20px;
   padding-bottom: 40px;
 }
 
-@import "scss/responsive";
+@import "responsive";
 
 .sidebar-nav {
   padding: 9px 0;

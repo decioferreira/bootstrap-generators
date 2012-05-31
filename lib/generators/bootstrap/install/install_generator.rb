@@ -33,7 +33,7 @@ module Bootstrap
         template "layouts/#{options[:layout]}.html.#{options[:template_engine]}", "app/views/layouts/application.html.#{options[:template_engine]}"
       end
 
-      def create_assets
+      def create_stylesheets
         if options[:stylesheet_engine].nil? || options[:stylesheet_engine].to_sym == :css
           stylesheet_extension = 'css'
         elsif options[:stylesheet_engine].to_sym == :less
@@ -45,7 +45,12 @@ module Bootstrap
         end
 
         copy_file "assets/stylesheets/#{options[:layout]}.#{stylesheet_extension}", "app/assets/stylesheets/bootstrap-generators.#{stylesheet_extension}"
-        copy_file 'assets/javascripts/bootstrap-generators.js', 'app/assets/javascripts/bootstrap-generators.js'
+      end
+
+      def inject_backbone
+        inject_into_file "app/assets/javascripts/application.js", :before => "//= require_tree" do
+          "//= require bootstrap\n"
+        end
       end
     end
   end
