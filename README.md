@@ -155,11 +155,9 @@ LESS version:
     // GLOBAL VALUES
     // --------------------------------------------------
 
-    // Links
-    @linkColor:             #08c;
-    @linkColorHover:        darken(@linkColor, 15%);
 
     // Grays
+    // -------------------------
     @black:                 #000;
     @grayDarker:            #222;
     @grayDark:              #333;
@@ -168,7 +166,9 @@ LESS version:
     @grayLighter:           #eee;
     @white:                 #fff;
 
+
     // Accent colors
+    // -------------------------
     @blue:                  #049cdb;
     @blueDark:              #0064cd;
     @green:                 #46a546;
@@ -178,14 +178,84 @@ LESS version:
     @pink:                  #c3325f;
     @purple:                #7a43b6;
 
-    // Typography
-    @baseFontSize:          13px;
-    @baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-    @baseLineHeight:        18px;
+
+    // Scaffolding
+    // -------------------------
+    @bodyBackground:        @white;
     @textColor:             @grayDark;
 
+
+    // Links
+    // -------------------------
+    @linkColor:             #08c;
+    @linkColorHover:        darken(@linkColor, 15%);
+
+
+    // Typography
+    // -------------------------
+    @sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+    @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+    @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
+
+    @baseFontSize:          13px;
+    @baseFontFamily:        @sansFontFamily;
+    @baseLineHeight:        18px;
+    @altFontFamily:         @serifFontFamily;
+
+    @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
+    @headingsFontWeight:    bold;    // instead of browser default, bold
+    @headingsColor:         inherit; // empty to use BS default, @textColor
+
+
+    // Tables
+    // -------------------------
+    @tableBackground:                   transparent; // overall background-color
+    @tableBackgroundAccent:             #f9f9f9; // for striping
+    @tableBackgroundHover:              #f5f5f5; // for hover
+    @tableBorder:                       #ddd; // table and cell border
+
+
     // Buttons
-    @primaryButtonBackground:    @linkColor;
+    // -------------------------
+    @btnBackground:                     @white;
+    @btnBackgroundHighlight:            darken(@white, 10%);
+    @btnBorder:                         #ccc;
+
+    @btnPrimaryBackground:              @linkColor;
+    @btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+
+    @btnInfoBackground:                 #5bc0de;
+    @btnInfoBackgroundHighlight:        #2f96b4;
+
+    @btnSuccessBackground:              #62c462;
+    @btnSuccessBackgroundHighlight:     #51a351;
+
+    @btnWarningBackground:              lighten(@orange, 15%);
+    @btnWarningBackgroundHighlight:     @orange;
+
+    @btnDangerBackground:               #ee5f5b;
+    @btnDangerBackgroundHighlight:      #bd362f;
+
+    @btnInverseBackground:              @gray;
+    @btnInverseBackgroundHighlight:     @grayDarker;
+
+
+    // Forms
+    // -------------------------
+    @inputBackground:               @white;
+    @inputBorder:                   #ccc;
+    @inputBorderRadius:             3px;
+    @inputDisabledBackground:       @grayLighter;
+    @formActionsBackground:         #f5f5f5;
+
+    // Dropdowns
+    // -------------------------
+    @dropdownBackground:            @white;
+    @dropdownBorder:                rgba(0,0,0,.2);
+    @dropdownLinkColor:             @grayDark;
+    @dropdownLinkColorHover:        @white;
+    @dropdownLinkBackgroundHover:   @linkColor;
+
 
 
 
@@ -193,6 +263,7 @@ LESS version:
     // --------------------------------------------------
 
     // Z-index master list
+    // -------------------------
     // Used for a bird's eye view of components dependent on the z-axis
     // Try to avoid customizing these :)
     @zindexDropdown:          1000;
@@ -202,27 +273,52 @@ LESS version:
     @zindexModalBackdrop:     1040;
     @zindexModal:             1050;
 
+
     // Sprite icons path
+    // -------------------------
     @iconSpritePath:          "glyphicons-halflings.png";
     @iconWhiteSpritePath:     "glyphicons-halflings-white.png";
 
+
     // Input placeholder text color
+    // -------------------------
     @placeholderText:         @grayLight;
 
+
     // Hr border color
+    // -------------------------
     @hrBorder:                @grayLighter;
 
+
     // Navbar
+    // -------------------------
     @navbarHeight:                    40px;
     @navbarBackground:                @grayDarker;
     @navbarBackgroundHighlight:       @grayDark;
-    @navbarLinkBackgroundHover:       transparent;
 
     @navbarText:                      @grayLight;
     @navbarLinkColor:                 @grayLight;
     @navbarLinkColorHover:            @white;
+    @navbarLinkColorActive:           @navbarLinkColorHover;
+    @navbarLinkBackgroundHover:       transparent;
+    @navbarLinkBackgroundActive:      @navbarBackground;
+
+    @navbarSearchBackground:          lighten(@navbarBackground, 25%);
+    @navbarSearchBackgroundFocus:     @white;
+    @navbarSearchBorder:              darken(@navbarSearchBackground, 30%);
+    @navbarSearchPlaceholderColor:    #ccc;
+    @navbarBrandColor:                @navbarLinkColor;
+
+
+    // Hero unit
+    // -------------------------
+    @heroUnitBackground:              @grayLighter;
+    @heroUnitHeadingColor:            inherit;
+    @heroUnitLeadColor:               inherit;
+
 
     // Form states and alerts
+    // -------------------------
     @warningText:             #c09853;
     @warningBackground:       #fcf8e3;
     @warningBorder:           darken(spin(@warningBackground, -10), 3%);
@@ -245,124 +341,16 @@ LESS version:
     // --------------------------------------------------
 
     // Default 940px grid
+    // -------------------------
     @gridColumns:             12;
     @gridColumnWidth:         60px;
     @gridGutterWidth:         20px;
     @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
 
     // Fluid grid
+    // -------------------------
     @fluidGridColumnWidth:    6.382978723%;
     @fluidGridGutterWidth:    2.127659574%;
-
-SCSS version:
-
-    // Variables
-    // Variables to customize the look and feel of Bootstrap
-    // -----------------------------------------------------
-
-
-
-    // GLOBAL VALUES
-    // --------------------------------------------------
-
-    // Links
-    $linkColor:             #08c !default;
-    $linkColorHover:        darken($linkColor, 15%) !default;
-
-    // Grays
-    $black:                 #000 !default;
-    $grayDarker:            #222 !default;
-    $grayDark:              #333 !default;
-    $gray:                  #555 !default;
-    $grayLight:             #999 !default;
-    $grayLighter:           #eee !default;
-    $white:                 #fff !default;
-
-    // Accent colors
-    $blue:                  #049cdb !default;
-    $blueDark:              #0064cd !default;
-    $green:                 #46a546 !default;
-    $red:                   #9d261d !default;
-    $yellow:                #ffc40d !default;
-    $orange:                #f89406 !default;
-    $pink:                  #c3325f !default;
-    $purple:                #7a43b6 !default;
-
-    // Typography
-    $baseFontSize:          13px !default;
-    $baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-    $baseLineHeight:        18px !default;
-    $textColor:             $grayDark !default;
-
-    // Buttons
-    $primaryButtonBackground:    $linkColor !default;
-
-
-
-    // COMPONENT VARIABLES
-    // --------------------------------------------------
-
-    // Z-index master list
-    // Used for a bird's eye view of components dependent on the z-axis
-    // Try to avoid customizing these :)
-    $zindexDropdown:          1000 !default;
-    $zindexPopover:           1010 !default;
-    $zindexTooltip:           1020 !default;
-    $zindexFixedNavbar:       1030 !default;
-    $zindexModalBackdrop:     1040 !default;
-    $zindexModal:             1050 !default;
-
-    // Sprite icons path
-    $iconSpritePath:          "glyphicons-halflings.png";
-    $iconWhiteSpritePath:     "glyphicons-halflings-white.png";
-
-    // Input placeholder text color
-    $placeholderText:         $grayLight !default;
-
-    // Hr border color
-    $hrBorder:                $grayLighter !default;
-
-    // Navbar
-    $navbarHeight:                    40px !default;
-    $navbarBackground:                $grayDarker !default;
-    $navbarBackgroundHighlight:       $grayDark !default;
-    $navbarLinkBackgroundHover:       transparent !default;
-
-    $navbarText:                      $grayLight !default;
-    $navbarLinkColor:                 $grayLight !default;
-    $navbarLinkColorHover:            $white !default;
-
-    // Form states and alerts
-    $warningText:             #c09853 !default;
-    $warningBackground:       #fcf8e3 !default;
-    $warningBorder:           darken(adjust-hue($warningBackground, -10), 3%) !default;
-
-    $errorText:               #b94a48 !default;
-    $errorBackground:         #f2dede !default;
-    $errorBorder:             darken(adjust-hue($errorBackground, -10), 3%) !default;
-
-    $successText:             #468847 !default;
-    $successBackground:       #dff0d8 !default;
-    $successBorder:           darken(adjust-hue($successBackground, -10), 5%) !default;
-
-    $infoText:                #3a87ad !default;
-    $infoBackground:          #d9edf7 !default;
-    $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
-
-
-
-    // GRID
-    // --------------------------------------------------
-
-    // Default 940px grid
-    $gridColumns:             12 !default;
-    $gridColumnWidth:         60px !default;
-    $gridGutterWidth:         20px !default;
-    $gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
-
-    // Fluid grid
-    $fluidGridColumnWidth:    6.382978723% !default;
-    $fluidGridGutterWidth:    2.127659574% !default;
 
 ### Javascript
 
