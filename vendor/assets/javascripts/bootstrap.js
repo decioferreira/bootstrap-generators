@@ -10,4 +10,4 @@
 //= require bootstrap-collapse
 //= require bootstrap-carousel
 //= require bootstrap-typeahead
-
+//= require bootstrap-affix

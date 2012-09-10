@@ -6,15 +6,15 @@ Bootstrap-generators provides [Twitter Bootstrap](http://twitter.github.com/boot
 
 In your Gemfile, add this line:
 
-    gem 'bootstrap-generators', '~> 2.0'
+    gem 'bootstrap-generators', '~> 2.1'
 
 Or you can install from latest build:
 
-    gem 'bootstrap-generators', '~> 2.0', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
+    gem 'bootstrap-generators', '~> 2.1', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
 
 By default Bootstrap Generators requires [SimpleForm 2.0](https://github.com/plataformatec/simple_form). Add the dependency on your Gemfile:
 
-    gem 'simple_form', '~> 2.0'
+    gem 'simple_form'
 
 If you don't want to use SimpleForm, just pass the `--form_builder=form_builder` option:
 
@@ -79,7 +79,7 @@ To select one of these layouts just pass the option `--layout=LAYOUT` to the ins
 
 By default Bootstrap Generators requires SimpleForm 2.0. Add the dependency on your Gemfile:
 
-    gem 'simple_form', '~> 2.0'
+    gem 'simple_form'
 
 And then run:
 
@@ -146,13 +146,12 @@ If you select LESS or SCSS as your stylesheet engine, you will get an `app/asset
 
 LESS version:
 
-    // Variables.less
-    // Variables to customize the look and feel of Bootstrap
-    // -----------------------------------------------------
+    //
+    // Variables
+    // --------------------------------------------------
 
 
-
-    // GLOBAL VALUES
+    // Global values
     // --------------------------------------------------
 
 
@@ -195,17 +194,16 @@ LESS version:
     // -------------------------
     @sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
     @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
-    @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
+    @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-    @baseFontSize:          13px;
+    @baseFontSize:          14px;
     @baseFontFamily:        @sansFontFamily;
-    @baseLineHeight:        18px;
+    @baseLineHeight:        20px;
     @altFontFamily:         @serifFontFamily;
 
     @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
     @headingsFontWeight:    bold;    // instead of browser default, bold
     @headingsColor:         inherit; // empty to use BS default, @textColor
-
 
     // Tables
     // -------------------------
@@ -214,15 +212,14 @@ LESS version:
     @tableBackgroundHover:              #f5f5f5; // for hover
     @tableBorder:                       #ddd; // table and cell border
 
-
     // Buttons
     // -------------------------
     @btnBackground:                     @white;
     @btnBackgroundHighlight:            darken(@white, 10%);
-    @btnBorder:                         #ccc;
+    @btnBorder:                         #bbb;
 
     @btnPrimaryBackground:              @linkColor;
-    @btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+    @btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
 
     @btnInfoBackground:                 #5bc0de;
     @btnInfoBackgroundHighlight:        #2f96b4;
@@ -236,7 +233,7 @@ LESS version:
     @btnDangerBackground:               #ee5f5b;
     @btnDangerBackgroundHighlight:      #bd362f;
 
-    @btnInverseBackground:              @gray;
+    @btnInverseBackground:              #444;
     @btnInverseBackgroundHighlight:     @grayDarker;
 
 
@@ -252,11 +249,15 @@ LESS version:
     // -------------------------
     @dropdownBackground:            @white;
     @dropdownBorder:                rgba(0,0,0,.2);
-    @dropdownLinkColor:             @grayDark;
-    @dropdownLinkColorHover:        @white;
-    @dropdownLinkBackgroundHover:   @linkColor;
     @dropdownDividerTop:            #e5e5e5;
     @dropdownDividerBottom:         @white;
+
+    @dropdownLinkColor:             @grayDark;
+    @dropdownLinkColorHover:        @white;
+    @dropdownLinkColorActive:       @dropdownLinkColor;
+
+    @dropdownLinkBackgroundActive:  @linkColor;
+    @dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
 
 
 
@@ -269,7 +270,7 @@ LESS version:
     // Try to avoid customizing these :)
     @zindexDropdown:          1000;
     @zindexPopover:           1010;
-    @zindexTooltip:           1020;
+    @zindexTooltip:           1030;
     @zindexFixedNavbar:       1030;
     @zindexModalBackdrop:     1040;
     @zindexModal:             1050;
@@ -291,24 +292,59 @@ LESS version:
     @hrBorder:                @grayLighter;
 
 
+    // Horizontal forms & lists
+    // -------------------------
+    @horizontalComponentOffset:       180px;
+
+
+    // Wells
+    // -------------------------
+    @wellBackground:                  #f5f5f5;
+
+
     // Navbar
     // -------------------------
+    @navbarCollapseWidth:             979px;
+
     @navbarHeight:                    40px;
-    @navbarBackground:                @grayDarker;
-    @navbarBackgroundHighlight:       @grayDark;
+    @navbarBackgroundHighlight:       #ffffff;
+    @navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
+    @navbarBorder:                    darken(@navbarBackground, 12%);
 
-    @navbarText:                      @grayLight;
-    @navbarLinkColor:                 @grayLight;
-    @navbarLinkColorHover:            @white;
-    @navbarLinkColorActive:           @navbarLinkColorHover;
+    @navbarText:                      #777;
+    @navbarLinkColor:                 #777;
+    @navbarLinkColorHover:            @grayDark;
+    @navbarLinkColorActive:           @gray;
     @navbarLinkBackgroundHover:       transparent;
-    @navbarLinkBackgroundActive:      @navbarBackground;
+    @navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
 
-    @navbarSearchBackground:          lighten(@navbarBackground, 25%);
-    @navbarSearchBackgroundFocus:     @white;
-    @navbarSearchBorder:              darken(@navbarSearchBackground, 30%);
-    @navbarSearchPlaceholderColor:    #ccc;
     @navbarBrandColor:                @navbarLinkColor;
+
+    // Inverted navbar
+    @navbarInverseBackground:                #111111;
+    @navbarInverseBackgroundHighlight:       #222222;
+    @navbarInverseBorder:                    #252525;
+
+    @navbarInverseText:                      @grayLight;
+    @navbarInverseLinkColor:                 @grayLight;
+    @navbarInverseLinkColorHover:            @white;
+    @navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
+    @navbarInverseLinkBackgroundHover:       transparent;
+    @navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
+
+    @navbarInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
+    @navbarInverseSearchBackgroundFocus:     @white;
+    @navbarInverseSearchBorder:              @navbarInverseBackground;
+    @navbarInverseSearchPlaceholderColor:    #ccc;
+
+    @navbarInverseBrandColor:                @navbarInverseLinkColor;
+
+
+    // Pagination
+    // -------------------------
+    @paginationBackground:                #fff;
+    @paginationBorder:                    #ddd;
+    @paginationActiveBackground:          #f5f5f5;
 
 
     // Hero unit
@@ -337,9 +373,27 @@ LESS version:
     @infoBorder:              darken(spin(@infoBackground, -10), 7%);
 
 
+    // Tooltips and popovers
+    // -------------------------
+    @tooltipColor:            #fff;
+    @tooltipBackground:       #000;
+    @tooltipArrowWidth:       5px;
+    @tooltipArrowColor:       @tooltipBackground;
+
+    @popoverBackground:       #fff;
+    @popoverArrowWidth:       10px;
+    @popoverArrowColor:       #fff;
+    @popoverTitleBackground:  darken(@popoverBackground, 3%);
+
+    // Special enhancement for popovers
+    @popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+    @popoverArrowOuterColor:  rgba(0,0,0,.25);
+
+
 
     // GRID
     // --------------------------------------------------
+
 
     // Default 940px grid
     // -------------------------
@@ -348,20 +402,38 @@ LESS version:
     @gridGutterWidth:         20px;
     @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
 
+    // 1200px min
+    @gridColumnWidth1200:     70px;
+    @gridGutterWidth1200:     30px;
+    @gridRowWidth1200:        (@gridColumns * @gridColumnWidth1200) + (@gridGutterWidth1200 * (@gridColumns - 1));
+
+    // 768px-979px
+    @gridColumnWidth768:      42px;
+    @gridGutterWidth768:      20px;
+    @gridRowWidth768:         (@gridColumns * @gridColumnWidth768) + (@gridGutterWidth768 * (@gridColumns - 1));
+
+
     // Fluid grid
     // -------------------------
-    @fluidGridColumnWidth:    6.382978723%;
-    @fluidGridGutterWidth:    2.127659574%;
+    @fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);
+    @fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);
+
+    // 1200px min
+    @fluidGridColumnWidth1200:     percentage(@gridColumnWidth1200/@gridRowWidth1200);
+    @fluidGridGutterWidth1200:     percentage(@gridGutterWidth1200/@gridRowWidth1200);
+
+    // 768px-979px
+    @fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
+    @fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
 
 SCSS version:
 
+    //
     // Variables
-    // Variables to customize the look and feel of Bootstrap
-    // -----------------------------------------------------
+    // --------------------------------------------------
 
 
-
-    // GLOBAL VALUES
+    // Global values
     // --------------------------------------------------
 
 
@@ -404,17 +476,16 @@ SCSS version:
     // -------------------------
     $sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
     $serifFontFamily:       Georgia, "Times New Roman", Times, serif !default;
-    $monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace !default;
+    $monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace !default;
 
-    $baseFontSize:          13px !default;
+    $baseFontSize:          14px !default;
     $baseFontFamily:        $sansFontFamily !default;
-    $baseLineHeight:        18px !default;
+    $baseLineHeight:        20px !default;
     $altFontFamily:         $serifFontFamily !default;
 
     $headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
     $headingsFontWeight:    bold !default;    // instead of browser default, bold
     $headingsColor:         inherit !default; // empty to use BS default, $textColor
-
 
     // Tables
     // -------------------------
@@ -423,15 +494,14 @@ SCSS version:
     $tableBackgroundHover:              #f5f5f5 !default; // for hover
     $tableBorder:                       #ddd !default; // table and cell border
 
-
     // Buttons
     // -------------------------
     $btnBackground:                     $white !default;
     $btnBackgroundHighlight:            darken($white, 10%) !default;
-    $btnBorder:                         #ccc !default;
+    $btnBorder:                         #bbb !default;
 
     $btnPrimaryBackground:              $linkColor !default;
-    $btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 15%) !default;
+    $btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20%) !default;
 
     $btnInfoBackground:                 #5bc0de !default;
     $btnInfoBackgroundHighlight:        #2f96b4 !default;
@@ -445,7 +515,7 @@ SCSS version:
     $btnDangerBackground:               #ee5f5b !default;
     $btnDangerBackgroundHighlight:      #bd362f !default;
 
-    $btnInverseBackground:              $gray !default;
+    $btnInverseBackground:              #444 !default;
     $btnInverseBackgroundHighlight:     $grayDarker !default;
 
 
@@ -461,9 +531,15 @@ SCSS version:
     // -------------------------
     $dropdownBackground:            $white !default;
     $dropdownBorder:                rgba(0,0,0,.2) !default;
+    $dropdownDividerTop:            #e5e5e5 !default;
+    $dropdownDividerBottom:         $white !default;
+
     $dropdownLinkColor:             $grayDark !default;
     $dropdownLinkColorHover:        $white !default;
-    $dropdownLinkBackgroundHover:   $linkColor !default;
+    $dropdownLinkColorActive:       $dropdownLinkColor !default;
+
+    $dropdownLinkBackgroundActive:  $linkColor !default;
+    $dropdownLinkBackgroundHover:   $dropdownLinkBackgroundActive !default;
 
 
 
@@ -476,7 +552,7 @@ SCSS version:
     // Try to avoid customizing these :)
     $zindexDropdown:          1000 !default;
     $zindexPopover:           1010 !default;
-    $zindexTooltip:           1020 !default;
+    $zindexTooltip:           1030 !default;
     $zindexFixedNavbar:       1030 !default;
     $zindexModalBackdrop:     1040 !default;
     $zindexModal:             1050 !default;
@@ -498,24 +574,59 @@ SCSS version:
     $hrBorder:                $grayLighter !default;
 
 
+    // Horizontal forms & lists
+    // -------------------------
+    $horizontalComponentOffset:       180px;
+
+
+    // Wells
+    // -------------------------
+    $wellBackground:                  #f5f5f5 !default;
+
+
     // Navbar
     // -------------------------
+    $navbarCollapseWidth:             979px !default;
+
     $navbarHeight:                    40px !default;
-    $navbarBackground:                $grayDarker !default;
-    $navbarBackgroundHighlight:       $grayDark !default;
+    $navbarBackgroundHighlight:       #ffffff !default;
+    $navbarBackground:                darken($navbarBackgroundHighlight, 5%) !default;
+    $navbarBorder:                    darken($navbarBackground, 12%) !default;
 
-    $navbarText:                      $grayLight !default;
-    $navbarLinkColor:                 $grayLight !default;
-    $navbarLinkColorHover:            $white !default;
-    $navbarLinkColorActive:           $navbarLinkColorHover !default;
+    $navbarText:                      #777 !default;
+    $navbarLinkColor:                 #777 !default;
+    $navbarLinkColorHover:            $grayDark !default;
+    $navbarLinkColorActive:           $gray !default;
     $navbarLinkBackgroundHover:       transparent !default;
-    $navbarLinkBackgroundActive:      $navbarBackground !default;
+    $navbarLinkBackgroundActive:      darken($navbarBackground, 5.25%) !default;
 
-    $navbarSearchBackground:          lighten($navbarBackground, 25%) !default;
-    $navbarSearchBackgroundFocus:     $white !default;
-    $navbarSearchBorder:              darken($navbarSearchBackground, 30%) !default;
-    $navbarSearchPlaceholderColor:    #ccc !default;
     $navbarBrandColor:                $navbarLinkColor !default;
+
+    // Inverted navbar
+    $navbarInverseBackground:                #111111 !default;
+    $navbarInverseBackgroundHighlight:       #222222 !default;
+    $navbarInverseBorder:                    #252525 !default;
+
+    $navbarInverseText:                      $grayLight !default;
+    $navbarInverseLinkColor:                 $grayLight !default;
+    $navbarInverseLinkColorHover:            $white !default;
+    $navbarInverseLinkColorActive:           $navbarInverseLinkColorHover !default;
+    $navbarInverseLinkBackgroundHover:       transparent !default;
+    $navbarInverseLinkBackgroundActive:      $navbarInverseBackground !default;
+
+    $navbarInverseSearchBackground:          lighten($navbarInverseBackground, 25%) !default;
+    $navbarInverseSearchBackgroundFocus:     $white !default;
+    $navbarInverseSearchBorder:              $navbarInverseBackground !default;
+    $navbarInverseSearchPlaceholderColor:    #ccc !default;
+
+    $navbarInverseBrandColor:                $navbarInverseLinkColor !default;
+
+
+    // Pagination
+    // -------------------------
+    $paginationBackground:                #fff !default;
+    $paginationBorder:                    #ddd !default;
+    $paginationActiveBackground:          #f5f5f5 !default;
 
 
     // Hero unit
@@ -544,6 +655,23 @@ SCSS version:
     $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
 
 
+    // Tooltips and popovers
+    // -------------------------
+    $tooltipColor:            #fff !default;
+    $tooltipBackground:       #000 !default;
+    $tooltipArrowWidth:       5px !default;
+    $tooltipArrowColor:       $tooltipBackground !default;
+
+    $popoverBackground:       #fff !default;
+    $popoverArrowWidth:       10px !default;
+    $popoverArrowColor:       #fff !default;
+    $popoverTitleBackground:  darken($popoverBackground, 3%) !default;
+
+    // Special enhancement for popovers
+    $popoverArrowOuterWidth:  $popoverArrowWidth + 1 !default;
+    $popoverArrowOuterColor:  rgba(0,0,0,.25) !default;
+
+
 
     // GRID
     // --------------------------------------------------
@@ -555,10 +683,29 @@ SCSS version:
     $gridGutterWidth:         20px !default;
     $gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1)) !default;
 
+    // 1200px min
+    $gridColumnWidth1200:     70px !default;
+    $gridGutterWidth1200:     30px !default;
+    $gridRowWidth1200:        ($gridColumns * $gridColumnWidth1200) + ($gridGutterWidth1200 * ($gridColumns - 1)) !default;
+
+    // 768px-979px
+    $gridColumnWidth768:      42px !default;
+    $gridGutterWidth768:      20px !default;
+    $gridRowWidth768:         ($gridColumns * $gridColumnWidth768) + ($gridGutterWidth768 * ($gridColumns - 1)) !default;
+
+
     // Fluid grid
     // -------------------------
-    $fluidGridColumnWidth:    6.382978723% !default;
-    $fluidGridGutterWidth:    2.127659574% !default;
+    $fluidGridColumnWidth:    percentage($gridColumnWidth/$gridRowWidth) !default;
+    $fluidGridGutterWidth:    percentage($gridGutterWidth/$gridRowWidth) !default;
+
+    // 1200px min
+    $fluidGridColumnWidth1200:     percentage($gridColumnWidth1200/$gridRowWidth1200) !default;
+    $fluidGridGutterWidth1200:     percentage($gridGutterWidth1200/$gridRowWidth1200) !default;
+
+    // 768px-979px
+    $fluidGridColumnWidth768:      percentage($gridColumnWidth768/$gridRowWidth768) !default;
+    $fluidGridGutterWidth768:      percentage($gridGutterWidth768/$gridRowWidth768) !default;
 
 ### Javascript
 
@@ -580,6 +727,7 @@ Or quickly add only the necessary javascript (Transitions: required for any anim
     //= require bootstrap-collapse
     //= require bootstrap-carousel
     //= require bootstrap-typeahead
+    //= require bootstrap-affix
 
 ## Customizing Templates
 
