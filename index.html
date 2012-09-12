@@ -14,7 +14,7 @@
     <!-- Le styles -->
     <style id="bootstrap-less" type="text/less">
       /*!
-       * Bootstrap v2.0.4
+       * Bootstrap v2.1.1
        *
        * Copyright 2012 Twitter, Inc
        * Licensed under the Apache License v2.0
@@ -28,13 +28,12 @@
 
       // Core variables and mixins
 
-      // Variables.less
-      // Variables to customize the look and feel of Bootstrap
-      // -----------------------------------------------------
+      //
+      // Variables
+      // --------------------------------------------------
 
 
-
-      // GLOBAL VALUES
+      // Global values
       // --------------------------------------------------
 
 
@@ -77,17 +76,16 @@
       // -------------------------
       @sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
       @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
-      @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
+      @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-      @baseFontSize:          13px;
+      @baseFontSize:          14px;
       @baseFontFamily:        @sansFontFamily;
-      @baseLineHeight:        18px;
+      @baseLineHeight:        20px;
       @altFontFamily:         @serifFontFamily;
 
       @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
       @headingsFontWeight:    bold;    // instead of browser default, bold
       @headingsColor:         inherit; // empty to use BS default, @textColor
-
 
       // Tables
       // -------------------------
@@ -96,15 +94,14 @@
       @tableBackgroundHover:              #f5f5f5; // for hover
       @tableBorder:                       #ddd; // table and cell border
 
-
       // Buttons
       // -------------------------
       @btnBackground:                     @white;
       @btnBackgroundHighlight:            darken(@white, 10%);
-      @btnBorder:                         #ccc;
+      @btnBorder:                         #bbb;
 
       @btnPrimaryBackground:              @linkColor;
-      @btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+      @btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
 
       @btnInfoBackground:                 #5bc0de;
       @btnInfoBackgroundHighlight:        #2f96b4;
@@ -118,7 +115,7 @@
       @btnDangerBackground:               #ee5f5b;
       @btnDangerBackgroundHighlight:      #bd362f;
 
-      @btnInverseBackground:              @gray;
+      @btnInverseBackground:              #444;
       @btnInverseBackgroundHighlight:     @grayDarker;
 
 
@@ -134,11 +131,15 @@
       // -------------------------
       @dropdownBackground:            @white;
       @dropdownBorder:                rgba(0,0,0,.2);
-      @dropdownLinkColor:             @grayDark;
-      @dropdownLinkColorHover:        @white;
-      @dropdownLinkBackgroundHover:   @linkColor;
       @dropdownDividerTop:            #e5e5e5;
       @dropdownDividerBottom:         @white;
+
+      @dropdownLinkColor:             @grayDark;
+      @dropdownLinkColorHover:        @white;
+      @dropdownLinkColorActive:       @dropdownLinkColor;
+
+      @dropdownLinkBackgroundActive:  @linkColor;
+      @dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
 
 
 
@@ -151,7 +152,7 @@
       // Try to avoid customizing these :)
       @zindexDropdown:          1000;
       @zindexPopover:           1010;
-      @zindexTooltip:           1020;
+      @zindexTooltip:           1030;
       @zindexFixedNavbar:       1030;
       @zindexModalBackdrop:     1040;
       @zindexModal:             1050;
@@ -173,24 +174,59 @@
       @hrBorder:                @grayLighter;
 
 
+      // Horizontal forms & lists
+      // -------------------------
+      @horizontalComponentOffset:       180px;
+
+
+      // Wells
+      // -------------------------
+      @wellBackground:                  #f5f5f5;
+
+
       // Navbar
       // -------------------------
+      @navbarCollapseWidth:             979px;
+
       @navbarHeight:                    40px;
-      @navbarBackground:                @grayDarker;
-      @navbarBackgroundHighlight:       @grayDark;
+      @navbarBackgroundHighlight:       #ffffff;
+      @navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
+      @navbarBorder:                    darken(@navbarBackground, 12%);
 
-      @navbarText:                      @grayLight;
-      @navbarLinkColor:                 @grayLight;
-      @navbarLinkColorHover:            @white;
-      @navbarLinkColorActive:           @navbarLinkColorHover;
+      @navbarText:                      #777;
+      @navbarLinkColor:                 #777;
+      @navbarLinkColorHover:            @grayDark;
+      @navbarLinkColorActive:           @gray;
       @navbarLinkBackgroundHover:       transparent;
-      @navbarLinkBackgroundActive:      @navbarBackground;
+      @navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
 
-      @navbarSearchBackground:          lighten(@navbarBackground, 25%);
-      @navbarSearchBackgroundFocus:     @white;
-      @navbarSearchBorder:              darken(@navbarSearchBackground, 30%);
-      @navbarSearchPlaceholderColor:    #ccc;
       @navbarBrandColor:                @navbarLinkColor;
+
+      // Inverted navbar
+      @navbarInverseBackground:                #111111;
+      @navbarInverseBackgroundHighlight:       #222222;
+      @navbarInverseBorder:                    #252525;
+
+      @navbarInverseText:                      @grayLight;
+      @navbarInverseLinkColor:                 @grayLight;
+      @navbarInverseLinkColorHover:            @white;
+      @navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
+      @navbarInverseLinkBackgroundHover:       transparent;
+      @navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
+
+      @navbarInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
+      @navbarInverseSearchBackgroundFocus:     @white;
+      @navbarInverseSearchBorder:              @navbarInverseBackground;
+      @navbarInverseSearchPlaceholderColor:    #ccc;
+
+      @navbarInverseBrandColor:                @navbarInverseLinkColor;
+
+
+      // Pagination
+      // -------------------------
+      @paginationBackground:                #fff;
+      @paginationBorder:                    #ddd;
+      @paginationActiveBackground:          #f5f5f5;
 
 
       // Hero unit
@@ -219,9 +255,27 @@
       @infoBorder:              darken(spin(@infoBackground, -10), 7%);
 
 
+      // Tooltips and popovers
+      // -------------------------
+      @tooltipColor:            #fff;
+      @tooltipBackground:       #000;
+      @tooltipArrowWidth:       5px;
+      @tooltipArrowColor:       @tooltipBackground;
+
+      @popoverBackground:       #fff;
+      @popoverArrowWidth:       10px;
+      @popoverArrowColor:       #fff;
+      @popoverTitleBackground:  darken(@popoverBackground, 3%);
+
+      // Special enhancement for popovers
+      @popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+      @popoverArrowOuterColor:  rgba(0,0,0,.25);
+
+
 
       // GRID
       // --------------------------------------------------
+
 
       // Default 940px grid
       // -------------------------
@@ -230,10 +284,29 @@
       @gridGutterWidth:         20px;
       @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
 
+      // 1200px min
+      @gridColumnWidth1200:     70px;
+      @gridGutterWidth1200:     30px;
+      @gridRowWidth1200:        (@gridColumns * @gridColumnWidth1200) + (@gridGutterWidth1200 * (@gridColumns - 1));
+
+      // 768px-979px
+      @gridColumnWidth768:      42px;
+      @gridGutterWidth768:      20px;
+      @gridRowWidth768:         (@gridColumns * @gridColumnWidth768) + (@gridGutterWidth768 * (@gridColumns - 1));
+
+
       // Fluid grid
       // -------------------------
-      @fluidGridColumnWidth:    6.382978723%;
-      @fluidGridGutterWidth:    2.127659574%;
+      @fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);
+      @fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);
+
+      // 1200px min
+      @fluidGridColumnWidth1200:     percentage(@gridColumnWidth1200/@gridRowWidth1200);
+      @fluidGridGutterWidth1200:     percentage(@gridGutterWidth1200/@gridRowWidth1200);
+
+      // 768px-979px
+      @fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
+      @fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
 
       @import "assets/stylesheets/mixins.less";
 
@@ -292,9 +365,6 @@
           padding-top: @navbarHeight;
         }
 
-        .linkColor {background-color: @linkColor}
-        .linkColorHover {background-color: @linkColorHover}
-        .textColor {background-color: @textColor}
         .black {background-color: @black}
         .grayDarker {background-color: @grayDarker}
         .grayDark {background-color: @grayDark}
@@ -302,6 +372,7 @@
         .grayLight {background-color: @grayLight}
         .grayLighter {background-color: @grayLighter}
         .white {background-color: @white}
+
         .blue {background-color: @blue}
         .blueDark {background-color: @blueDark}
         .green {background-color: @green}
@@ -310,7 +381,20 @@
         .orange {background-color: @orange}
         .pink {background-color: @pink}
         .purple {background-color: @purple}
+
+        .bodyBackground {background-color: @bodyBackground}
         .textColor {background-color: @textColor}
+
+        .linkColor {background-color: @linkColor}
+        .linkColorHover {background-color: @linkColorHover}
+
+        .headingsColor {background-color: @headingsColor}
+
+        .tableBackground {background-color: @tableBackground}
+        .tableBackgroundAccent {background-color: @tableBackgroundAccent}
+        .tableBackgroundHover {background-color: @tableBackgroundHover}
+        .tableBorder {background-color: @tableBorder}
+
         .btnPrimaryBackground {background-color: @btnPrimaryBackground}
         .placeholderText {background-color: @placeholderText}
         .hrBorder {background-color: @hrBorder}
@@ -363,7 +447,7 @@
               <li class="divider-vertical"></li>
               <li><a href="#global-values">Global Values</a></li>
               <li><a href="#components">Components</a></li>
-              <li><a href="#scaffolding">Scaffolding</a></li>
+              <li><a href="#grid">Grid</a></li>
               <li class="divider-vertical"></li>
               <li><a href="#customize">Customize</a></li>
             </ul>
@@ -401,83 +485,7 @@
           <h1>Global Values</h1>
         </div>
 
-        <h2>Hyperlinks</h2>
-
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>Variable</th>
-              <th colspan="2">Default value</th>
-              <th colspan="2">Value</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>@linkColor</code></td>
-              <td>#08c</td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #08c;"></span></td>
-              <td><input type="text" class="variable variable-color" name="linkColor" placeholder="#08c" /></td>
-              <td class="swatch-col"><span class="swatch linkColor"></span></td>
-              <td class="description-col">Default link text color</td>
-            </tr>
-            <tr>
-              <td><code>@linkColorHover</code></td>
-              <td><code>darken(@linkColor, 15%)</code></td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #005580;"></span></td>
-              <td><input type="text" class="variable variable-color" name="linkColorHover" placeholder="darken(@linkColor, 15%)" /></td>
-              <td class="swatch-col"><span class="swatch linkColorHover"></span></td>
-              <td class="description-col">Default link text hover color</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>Link example</h3>
-
-        <p><a href="#">Link text color</a>.</p>
-
-        <h2>Typography</h2>
-
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>Variable</th>
-              <th colspan="2">Default value</th>
-              <th colspan="2">Value</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>@baseFontSize</code></td>
-              <td colspan="2">13px</td>
-              <td colspan="2"><input type="text" class="variable variable-pixels" name="baseFontSize" placeholder="13px" /></td>
-              <td>Default base font-size used throughout</td>
-            </tr>
-            <tr>
-              <td><code>@baseFontFamily</code></td>
-              <td colspan="2"><code>"Helvetica Neue", Helvetica, Arial, sans-serif</code></td>
-              <td colspan="2"><input type="text" class="variable variable-array" name="baseFontFamily" placeholder='"Helvetica Neue", Helvetica, Arial, sans-serif' /></td>
-              <td>Default base line-height</td>
-            </tr>
-            <tr>
-              <td><code>@baseLineHeight</code></td>
-              <td colspan="2">18px</td>
-              <td colspan="2"><input type="text" class="variable variable-pixels" name="baseLineHeight" placeholder="18px" /></td>
-              <td>Default base line-height</td>
-            </tr>
-            <tr>
-              <td class="span2"><code>@textColor</code></td>
-              <td>@grayDark</td>
-              <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
-              <td><input type="text" class="input-small variable variable-color" name="textColor" placeholder="@grayDark" /></td>
-              <td class="swatch-col"><span class="swatch textColor"></span></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h2>Grayscale colors</h2>
+        <h2>Grays</h2>
 
         <table class="table table-bordered table-striped">
           <thead>
@@ -610,29 +618,239 @@
           </tbody>
         </table>
 
-        <h3>Warning button example</h3>
+        <h2>Scaffolding</h2>
 
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>Button</th>
-              <th>Class</th>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="span2"><code>@bodyBackground</code></td>
+              <td>@white</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+              <td><input type="text" class="input-small variable variable-color" name="bodyBackground" placeholder="@white"></td>
+              <td class="swatch-col"><span class="swatch bodyBackground"></span></td>
+            </tr>
+            <tr>
+              <td class="span2"><code>@textColor</code></td>
+              <td>@grayDark</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
+              <td><input type="text" class="input-small variable variable-color" name="textColor" placeholder="@grayDark"></td>
+              <td class="swatch-col"><span class="swatch textColor"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Links</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><a class="btn btn-warning" href="#">Warning</a></td>
-              <td><code>.btn-warning</code></td>
-              <td>Indicates caution should be taken with this action</td>
+              <td><code>@linkColor</code></td>
+              <td>#08c</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #08c;"></span></td>
+              <td><input type="text" class="variable variable-color" name="linkColor" placeholder="#08c" /></td>
+              <td class="swatch-col"><span class="swatch linkColor"></span></td>
+              <td class="description-col">Default link text color</td>
+            </tr>
+            <tr>
+              <td><code>@linkColorHover</code></td>
+              <td><code>darken(@linkColor, 15%)</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #005580;"></span></td>
+              <td><input type="text" class="variable variable-color" name="linkColorHover" placeholder="darken(@linkColor, 15%)" /></td>
+              <td class="swatch-col"><span class="swatch linkColorHover"></span></td>
+              <td class="description-col">Default link text hover color</td>
             </tr>
           </tbody>
         </table>
-      </section>
-      <section id="components">
-        <div class="page-header">
-          <h1>Components</h1>
-        </div>
+
+        <h3>Link example</h3>
+
+        <p><a href="#">Link text color</a>.</p>
+
+        <h2>Typography</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Default value</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@sansFontFamily</code></td>
+              <td>"Helvetica Neue", Helvetica, Arial, sans-serif</td>
+              <td><input type="text" class="variable variable-array" name="sansFontFamily" placeholder='"Helvetica Neue", Helvetica, Arial, sans-serif' /></td>
+            </tr>
+            <tr>
+              <td><code>@serifFontFamily</code></td>
+              <td>Georgia, "Times New Roman", Times, serif</td>
+              <td><input type="text" class="variable variable-array" name="serifFontFamily" placeholder='Georgia, "Times New Roman", Times, serif' /></td>
+            </tr>
+            <tr>
+              <td><code>@monoFontFamily</code></td>
+              <td>Monaco, Menlo, Consolas, "Courier New", monospace</td>
+              <td><input type="text" class="variable variable-array" name="monoFontFamily" placeholder='Monaco, Menlo, Consolas, "Courier New", monospace' /></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Default value</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@baseFontSize</code></td>
+              <td>13px</td>
+              <td><input type="text" class="variable variable-pixels" name="baseFontSize" placeholder="13px" /></td>
+            </tr>
+            <tr>
+              <td><code>@baseFontFamily</code></td>
+              <td>@sansFontFamily</td>
+              <td><input type="text" class="variable variable-array" name="baseFontFamily" placeholder="@sansFontFamily" /></td>
+            </tr>
+            <tr>
+              <td><code>@baseLineHeight</code></td>
+              <td>18px</td>
+              <td><input type="text" class="variable variable-pixels" name="baseLineHeight" placeholder="18px" /></td>
+            </tr>
+            <tr>
+              <td class="span2"><code>@altFontFamily</code></td>
+              <td>@serifFontFamily</td>
+              <td><input type="text" class="variable variable-array" name="altFontFamily" placeholder="@serifFontFamily" /></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@headingsFontFamily</code></td>
+              <td colspan="2">inherit</td>
+              <td colspan="2"><input type="text" class="variable variable-array" name="headingsFontFamily" placeholder="inherit" /></td>
+            </tr>
+            <tr>
+              <td><code>@headingsFontWeight</code></td>
+              <td colspan="2">bold</td>
+              <td colspan="2"><input type="text" class="variable variable-array" name="headingsFontWeight" placeholder="bold" /></td>
+            </tr>
+            <tr>
+              <td><code>@headingsColor</code></td>
+              <td>inherit</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
+              <td><input type="text" class="variable variable-color" name="headingsColor" placeholder="inherit" /></td>
+              <td class="swatch-col"><span class="swatch headingsColor"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Typography example</h3>
+
+        <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+
+        <h2>Tables</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@tableBackground</code></td>
+              <td>transparent</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: transparent;"></span></td>
+              <td><input type="text" class="variable variable-color" name="tableBackground" placeholder="transparent" /></td>
+              <td class="swatch-col"><span class="swatch tableBackground"></span></td>
+            </tr>
+            <tr>
+              <td><code>@tableBackgroundAccent</code></td>
+              <td>#f9f9f9</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #f9f9f9;"></span></td>
+              <td><input type="text" class="variable variable-color" name="tableBackgroundAccent" placeholder="#f9f9f9" /></td>
+              <td class="swatch-col"><span class="swatch tableBackgroundAccent"></span></td>
+            </tr>
+            <tr>
+              <td><code>@tableBackgroundHover</code></td>
+              <td>#f5f5f5</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #f5f5f5;"></span></td>
+              <td><input type="text" class="variable variable-color" name="tableBackgroundHover" placeholder="#f5f5f5" /></td>
+              <td class="swatch-col"><span class="swatch tableBackgroundHover"></span></td>
+            </tr>
+            <tr>
+              <td><code>@tableBorder</code></td>
+              <td>#ddd</td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #ddd;"></span></td>
+              <td><input type="text" class="variable variable-color" name="tableBorder" placeholder="#ddd" /></td>
+              <td class="swatch-col"><span class="swatch tableBorder"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Table example</h3>
+
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
 
         <h2>Buttons</h2>
 
@@ -673,6 +891,11 @@
             </tr>
           </tbody>
         </table>
+      </section>
+      <section id="components">
+        <div class="page-header">
+          <h1>Components</h1>
+        </div>
 
         <h2>Forms</h2>
 
@@ -953,9 +1176,9 @@
           <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
         </div>
       </section>
-      <section id="scaffolding">
+      <section id="grid">
         <div class="page-header">
-          <h1>Scaffolding</h1>
+          <h1>Grid</h1>
         </div>
 
         <h2>Grid customization</h2>
@@ -1040,13 +1263,12 @@
           <div class="tab-pane" id="scss-variables-tab">
             <p>After you've edited Bootstrap's variables, you can copy this code to your <code>bootstrap-generators.css.scss</code>.</p>
             <pre id="scss-variables" class="prettyprint linenums">
+//
 // Variables
-// Variables to customize the look and feel of Bootstrap
-// -----------------------------------------------------
+// --------------------------------------------------
 
 
-
-// GLOBAL VALUES
+// Global values
 // --------------------------------------------------
 
 
@@ -1089,17 +1311,16 @@ $linkColorHover:        darken($linkColor, 15%) !default;
 // -------------------------
 $sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $serifFontFamily:       Georgia, "Times New Roman", Times, serif !default;
-$monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace !default;
 
-$baseFontSize:          13px !default;
+$baseFontSize:          14px !default;
 $baseFontFamily:        $sansFontFamily !default;
-$baseLineHeight:        18px !default;
+$baseLineHeight:        20px !default;
 $altFontFamily:         $serifFontFamily !default;
 
 $headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
 $headingsFontWeight:    bold !default;    // instead of browser default, bold
 $headingsColor:         inherit !default; // empty to use BS default, $textColor
-
 
 // Tables
 // -------------------------
@@ -1108,15 +1329,14 @@ $tableBackgroundAccent:             #f9f9f9 !default; // for striping
 $tableBackgroundHover:              #f5f5f5 !default; // for hover
 $tableBorder:                       #ddd !default; // table and cell border
 
-
 // Buttons
 // -------------------------
 $btnBackground:                     $white !default;
 $btnBackgroundHighlight:            darken($white, 10%) !default;
-$btnBorder:                         #ccc !default;
+$btnBorder:                         #bbb !default;
 
 $btnPrimaryBackground:              $linkColor !default;
-$btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 15%) !default;
+$btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20%) !default;
 
 $btnInfoBackground:                 #5bc0de !default;
 $btnInfoBackgroundHighlight:        #2f96b4 !default;
@@ -1130,7 +1350,7 @@ $btnWarningBackgroundHighlight:     $orange !default;
 $btnDangerBackground:               #ee5f5b !default;
 $btnDangerBackgroundHighlight:      #bd362f !default;
 
-$btnInverseBackground:              $gray !default;
+$btnInverseBackground:              #444 !default;
 $btnInverseBackgroundHighlight:     $grayDarker !default;
 
 
@@ -1146,9 +1366,15 @@ $formActionsBackground:         #f5f5f5 !default;
 // -------------------------
 $dropdownBackground:            $white !default;
 $dropdownBorder:                rgba(0,0,0,.2) !default;
+$dropdownDividerTop:            #e5e5e5 !default;
+$dropdownDividerBottom:         $white !default;
+
 $dropdownLinkColor:             $grayDark !default;
 $dropdownLinkColorHover:        $white !default;
-$dropdownLinkBackgroundHover:   $linkColor !default;
+$dropdownLinkColorActive:       $dropdownLinkColor !default;
+
+$dropdownLinkBackgroundActive:  $linkColor !default;
+$dropdownLinkBackgroundHover:   $dropdownLinkBackgroundActive !default;
 
 
 
@@ -1161,7 +1387,7 @@ $dropdownLinkBackgroundHover:   $linkColor !default;
 // Try to avoid customizing these :)
 $zindexDropdown:          1000 !default;
 $zindexPopover:           1010 !default;
-$zindexTooltip:           1020 !default;
+$zindexTooltip:           1030 !default;
 $zindexFixedNavbar:       1030 !default;
 $zindexModalBackdrop:     1040 !default;
 $zindexModal:             1050 !default;
@@ -1183,24 +1409,59 @@ $placeholderText:         $grayLight !default;
 $hrBorder:                $grayLighter !default;
 
 
+// Horizontal forms & lists
+// -------------------------
+$horizontalComponentOffset:       180px;
+
+
+// Wells
+// -------------------------
+$wellBackground:                  #f5f5f5 !default;
+
+
 // Navbar
 // -------------------------
+$navbarCollapseWidth:             979px !default;
+
 $navbarHeight:                    40px !default;
-$navbarBackground:                $grayDarker !default;
-$navbarBackgroundHighlight:       $grayDark !default;
+$navbarBackgroundHighlight:       #ffffff !default;
+$navbarBackground:                darken($navbarBackgroundHighlight, 5%) !default;
+$navbarBorder:                    darken($navbarBackground, 12%) !default;
 
-$navbarText:                      $grayLight !default;
-$navbarLinkColor:                 $grayLight !default;
-$navbarLinkColorHover:            $white !default;
-$navbarLinkColorActive:           $navbarLinkColorHover !default;
+$navbarText:                      #777 !default;
+$navbarLinkColor:                 #777 !default;
+$navbarLinkColorHover:            $grayDark !default;
+$navbarLinkColorActive:           $gray !default;
 $navbarLinkBackgroundHover:       transparent !default;
-$navbarLinkBackgroundActive:      $navbarBackground !default;
+$navbarLinkBackgroundActive:      darken($navbarBackground, 5.25%) !default;
 
-$navbarSearchBackground:          lighten($navbarBackground, 25%) !default;
-$navbarSearchBackgroundFocus:     $white !default;
-$navbarSearchBorder:              darken($navbarSearchBackground, 30%) !default;
-$navbarSearchPlaceholderColor:    #ccc !default;
 $navbarBrandColor:                $navbarLinkColor !default;
+
+// Inverted navbar
+$navbarInverseBackground:                #111111 !default;
+$navbarInverseBackgroundHighlight:       #222222 !default;
+$navbarInverseBorder:                    #252525 !default;
+
+$navbarInverseText:                      $grayLight !default;
+$navbarInverseLinkColor:                 $grayLight !default;
+$navbarInverseLinkColorHover:            $white !default;
+$navbarInverseLinkColorActive:           $navbarInverseLinkColorHover !default;
+$navbarInverseLinkBackgroundHover:       transparent !default;
+$navbarInverseLinkBackgroundActive:      $navbarInverseBackground !default;
+
+$navbarInverseSearchBackground:          lighten($navbarInverseBackground, 25%) !default;
+$navbarInverseSearchBackgroundFocus:     $white !default;
+$navbarInverseSearchBorder:              $navbarInverseBackground !default;
+$navbarInverseSearchPlaceholderColor:    #ccc !default;
+
+$navbarInverseBrandColor:                $navbarInverseLinkColor !default;
+
+
+// Pagination
+// -------------------------
+$paginationBackground:                #fff !default;
+$paginationBorder:                    #ddd !default;
+$paginationActiveBackground:          #f5f5f5 !default;
 
 
 // Hero unit
@@ -1229,6 +1490,23 @@ $infoBackground:          #d9edf7 !default;
 $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
 
 
+// Tooltips and popovers
+// -------------------------
+$tooltipColor:            #fff !default;
+$tooltipBackground:       #000 !default;
+$tooltipArrowWidth:       5px !default;
+$tooltipArrowColor:       $tooltipBackground !default;
+
+$popoverBackground:       #fff !default;
+$popoverArrowWidth:       10px !default;
+$popoverArrowColor:       #fff !default;
+$popoverTitleBackground:  darken($popoverBackground, 3%) !default;
+
+// Special enhancement for popovers
+$popoverArrowOuterWidth:  $popoverArrowWidth + 1 !default;
+$popoverArrowOuterColor:  rgba(0,0,0,.25) !default;
+
+
 
 // GRID
 // --------------------------------------------------
@@ -1240,21 +1518,39 @@ $gridColumnWidth:         60px !default;
 $gridGutterWidth:         20px !default;
 $gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1)) !default;
 
+// 1200px min
+$gridColumnWidth1200:     70px !default;
+$gridGutterWidth1200:     30px !default;
+$gridRowWidth1200:        ($gridColumns * $gridColumnWidth1200) + ($gridGutterWidth1200 * ($gridColumns - 1)) !default;
+
+// 768px-979px
+$gridColumnWidth768:      42px !default;
+$gridGutterWidth768:      20px !default;
+$gridRowWidth768:         ($gridColumns * $gridColumnWidth768) + ($gridGutterWidth768 * ($gridColumns - 1)) !default;
+
+
 // Fluid grid
 // -------------------------
-$fluidGridColumnWidth:    6.382978723% !default;
-$fluidGridGutterWidth:    2.127659574% !default;</pre>
+$fluidGridColumnWidth:    percentage($gridColumnWidth/$gridRowWidth) !default;
+$fluidGridGutterWidth:    percentage($gridGutterWidth/$gridRowWidth) !default;
+
+// 1200px min
+$fluidGridColumnWidth1200:     percentage($gridColumnWidth1200/$gridRowWidth1200) !default;
+$fluidGridGutterWidth1200:     percentage($gridGutterWidth1200/$gridRowWidth1200) !default;
+
+// 768px-979px
+$fluidGridColumnWidth768:      percentage($gridColumnWidth768/$gridRowWidth768) !default;
+$fluidGridGutterWidth768:      percentage($gridGutterWidth768/$gridRowWidth768) !default;</pre>
           </div>
           <div class="tab-pane active" id="less-variables-tab">
             <p>After you've edited Bootstrap's variables, you can copy this code to your <code>bootstrap-generators.css.less</code> (if you installed Bootstrap-generators Gem) or <code>variables.less</code> (on any other case).</p>
             <pre id="less-variables" class="prettyprint linenums">
-// Variables.less
-// Variables to customize the look and feel of Bootstrap
-// -----------------------------------------------------
+//
+// Variables
+// --------------------------------------------------
 
 
-
-// GLOBAL VALUES
+// Global values
 // --------------------------------------------------
 
 
@@ -1297,17 +1593,16 @@ $fluidGridGutterWidth:    2.127659574% !default;</pre>
 // -------------------------
 @sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
-@monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
+@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@baseFontSize:          13px;
+@baseFontSize:          14px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        18px;
+@baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
 @headingsFontWeight:    bold;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
-
 
 // Tables
 // -------------------------
@@ -1316,15 +1611,14 @@ $fluidGridGutterWidth:    2.127659574% !default;</pre>
 @tableBackgroundHover:              #f5f5f5; // for hover
 @tableBorder:                       #ddd; // table and cell border
 
-
 // Buttons
 // -------------------------
 @btnBackground:                     @white;
 @btnBackgroundHighlight:            darken(@white, 10%);
-@btnBorder:                         #ccc;
+@btnBorder:                         #bbb;
 
 @btnPrimaryBackground:              @linkColor;
-@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
 
 @btnInfoBackground:                 #5bc0de;
 @btnInfoBackgroundHighlight:        #2f96b4;
@@ -1338,7 +1632,7 @@ $fluidGridGutterWidth:    2.127659574% !default;</pre>
 @btnDangerBackground:               #ee5f5b;
 @btnDangerBackgroundHighlight:      #bd362f;
 
-@btnInverseBackground:              @gray;
+@btnInverseBackground:              #444;
 @btnInverseBackgroundHighlight:     @grayDarker;
 
 
@@ -1354,11 +1648,15 @@ $fluidGridGutterWidth:    2.127659574% !default;</pre>
 // -------------------------
 @dropdownBackground:            @white;
 @dropdownBorder:                rgba(0,0,0,.2);
-@dropdownLinkColor:             @grayDark;
-@dropdownLinkColorHover:        @white;
-@dropdownLinkBackgroundHover:   @linkColor;
 @dropdownDividerTop:            #e5e5e5;
 @dropdownDividerBottom:         @white;
+
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkColorActive:       @dropdownLinkColor;
+
+@dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
 
 
 
@@ -1371,7 +1669,7 @@ $fluidGridGutterWidth:    2.127659574% !default;</pre>
 // Try to avoid customizing these :)
 @zindexDropdown:          1000;
 @zindexPopover:           1010;
-@zindexTooltip:           1020;
+@zindexTooltip:           1030;
 @zindexFixedNavbar:       1030;
 @zindexModalBackdrop:     1040;
 @zindexModal:             1050;
@@ -1393,24 +1691,59 @@ $fluidGridGutterWidth:    2.127659574% !default;</pre>
 @hrBorder:                @grayLighter;
 
 
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
+
+
+// Wells
+// -------------------------
+@wellBackground:                  #f5f5f5;
+
+
 // Navbar
 // -------------------------
+@navbarCollapseWidth:             979px;
+
 @navbarHeight:                    40px;
-@navbarBackground:                @grayDarker;
-@navbarBackgroundHighlight:       @grayDark;
+@navbarBackgroundHighlight:       #ffffff;
+@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
+@navbarBorder:                    darken(@navbarBackground, 12%);
 
-@navbarText:                      @grayLight;
-@navbarLinkColor:                 @grayLight;
-@navbarLinkColorHover:            @white;
-@navbarLinkColorActive:           @navbarLinkColorHover;
+@navbarText:                      #777;
+@navbarLinkColor:                 #777;
+@navbarLinkColorHover:            @grayDark;
+@navbarLinkColorActive:           @gray;
 @navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      @navbarBackground;
+@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
 
-@navbarSearchBackground:          lighten(@navbarBackground, 25%);
-@navbarSearchBackgroundFocus:     @white;
-@navbarSearchBorder:              darken(@navbarSearchBackground, 30%);
-@navbarSearchPlaceholderColor:    #ccc;
 @navbarBrandColor:                @navbarLinkColor;
+
+// Inverted navbar
+@navbarInverseBackground:                #111111;
+@navbarInverseBackgroundHighlight:       #222222;
+@navbarInverseBorder:                    #252525;
+
+@navbarInverseText:                      @grayLight;
+@navbarInverseLinkColor:                 @grayLight;
+@navbarInverseLinkColorHover:            @white;
+@navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
+@navbarInverseLinkBackgroundHover:       transparent;
+@navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
+
+@navbarInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
+@navbarInverseSearchBackgroundFocus:     @white;
+@navbarInverseSearchBorder:              @navbarInverseBackground;
+@navbarInverseSearchPlaceholderColor:    #ccc;
+
+@navbarInverseBrandColor:                @navbarInverseLinkColor;
+
+
+// Pagination
+// -------------------------
+@paginationBackground:                #fff;
+@paginationBorder:                    #ddd;
+@paginationActiveBackground:          #f5f5f5;
 
 
 // Hero unit
@@ -1439,9 +1772,27 @@ $fluidGridGutterWidth:    2.127659574% !default;</pre>
 @infoBorder:              darken(spin(@infoBackground, -10), 7%);
 
 
+// Tooltips and popovers
+// -------------------------
+@tooltipColor:            #fff;
+@tooltipBackground:       #000;
+@tooltipArrowWidth:       5px;
+@tooltipArrowColor:       @tooltipBackground;
+
+@popoverBackground:       #fff;
+@popoverArrowWidth:       10px;
+@popoverArrowColor:       #fff;
+@popoverTitleBackground:  darken(@popoverBackground, 3%);
+
+// Special enhancement for popovers
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+@popoverArrowOuterColor:  rgba(0,0,0,.25);
+
+
 
 // GRID
 // --------------------------------------------------
+
 
 // Default 940px grid
 // -------------------------
@@ -1450,10 +1801,29 @@ $fluidGridGutterWidth:    2.127659574% !default;</pre>
 @gridGutterWidth:         20px;
 @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
 
+// 1200px min
+@gridColumnWidth1200:     70px;
+@gridGutterWidth1200:     30px;
+@gridRowWidth1200:        (@gridColumns * @gridColumnWidth1200) + (@gridGutterWidth1200 * (@gridColumns - 1));
+
+// 768px-979px
+@gridColumnWidth768:      42px;
+@gridGutterWidth768:      20px;
+@gridRowWidth768:         (@gridColumns * @gridColumnWidth768) + (@gridGutterWidth768 * (@gridColumns - 1));
+
+
 // Fluid grid
 // -------------------------
-@fluidGridColumnWidth:    6.382978723%;
-@fluidGridGutterWidth:    2.127659574%;</pre>
+@fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);
+@fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);
+
+// 1200px min
+@fluidGridColumnWidth1200:     percentage(@gridColumnWidth1200/@gridRowWidth1200);
+@fluidGridGutterWidth1200:     percentage(@gridGutterWidth1200/@gridRowWidth1200);
+
+// 768px-979px
+@fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
+@fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);</pre>
           </div>
         </div>
       </section>
@@ -1479,6 +1849,7 @@ $fluidGridGutterWidth:    2.127659574% !default;</pre>
     <script src="assets/javascripts/bootstrap-collapse.js"></script>
     <script src="assets/javascripts/bootstrap-carousel.js"></script>
     <script src="assets/javascripts/bootstrap-typeahead.js"></script>
+    <script src="assets/javascripts/bootstrap-affix.js"></script>
     <script src="assets/javascripts/prettify.js"></script>
   </body>
 </html>

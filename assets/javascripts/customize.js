@@ -37,7 +37,7 @@ $(function() {
 
     // update LESS variables code
     var lessVariablesStyle = newLessStyle.replace(/^ +/gm, '');
-    lessVariablesStyle = lessVariablesStyle.substring(lessVariablesStyle.search(/\/\/ Variables\.less/) - 1);
+    lessVariablesStyle = lessVariablesStyle.substring(lessVariablesStyle.search(/\/\/\n\/\/ Variables/) - 1);
     lessVariablesStyle = lessVariablesStyle.substring(0, lessVariablesStyle.search(/@import \"assets\/stylesheets\/mixins/));
     lessVariablesStyle = lessVariablesStyle.trim();
 
