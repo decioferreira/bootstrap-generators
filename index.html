@@ -395,15 +395,77 @@
         .tableBackgroundHover {background-color: @tableBackgroundHover}
         .tableBorder {background-color: @tableBorder}
 
+        .btnBackground {background-color: @btnBackground}
+        .btnBackgroundHighlight {background-color: @btnBackgroundHighlight}
+        .btnBorder {background-color: @btnBorder}
         .btnPrimaryBackground {background-color: @btnPrimaryBackground}
+        .btnPrimaryBackgroundHighlight {background-color: @btnPrimaryBackgroundHighlight}
+        .btnInfoBackground {background-color: @btnInfoBackground}
+        .btnInfoBackgroundHighlight {background-color: @btnInfoBackgroundHighlight}
+        .btnSuccessBackground {background-color: @btnSuccessBackground}
+        .btnSuccessBackgroundHighlight {background-color: @btnSuccessBackgroundHighlight}
+        .btnWarningBackground {background-color: @btnWarningBackground}
+        .btnWarningBackgroundHighlight {background-color: @btnWarningBackgroundHighlight}
+        .btnDangerBackground {background-color: @btnDangerBackground}
+        .btnDangerBackgroundHighlight {background-color: @btnDangerBackgroundHighlight}
+        .btnInverseBackground {background-color: @btnInverseBackground}
+        .btnInverseBackgroundHighlight {background-color: @btnInverseBackgroundHighlight}
+
+        .inputBackground {background-color: @inputBackground}
+        .inputBorder {background-color: @inputBorder}
+        .inputDisabledBackground {background-color: @inputDisabledBackground}
+        .formActionsBackground {background-color: @formActionsBackground}
+
+        .dropdownBackground {background-color: @dropdownBackground}
+        .dropdownBorder {background-color: @dropdownBorder}
+        .dropdownDividerTop {background-color: @dropdownDividerTop}
+        .dropdownDividerBottom {background-color: @dropdownDividerBottom}
+        .dropdownLinkColor {background-color: @dropdownLinkColor}
+        .dropdownLinkColorHover {background-color: @dropdownLinkColorHover}
+        .dropdownLinkColorActive {background-color: @dropdownLinkColorActive}
+        .dropdownLinkBackgroundActive {background-color: @dropdownLinkBackgroundActive}
+        .dropdownLinkBackgroundHover {background-color: @dropdownLinkBackgroundHover}
+
         .placeholderText {background-color: @placeholderText}
+
         .hrBorder {background-color: @hrBorder}
-        .navbarBackground {background-color: @navbarBackground}
+
+        .wellBackground {background-color: @wellBackground}
+
         .navbarBackgroundHighlight {background-color: @navbarBackgroundHighlight}
-        .navbarLinkBackgroundHover {background-color: @navbarLinkBackgroundHover}
+        .navbarBackground {background-color: @navbarBackground}
+        .navbarBorder {background-color: @navbarBorder}
         .navbarText {background-color: @navbarText}
         .navbarLinkColor {background-color: @navbarLinkColor}
         .navbarLinkColorHover {background-color: @navbarLinkColorHover}
+        .navbarLinkColorActive {background-color: @navbarLinkColorActive}
+        .navbarLinkBackgroundHover {background-color: @navbarLinkBackgroundHover}
+        .navbarLinkBackgroundActive {background-color: @navbarLinkBackgroundActive}
+        .navbarBrandColor {background-color: @navbarBrandColor}
+
+        .navbarInverseBackground {background-color: @navbarInverseBackground}
+        .navbarInverseBackgroundHighlight {background-color: @navbarInverseBackgroundHighlight}
+        .navbarInverseBorder {background-color: @navbarInverseBorder}
+        .navbarInverseText {background-color: @navbarInverseText}
+        .navbarInverseLinkColor {background-color: @navbarInverseLinkColor}
+        .navbarInverseLinkColorHover {background-color: @navbarInverseLinkColorHover}
+        .navbarInverseLinkColorActive {background-color: @navbarInverseLinkColorActive}
+        .navbarInverseLinkBackgroundHover {background-color: @navbarInverseLinkBackgroundHover}
+        .navbarInverseLinkBackgroundActive {background-color: @navbarInverseLinkBackgroundActive}
+        .navbarInverseSearchBackground {background-color: @navbarInverseSearchBackground}
+        .navbarInverseSearchBackgroundFocus {background-color: @navbarInverseSearchBackgroundFocus}
+        .navbarInverseSearchBorder {background-color: @navbarInverseSearchBorder}
+        .navbarInverseSearchPlaceholderColor {background-color: @navbarInverseSearchPlaceholderColor}
+        .navbarInverseBrandColor {background-color: @navbarInverseBrandColor}
+
+        .paginationBackground {background-color: @paginationBackground}
+        .paginationBorder {background-color: @paginationBorder}
+        .paginationActiveBackground {background-color: @paginationActiveBackground}
+
+        .heroUnitBackground {background-color: @heroUnitBackground}
+        .heroUnitHeadingColor {background-color: @heroUnitHeadingColor}
+        .heroUnitLeadColor {background-color: @heroUnitLeadColor}
+
         .warningText {background-color: @warningText}
         .warningBackground {background-color: @warningBackground}
         .warningBorder {background-color: @warningBorder}
@@ -416,6 +478,16 @@
         .infoText {background-color: @infoText}
         .infoBackground {background-color: @infoBackground}
         .infoBorder {background-color: @infoBorder}
+
+        .tooltipColor {background-color: @tooltipColor}
+        .tooltipBackground {background-color: @tooltipBackground}
+        .tooltipArrowColor {background-color: @tooltipArrowColor}
+
+        .popoverBackground {background-color: @popoverBackground}
+        .popoverArrowColor {background-color: @popoverArrowColor}
+        .popoverTitleBackground {background-color: @popoverTitleBackground}
+
+        .popoverArrowOuterColor {background-color: @popoverArrowOuterColor}
       }
     </style>
     <link href="assets/stylesheets/prettify.css" rel="stylesheet" />
@@ -864,16 +936,114 @@
           </thead>
           <tbody>
             <tr>
+              <td class="span3"><code>@btnBackground</code></td>
+              <td><code>@white</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnBackground" placeholder="@white" /></td>
+              <td class="swatch-col"><span class="swatch btnBackground"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnBackgroundHighlight</code></td>
+              <td><code>darken(@white, 10%)</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #e6e6e6;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnBackgroundHighlight" placeholder="darken(@white, 10%)" /></td>
+              <td class="swatch-col"><span class="swatch btnBackgroundHighlight"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnBorder</code></td>
+              <td><code>#bbb</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #bbb;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnBorder" placeholder="#bbb" /></td>
+              <td class="swatch-col"><span class="swatch btnBorder"></span></td>
+            </tr>
+            <tr>
               <td class="span3"><code>@btnPrimaryBackground</code></td>
               <td><code>@linkColor</code></td>
               <td class="swatch-col"><span class="swatch" style="background-color: #08c;"></span></td>
               <td><input type="text" class="variable variable-color" name="btnPrimaryBackground" placeholder="@linkColor" /></td>
               <td class="swatch-col"><span class="swatch btnPrimaryBackground"></span></td>
             </tr>
+            <tr>
+              <td class="span3"><code>@btnPrimaryBackgroundHighlight</code></td>
+              <td><code>spin(@btnPrimaryBackground, 20%)</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #04c;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnPrimaryBackgroundHighlight" placeholder="spin(@btnPrimaryBackground, 20%)" /></td>
+              <td class="swatch-col"><span class="swatch btnPrimaryBackgroundHighlight"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnInfoBackground</code></td>
+              <td><code>#5bc0de</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #5bc0de;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnInfoBackground" placeholder="#5bc0de" /></td>
+              <td class="swatch-col"><span class="swatch btnInfoBackground"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnInfoBackgroundHighlight</code></td>
+              <td><code>#2f96b4</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #2f96b4;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnInfoBackgroundHighlight" placeholder="#2f96b4" /></td>
+              <td class="swatch-col"><span class="swatch btnInfoBackgroundHighlight"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnSuccessBackground</code></td>
+              <td><code>#62c462</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #62c462;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnSuccessBackground" placeholder="#62c462" /></td>
+              <td class="swatch-col"><span class="swatch btnSuccessBackground"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnSuccessBackgroundHighlight</code></td>
+              <td><code>#51a351</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #51a351;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnSuccessBackgroundHighlight" placeholder="#51a351" /></td>
+              <td class="swatch-col"><span class="swatch btnSuccessBackgroundHighlight"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnWarningBackground</code></td>
+              <td><code>lighten(@orange, 15%)</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fbb450;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnWarningBackground" placeholder="lighten(@orange, 15%)" /></td>
+              <td class="swatch-col"><span class="swatch btnWarningBackground"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnWarningBackgroundHighlight</code></td>
+              <td><code>@orange</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #f89406;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnWarningBackgroundHighlight" placeholder="@orange" /></td>
+              <td class="swatch-col"><span class="swatch btnWarningBackgroundHighlight"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnDangerBackground</code></td>
+              <td><code>#ee5f5b</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #ee5f5b;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnDangerBackground" placeholder="#ee5f5b" /></td>
+              <td class="swatch-col"><span class="swatch btnDangerBackground"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnDangerBackgroundHighlight</code></td>
+              <td><code>#bd362f</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #bd362f;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnDangerBackgroundHighlight" placeholder="#bd362f" /></td>
+              <td class="swatch-col"><span class="swatch btnDangerBackgroundHighlight"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnInverseBackground</code></td>
+              <td><code>#444</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #444;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnInverseBackground" placeholder="#444" /></td>
+              <td class="swatch-col"><span class="swatch btnInverseBackground"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@btnInverseBackgroundHighlight</code></td>
+              <td><code>@grayDarker</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #222;"></span></td>
+              <td><input type="text" class="variable variable-color" name="btnInverseBackgroundHighlight" placeholder="@grayDarker" /></td>
+              <td class="swatch-col"><span class="swatch btnInverseBackgroundHighlight"></span></td>
+            </tr>
           </tbody>
         </table>
 
-        <h3>Primary button example</h3>
+        <h3>Buttons example</h3>
         
         <table class="table table-bordered table-striped">
           <thead>
@@ -885,19 +1055,207 @@
           </thead>
           <tbody>
             <tr>
-              <td><a class="btn btn-primary" href="#">Primary</a></td>
-              <td><code>.btn-primary</code></td>
+              <td><button type="button" class="btn">Default</button></td>
+              <td><code>btn</code></td>
+              <td>Standard gray button with gradient</td>
+            </tr>
+            <tr>
+              <td><button type="button" class="btn btn-primary">Primary</button></td>
+              <td><code>btn btn-primary</code></td>
               <td>Provides extra visual weight and identifies the primary action in a set of buttons</td>
+            </tr>
+            <tr>
+              <td><button type="button" class="btn btn-info">Info</button></td>
+              <td><code>btn btn-info</code></td>
+              <td>Used as an alternative to the default styles</td>
+            </tr>
+            <tr>
+              <td><button type="button" class="btn btn-success">Success</button></td>
+              <td><code>btn btn-success</code></td>
+              <td>Indicates a successful or positive action</td>
+            </tr>
+            <tr>
+              <td><button type="button" class="btn btn-warning">Warning</button></td>
+              <td><code>btn btn-warning</code></td>
+              <td>Indicates caution should be taken with this action</td>
+            </tr>
+            <tr>
+              <td><button type="button" class="btn btn-danger">Danger</button></td>
+              <td><code>btn btn-danger</code></td>
+              <td>Indicates a dangerous or potentially negative action</td>
+            </tr>
+            <tr>
+              <td><button type="button" class="btn btn-inverse">Inverse</button></td>
+              <td><code>btn btn-inverse</code></td>
+              <td>Alternate dark gray button, not tied to a semantic action or use</td>
+            </tr>
+            <tr>
+              <td><button type="button" class="btn btn-link">Link</button></td>
+              <td><code>btn btn-link</code></td>
+              <td>Deemphasize a button by making it look like a link while maintaining button behavior</td>
             </tr>
           </tbody>
         </table>
+
+        <h2>Forms</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="span3"><code>@inputBackground</code></td>
+              <td><code>@white</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+              <td><input type="text" class="variable variable-color" name="inputBackground" placeholder="@white" /></td>
+              <td class="swatch-col"><span class="swatch inputBackground"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@inputBorder</code></td>
+              <td><code>#ccc</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #ccc;"></span></td>
+              <td><input type="text" class="variable variable-color" name="inputBorder" placeholder="#ccc" /></td>
+              <td class="swatch-col"><span class="swatch inputBorder"></span></td>
+            </tr>
+            <tr>
+              <td><code>@inputBorderRadius</code></td>
+              <td colspan="2">3px</td>
+              <td colspan="2"><input type="text" class="variable variable-pixels" name="inputBorderRadius" placeholder="3px" /></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@inputDisabledBackground</code></td>
+              <td><code>@grayLighter</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #eee;"></span></td>
+              <td><input type="text" class="variable variable-color" name="inputDisabledBackground" placeholder="@grayLighter" /></td>
+              <td class="swatch-col"><span class="swatch inputDisabledBackground"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@formActionsBackground</code></td>
+              <td><code>#f5f5f5</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #f5f5f5;"></span></td>
+              <td><input type="text" class="variable variable-color" name="formActionsBackground" placeholder="#f5f5f5" /></td>
+              <td class="swatch-col"><span class="swatch formActionsBackground"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Form example</h3>
+
+        <form class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+              <input type="text" id="inputEmail" placeholder="Email">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">Password</label>
+            <div class="controls">
+              <input type="password" id="inputPassword" placeholder="Password">
+            </div>
+          </div>
+        </form>
+
+        <h2>Dropdowns</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="span3"><code>@dropdownBackground</code></td>
+              <td><code>@white</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+              <td><input type="text" class="variable variable-color" name="dropdownBackground" placeholder="@white" /></td>
+              <td class="swatch-col"><span class="swatch dropdownBackground"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@dropdownBorder</code></td>
+              <td><code>rgba(0,0,0,.2)</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: rgba(0,0,0,.2);"></span></td>
+              <td><input type="text" class="variable variable-color" name="dropdownBorder" placeholder="rgba(0,0,0,.2)" /></td>
+              <td class="swatch-col"><span class="swatch dropdownBorder"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@dropdownDividerTop</code></td>
+              <td><code>#e5e5e5</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #e5e5e5;"></span></td>
+              <td><input type="text" class="variable variable-color" name="dropdownDividerTop" placeholder="#e5e5e5" /></td>
+              <td class="swatch-col"><span class="swatch dropdownDividerTop"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@dropdownDividerBottom</code></td>
+              <td><code>@white</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+              <td><input type="text" class="variable variable-color" name="dropdownDividerBottom" placeholder="@white" /></td>
+              <td class="swatch-col"><span class="swatch dropdownDividerBottom"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@dropdownLinkColor</code></td>
+              <td><code>@grayDark</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
+              <td><input type="text" class="variable variable-color" name="dropdownLinkColor" placeholder="@grayDark" /></td>
+              <td class="swatch-col"><span class="swatch dropdownLinkColor"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@dropdownLinkColorHover</code></td>
+              <td><code>@white</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+              <td><input type="text" class="variable variable-color" name="dropdownLinkColorHover" placeholder="@white" /></td>
+              <td class="swatch-col"><span class="swatch dropdownLinkColorHover"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@dropdownLinkColorActive</code></td>
+              <td><code>@dropdownLinkColor</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
+              <td><input type="text" class="variable variable-color" name="dropdownLinkColorActive" placeholder="@dropdownLinkColor" /></td>
+              <td class="swatch-col"><span class="swatch dropdownLinkColorActive"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@dropdownLinkBackgroundActive</code></td>
+              <td><code>@linkColor</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #08c;"></span></td>
+              <td><input type="text" class="variable variable-color" name="dropdownLinkBackgroundActive" placeholder="@linkColor" /></td>
+              <td class="swatch-col"><span class="swatch dropdownLinkBackgroundActive"></span></td>
+            </tr>
+            <tr>
+              <td class="span3"><code>@dropdownLinkBackgroundHover</code></td>
+              <td><code>@dropdownLinkBackgroundActive</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #08c;"></span></td>
+              <td><input type="text" class="variable variable-color" name="dropdownLinkBackgroundHover" placeholder="@dropdownLinkBackgroundActive" /></td>
+              <td class="swatch-col"><span class="swatch dropdownLinkBackgroundHover"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Dropdown example</h3>
+
+        <div class="dropdown clearfix">
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
+            <li><a tabindex="-1" href="#">Action</a></li>
+            <li><a tabindex="-1" href="#">Another action</a></li>
+            <li><a tabindex="-1" href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a tabindex="-1" href="#">Separated link</a></li>
+          </ul>
+        </div>
       </section>
       <section id="components">
         <div class="page-header">
           <h1>Components</h1>
         </div>
 
-        <h2>Forms</h2>
+        <h2>Input placeholder text color</h2>
 
         <table class="table table-bordered table-striped">
           <thead>
@@ -943,6 +1301,69 @@
 
         <hr>
 
+        <h2>Horizontal forms & lists</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Default value</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@horizontalComponentOffset</code></td>
+              <td>180px</td>
+              <td><input type="text" class="variable variable-pixels" name="horizontalComponentOffset" placeholder="180px" /></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Horizontal form example</h3>
+
+        <form class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+              <input type="text" id="inputEmail" placeholder="Email">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">Password</label>
+            <div class="controls">
+              <input type="password" id="inputPassword" placeholder="Password">
+            </div>
+          </div>
+        </form>
+
+        <h2>Wells</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="span3"><code>@wellBackground</code></td>
+              <td><code>#f5f5f5</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #f5f5f5;"></span></td>
+              <td><input type="text" class="variable variable-color" name="wellBackground" placeholder="#f5f5f5" /></td>
+              <td class="swatch-col"><span class="swatch wellBackground"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Wells example</h3>
+
+        <div class="well">
+          Look, I'm in a well!
+        </div>
+
         <section id="navbar">
           <h2>Navbar</h2>
 
@@ -956,58 +1377,89 @@
             </thead>
             <tbody>
               <tr>
+                <td class="span3"><code>@navbarCollapseWidth</code></td>
+                <td colspan="2">979px</td>
+                <td colspan="2"><input type="text" class="variable variable-pixels" name="navbarCollapseWidth" placeholder="979px" /></td>
+              </tr>
+              <tr>
                 <td class="span3"><code>@navbarHeight</code></td>
                 <td colspan="2">40px</td>
                 <td colspan="2"><input type="text" class="variable variable-pixels" name="navbarHeight" placeholder="40px" /></td>
               </tr>
               <tr>
-                <td><code>@navbarBackground</code></td>
-                <td><code>@grayDarker</code></td>
-                <td class="swatch-col"><span class="swatch" style="background-color: #222;"></span></td>
-                <td><input type="text" class="variable variable-color" name="navbarBackground" placeholder="@grayDarker" /></td>
-                <td class="swatch-col"><span class="swatch navbarBackground"></span></td>
-              </tr>
-              <tr>
                 <td><code>@navbarBackgroundHighlight</code></td>
-                <td><code>@grayDark</code></td>
-                <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
-                <td><input type="text" class="variable variable-color" name="navbarBackgroundHighlight" placeholder="@grayDark" /></td>
+                <td><code>#ffffff</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #ffffff;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarBackgroundHighlight" placeholder="#ffffff" /></td>
                 <td class="swatch-col"><span class="swatch navbarBackgroundHighlight"></span></td>
               </tr>
               <tr>
-                <td><code>@navbarLinkBackgroundHover</code></td>
-                <td><code>transparent</code></td>
-                <td class="swatch-col"><span class="swatch" style="background-color: transparent;"></span></td>
-                <td><input type="text" class="variable variable-color" name="navbarLinkBackgroundHover" placeholder="transparent" /></td>
-                <td class="swatch-col"><span class="swatch navbarLinkBackgroundHover"></span></td>
+                <td><code>@navbarBackground</code></td>
+                <td><code>darken(@navbarBackgroundHighlight, 5%)</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #f2f2f2;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarBackground" placeholder="darken(@navbarBackgroundHighlight, 5%)" /></td>
+                <td class="swatch-col"><span class="swatch navbarBackground"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarBorder</code></td>
+                <td><code>darken(@navbarBackground, 12%)</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #d4d4d4;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarBorder" placeholder="darken(@navbarBackground, 12%)" /></td>
+                <td class="swatch-col"><span class="swatch navbarBorder"></span></td>
               </tr>
               <tr>
                 <td><code>@navbarText</code></td>
-                <td><code>@grayLight</code></td>
-                <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
-                <td><input type="text" class="variable variable-color" name="navbarText" placeholder="@grayLight" /></td>
+                <td><code>#777</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #777;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarText" placeholder="#777" /></td>
                 <td class="swatch-col"><span class="swatch navbarText"></span></td>
               </tr>
               <tr>
                 <td><code>@navbarLinkColor</code></td>
-                <td><code>@grayLight</code></td>
-                <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
-                <td><input type="text" class="variable variable-color" name="navbarLinkColor" placeholder="@grayLight" /></td>
+                <td><code>#777</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #777;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarLinkColor" placeholder="#777" /></td>
                 <td class="swatch-col"><span class="swatch navbarLinkColor"></span></td>
               </tr>
               <tr>
                 <td><code>@navbarLinkColorHover</code></td>
-                <td><code>@white</code></td>
-                <td><span class="swatch swatch-bordered" style="background-color: #fff;"></span></td>
-                <td><input type="text" class="variable variable-color" name="navbarLinkColorHover" placeholder="@white" /></td>
-                <td><span class="swatch swatch-bordered navbarLinkColorHover"></span></td>
+                <td><code>@grayDark</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #333;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarLinkBackgroundHover" placeholder="@grayDark" /></td>
+                <td class="swatch-col"><span class="swatch navbarLinkBackgroundHover"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarLinkColorActive</code></td>
+                <td><code>@gray</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #555;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarLinkColorActive" placeholder="@gray" /></td>
+                <td class="swatch-col"><span class="swatch navbarLinkColorActive"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarLinkBackgroundHover</code></td>
+                <td><code>transparent</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: transparent;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarLinkBackgroundHover" placeholder="transparent" /></td>
+                <td><span class="swatch swatch-bordered navbarLinkBackgroundHover"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarLinkBackgroundActive</code></td>
+                <td><code>darken(@navbarBackground, 5%)</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: #e5e5e5;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarLinkBackgroundActive" placeholder="darken(@navbarBackground, 5%)" /></td>
+                <td><span class="swatch swatch-bordered navbarLinkBackgroundActive"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarBrandColor</code></td>
+                <td><code>@navbarLinkColor</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: #777;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarBrandColor" placeholder="@navbarLinkColor" /></td>
+                <td><span class="swatch swatch-bordered navbarBrandColor"></span></td>
               </tr>
             </tbody>
           </table>
 
-          <h3>Static navbar example</h3>
-
-          <p>An example of a static (not fixed to the top) navbar with project name, navigation, and search form.</p>
+          <h3>Navbar example</h3>
 
           <div class="navbar">
             <div class="navbar-inner">
@@ -1056,7 +1508,271 @@
               </div>
             </div><!-- /navbar-inner -->
           </div>
+
+          <h2>Inverted navbar</h2>
+
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Variable</th>
+                <th colspan="2">Default value</th>
+                <th colspan="2">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>@navbarInverseBackground</code></td>
+                <td><code>#111111</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #111111;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseBackground" placeholder="#111111" /></td>
+                <td class="swatch-col"><span class="swatch navbarInverseBackground"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseBackgroundHighlight</code></td>
+                <td><code>#222222</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #222222;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseBackgroundHighlight" placeholder="#222222" /></td>
+                <td class="swatch-col"><span class="swatch navbarInverseBackgroundHighlight"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseBorder</code></td>
+                <td><code>#252525</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #252525;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseBorder" placeholder="#252525" /></td>
+                <td class="swatch-col"><span class="swatch navbarInverseBorder"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseText</code></td>
+                <td><code>@grayLight</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseText" placeholder="@grayLight" /></td>
+                <td class="swatch-col"><span class="swatch navbarInverseText"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseLinkColor</code></td>
+                <td><code>@grayLight</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #999;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseLinkColor" placeholder="@grayLight" /></td>
+                <td class="swatch-col"><span class="swatch navbarInverseLinkColor"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseLinkColorHover</code></td>
+                <td><code>@white</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseLinkColorHover" placeholder="@white" /></td>
+                <td class="swatch-col"><span class="swatch navbarInverseLinkColorHover"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseLinkColorActive</code></td>
+                <td><code>@navbarInverseLinkColorHover</code></td>
+                <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseLinkColorActive" placeholder="@navbarInverseLinkColorHover" /></td>
+                <td class="swatch-col"><span class="swatch navbarInverseLinkColorActive"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarLinkBackgroundHover</code></td>
+                <td><code>transparent</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: transparent;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarLinkBackgroundHover" placeholder="transparent" /></td>
+                <td><span class="swatch swatch-bordered navbarLinkBackgroundHover"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseLinkBackgroundHover</code></td>
+                <td><code>transparent</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: transparent;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseLinkBackgroundHover" placeholder="transparent" /></td>
+                <td><span class="swatch swatch-bordered navbarInverseLinkBackgroundHover"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseLinkBackgroundActive</code></td>
+                <td><code>@navbarInverseBackground</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: #111111;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseLinkBackgroundActive" placeholder="@navbarInverseBackground" /></td>
+                <td><span class="swatch swatch-bordered navbarInverseLinkBackgroundActive"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseSearchBackground</code></td>
+                <td><code>lighten(@navbarInverseBackground, 25%)</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: #515151;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseSearchBackground" placeholder="lighten(@navbarInverseBackground, 25%)" /></td>
+                <td><span class="swatch swatch-bordered navbarInverseSearchBackground"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseSearchBackgroundFocus</code></td>
+                <td><code>@white</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: #fff;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseSearchBackgroundFocus" placeholder="@white" /></td>
+                <td><span class="swatch swatch-bordered navbarInverseSearchBackgroundFocus"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseSearchBorder</code></td>
+                <td><code>@navbarInverseBackground</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: #111111;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseSearchBorder" placeholder="@navbarInverseBackground" /></td>
+                <td><span class="swatch swatch-bordered navbarInverseSearchBorder"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseSearchPlaceholderColor</code></td>
+                <td><code>#ccc</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: #ccc;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseSearchPlaceholderColor" placeholder="#ccc" /></td>
+                <td><span class="swatch swatch-bordered navbarInverseSearchPlaceholderColor"></span></td>
+              </tr>
+              <tr>
+                <td><code>@navbarInverseBrandColor</code></td>
+                <td><code>@navbarInverseLinkColor</code></td>
+                <td><span class="swatch swatch-bordered" style="background-color: #999;"></span></td>
+                <td><input type="text" class="variable variable-color" name="navbarInverseBrandColor" placeholder="@navbarInverseLinkColor" /></td>
+                <td><span class="swatch swatch-bordered navbarInverseBrandColor"></span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Inverted navbar example</h3>
+
+          <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+              <div class="container" style="width: auto;">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">Project name</a>
+                <div class="nav-collapse">
+                  <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <form class="navbar-search pull-left" action="#">
+                    <input type="text" class="search-query span2" placeholder="Search">
+                  </form>
+                  <ul class="nav pull-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="divider-vertical"></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div><!-- /.nav-collapse -->
+              </div>
+            </div><!-- /navbar-inner -->
+          </div>
         </section>
+
+        <h2>Pagination</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@paginationBackground</code></td>
+              <td><code>#fff</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+              <td><input type="text" class="variable variable-color" name="paginationBackground" placeholder="#fff" /></td>
+              <td class="swatch-col"><span class="swatch paginationBackground"></span></td>
+            </tr>
+            <tr>
+              <td><code>@paginationBorder</code></td>
+              <td><code>#ddd</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #ddd;"></span></td>
+              <td><input type="text" class="variable variable-color" name="paginationBorder" placeholder="#ddd" /></td>
+              <td class="swatch-col"><span class="swatch paginationBorder"></span></td>
+            </tr>
+            <tr>
+              <td><code>@paginationActiveBackground</code></td>
+              <td><code>#f5f5f5</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #f5f5f5;"></span></td>
+              <td><input type="text" class="variable variable-color" name="paginationActiveBackground" placeholder="#f5f5f5" /></td>
+              <td class="swatch-col"><span class="swatch paginationActiveBackground"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Pagination example</h3>
+
+        <div class="pagination">
+          <ul>
+            <li class="disabled"><a href="#">Prev</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+        </div>
+
+        <h2>Hero unit</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@heroUnitBackground</code></td>
+              <td><code>@grayLighter</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #eee;"></span></td>
+              <td><input type="text" class="variable variable-color" name="heroUnitBackground" placeholder="@grayLighter" /></td>
+              <td class="swatch-col"><span class="swatch heroUnitBackground"></span></td>
+            </tr>
+            <tr>
+              <td><code>@heroUnitHeadingColor</code></td>
+              <td><code>inherit</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: transparent;"></span></td>
+              <td><input type="text" class="variable variable-color" name="heroUnitHeadingColor" placeholder="inherit" /></td>
+              <td class="swatch-col"><span class="swatch heroUnitHeadingColor"></span></td>
+            </tr>
+            <tr>
+              <td><code>@heroUnitLeadColor</code></td>
+              <td><code>inherit</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: transparent;"></span></td>
+              <td><input type="text" class="variable variable-color" name="heroUnitLeadColor" placeholder="inherit" /></td>
+              <td class="swatch-col"><span class="swatch heroUnitLeadColor"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Hero unit example</h3>
+
+        <div class="hero-unit">
+          <h1>Heading</h1>
+          <p>Tagline</p>
+          <p>
+            <a class="btn btn-primary btn-large">
+              Learn more
+            </a>
+          </p>
+        </div>
 
         <h2>Form states and alerts</h2>
 
@@ -1175,6 +1891,150 @@
         <div class="alert alert-info">
           <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
         </div>
+
+        <h2>Tooltips and popovers</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@tooltipColor</code></td>
+              <td><code>#fff</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+              <td><input type="text" class="variable variable-color" name="tooltipColor" placeholder="#fff" /></td>
+              <td class="swatch-col"><span class="swatch tooltipColor"></span></td>
+            </tr>
+            <tr>
+              <td><code>@tooltipBackground</code></td>
+              <td><code>#000</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #000;"></span></td>
+              <td><input type="text" class="variable variable-color" name="tooltipBackground" placeholder="#000" /></td>
+              <td class="swatch-col"><span class="swatch tooltipBackground"></span></td>
+            </tr>
+            <tr>
+              <td><code>@tooltipArrowWidth</code></td>
+              <td colspan="2">5px</td>
+              <td colspan="2"><input type="text" class="variable variable-pixels" name="tooltipArrowWidth" placeholder="5px" /></td>
+            </tr>
+            <tr>
+              <td><code>@tooltipArrowColor</code></td>
+              <td><code>@tooltipBackground</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #000;"></span></td>
+              <td><input type="text" class="variable variable-color" name="tooltipArrowColor" placeholder="@tooltipBackground" /></td>
+              <td class="swatch-col"><span class="swatch tooltipArrowColor"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@popoverBackground</code></td>
+              <td><code>#fff</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+              <td><input type="text" class="variable variable-color" name="popoverBackground" placeholder="#fff" /></td>
+              <td class="swatch-col"><span class="swatch popoverBackground"></span></td>
+            </tr>
+            <tr>
+              <td><code>@popoverArrowWidth</code></td>
+              <td colspan="2">10px</td>
+              <td colspan="2"><input type="text" class="variable variable-pixels" name="popoverArrowWidth" placeholder="10px" /></td>
+            </tr>
+            <tr>
+              <td><code>@popoverArrowColor</code></td>
+              <td><code>#fff</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #fff;"></span></td>
+              <td><input type="text" class="variable variable-color" name="popoverArrowColor" placeholder="#fff" /></td>
+              <td class="swatch-col"><span class="swatch popoverArrowColor"></span></td>
+            </tr>
+            <tr>
+              <td><code>@popoverTitleBackground</code></td>
+              <td><code>darken(@popoverBackground, 3%)</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: #000;"></span></td>
+              <td><input type="text" class="variable variable-color" name="popoverTitleBackground" placeholder="darken(@popoverBackground, 3%)" /></td>
+              <td class="swatch-col"><span class="swatch popoverTitleBackground"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th colspan="2">Default value</th>
+              <th colspan="2">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@popoverArrowOuterWidth</code></td>
+              <td colspan="2">@popoverArrowWidth + 1</td>
+              <td colspan="2"><input type="text" class="variable variable-pixels" name="popoverArrowOuterWidth" placeholder="11px" /></td>
+            </tr>
+            <tr>
+              <td><code>@popoverArrowOuterColor</code></td>
+              <td><code>rgba(0,0,0,.25)</code></td>
+              <td class="swatch-col"><span class="swatch" style="background-color: rgba(0,0,0,.25);"></span></td>
+              <td><input type="text" class="variable variable-color" name="popoverArrowOuterColor" placeholder="rgba(0,0,0,.25)" /></td>
+              <td class="swatch-col"><span class="swatch popoverArrowOuterColor"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Tooltips and popovers example</h3>
+
+        <div class="tooltip-demo">
+          <p>Tight pants next level keffiyeh <a href="#" rel="tooltip" data-original-title="Default tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a href="#" rel="tooltip" data-original-title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#" rel="tooltip" data-original-title="Another one here too">whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" rel="tooltip" data-original-title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.</p>
+        </div>
+
+        <div class="example-popover">
+          <div class="popover top">
+            <div class="arrow"></div>
+            <h3 class="popover-title">Popover top</h3>
+            <div class="popover-content">
+              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+            </div>
+          </div>
+
+          <div class="popover right">
+            <div class="arrow"></div>
+            <h3 class="popover-title">Popover right</h3>
+            <div class="popover-content">
+              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+            </div>
+          </div>
+
+          <div class="popover bottom">
+            <div class="arrow"></div>
+            <h3 class="popover-title">Popover bottom</h3>
+            <div class="popover-content">
+              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+            </div>
+          </div>
+
+          <div class="popover left">
+            <div class="arrow"></div>
+            <h3 class="popover-title">Popover left</h3>
+            <div class="popover-content">
+              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
       </section>
       <section id="grid">
         <div class="page-header">
@@ -1182,6 +2042,7 @@
         </div>
 
         <h2>Grid customization</h2>
+
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -1210,10 +2071,59 @@
               <td><input type="text" class="input-small variable variable-pixels" name="gridGutterWidth" placeholder="20px" /></td>
               <td>Negative space between columns</td>
             </tr>
+          </tbody>
+        </table>
+
+        <h2>1200px min</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
             <tr>
-              <td><code>@siteWidth</code></td>
-              <td colspan="2"><em>Computed sum of all columns and gutters</em></td>
-              <td>Counts number of columns and gutters to set width of the <code>.container-fixed()</code> mixin</td>
+              <th>Variable</th>
+              <th>Default value</th>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@gridColumnWidth1200</code></td>
+              <td>70px</td>
+              <td><input type="text" class="input-small variable variable-pixels" name="gridColumnWidth1200" placeholder="70px" /></td>
+              <td>Width of each column</td>
+            </tr>
+            <tr>
+              <td><code>@gridGutterWidth1200</code></td>
+              <td>30px</td>
+              <td><input type="text" class="input-small variable variable-pixels" name="gridGutterWidth1200" placeholder="30px" /></td>
+              <td>Negative space between columns</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>768px-979px</h2>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Default value</th>
+              <th>Value</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>@gridColumnWidth768</code></td>
+              <td>42px</td>
+              <td><input type="text" class="input-small variable variable-pixels" name="gridColumnWidth768" placeholder="42px" /></td>
+              <td>Width of each column</td>
+            </tr>
+            <tr>
+              <td><code>@gridGutterWidth768</code></td>
+              <td>20px</td>
+              <td><input type="text" class="input-small variable variable-pixels" name="gridGutterWidth768" placeholder="20px" /></td>
+              <td>Negative space between columns</td>
             </tr>
           </tbody>
         </table>
@@ -1851,5 +2761,6 @@ $fluidGridGutterWidth768:      percentage($gridGutterWidth768/$gridRowWidth768) 
     <script src="assets/javascripts/bootstrap-typeahead.js"></script>
     <script src="assets/javascripts/bootstrap-affix.js"></script>
     <script src="assets/javascripts/prettify.js"></script>
+    <script src="assets/javascripts/application.js"></script>
   </body>
 </html>

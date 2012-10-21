@@ -60,3 +60,11 @@ body.bootstrap-generators .table td {
 body.bootstrap-generators .description-col {
   width: 190px;
 }
+
+body.bootstrap-generators .example-popover .popover {
+  position: relative;
+  display: block;
+  float: left;
+  width: 260px;
+  margin: 20px;
+}
