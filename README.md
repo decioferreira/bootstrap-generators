@@ -205,6 +205,24 @@ LESS version:
     @headingsFontWeight:    bold;    // instead of browser default, bold
     @headingsColor:         inherit; // empty to use BS default, @textColor
 
+
+    // Component sizing
+    // -------------------------
+    // Based on 14px font-size and 20px line-height
+
+    @fontSizeLarge:         @baseFontSize * 1.25; // ~18px
+    @fontSizeSmall:         @baseFontSize * 0.85; // ~12px
+    @fontSizeMini:          @baseFontSize * 0.75; // ~11px
+
+    @paddingLarge:          11px 19px; // 44px
+    @paddingSmall:          2px 10px;  // 26px
+    @paddingMini:           1px 6px;   // 24px
+
+    @baseBorderRadius:      4px;
+    @borderRadiusLarge:     6px;
+    @borderRadiusSmall:     3px;
+
+
     // Tables
     // -------------------------
     @tableBackground:                   transparent; // overall background-color
@@ -241,9 +259,11 @@ LESS version:
     // -------------------------
     @inputBackground:               @white;
     @inputBorder:                   #ccc;
-    @inputBorderRadius:             3px;
+    @inputBorderRadius:             @baseBorderRadius;
     @inputDisabledBackground:       @grayLighter;
     @formActionsBackground:         #f5f5f5;
+    @inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
 
     // Dropdowns
     // -------------------------
@@ -263,6 +283,7 @@ LESS version:
 
     // COMPONENT VARIABLES
     // --------------------------------------------------
+
 
     // Z-index master list
     // -------------------------
@@ -305,6 +326,7 @@ LESS version:
     // Navbar
     // -------------------------
     @navbarCollapseWidth:             979px;
+    @navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
     @navbarHeight:                    40px;
     @navbarBackgroundHighlight:       #ffffff;
@@ -487,6 +509,24 @@ SCSS version:
     $headingsFontWeight:    bold !default;    // instead of browser default, bold
     $headingsColor:         inherit !default; // empty to use BS default, $textColor
 
+
+    // Component sizing
+    // -------------------------
+    // Based on 14px font-size and 20px line-height
+
+    $fontSizeLarge:         $baseFontSize * 1.25; // ~18px
+    $fontSizeSmall:         $baseFontSize * 0.85; // ~12px
+    $fontSizeMini:          $baseFontSize * 0.75; // ~11px
+
+    $paddingLarge:          11px 19px; // 44px
+    $paddingSmall:          2px 10px;  // 26px
+    $paddingMini:           1px 6px;   // 24px
+
+    $baseBorderRadius:      4px;
+    $borderRadiusLarge:     6px;
+    $borderRadiusSmall:     3px;
+
+
     // Tables
     // -------------------------
     $tableBackground:                   transparent !default; // overall background-color
@@ -523,9 +563,11 @@ SCSS version:
     // -------------------------
     $inputBackground:               $white !default;
     $inputBorder:                   #ccc !default;
-    $inputBorderRadius:             3px !default;
+    $inputBorderRadius:             $baseBorderRadius !default;
     $inputDisabledBackground:       $grayLighter !default;
     $formActionsBackground:         #f5f5f5 !default;
+    $inputHeight:                   $baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
 
     // Dropdowns
     // -------------------------
@@ -545,6 +587,7 @@ SCSS version:
 
     // COMPONENT VARIABLES
     // --------------------------------------------------
+
 
     // Z-index master list
     // -------------------------
@@ -587,6 +630,7 @@ SCSS version:
     // Navbar
     // -------------------------
     $navbarCollapseWidth:             979px !default;
+    $navbarCollapseDesktopWidth:      $navbarCollapseWidth + 1;
 
     $navbarHeight:                    40px !default;
     $navbarBackgroundHighlight:       #ffffff !default;
@@ -598,7 +642,7 @@ SCSS version:
     $navbarLinkColorHover:            $grayDark !default;
     $navbarLinkColorActive:           $gray !default;
     $navbarLinkBackgroundHover:       transparent !default;
-    $navbarLinkBackgroundActive:      darken($navbarBackground, 5.25%) !default;
+    $navbarLinkBackgroundActive:      darken($navbarBackground, 5%) !default;
 
     $navbarBrandColor:                $navbarLinkColor !default;
 
@@ -675,6 +719,7 @@ SCSS version:
 
     // GRID
     // --------------------------------------------------
+
 
     // Default 940px grid
     // -------------------------
