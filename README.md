@@ -28,7 +28,7 @@ Run bundle install:
 
 Get started:
 
-    rails generate bootstrap:install
+    rails generate bootstrap:install -f
 
 Once you've done that, any time you generate a controller or scaffold, you'll get [Bootstrap](http://twitter.github.com/bootstrap/) templates.
 
