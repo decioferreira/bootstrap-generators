@@ -6,11 +6,11 @@ Bootstrap-generators provides [Twitter Bootstrap](http://twitter.github.com/boot
 
 In your Gemfile, add this line:
 
-    gem 'bootstrap-generators', '~> 2.1'
+    gem 'bootstrap-generators', '~> 2.2'
 
 Or you can install from latest build:
 
-    gem 'bootstrap-generators', '~> 2.1', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
+    gem 'bootstrap-generators', '~> 2.2', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
 
 By default Bootstrap Generators requires [SimpleForm 2.0](https://github.com/plataformatec/simple_form). Add the dependency on your Gemfile:
 
