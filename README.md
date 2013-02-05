@@ -216,7 +216,7 @@ LESS version:
 
     @paddingLarge:          11px 19px; // 44px
     @paddingSmall:          2px 10px;  // 26px
-    @paddingMini:           1px 6px;   // 24px
+    @paddingMini:           0 6px;   // 22px
 
     @baseBorderRadius:      4px;
     @borderRadiusLarge:     6px;
@@ -274,7 +274,7 @@ LESS version:
 
     @dropdownLinkColor:             @grayDark;
     @dropdownLinkColorHover:        @white;
-    @dropdownLinkColorActive:       @dropdownLinkColor;
+    @dropdownLinkColorActive:       @white;
 
     @dropdownLinkBackgroundActive:  @linkColor;
     @dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
@@ -518,13 +518,13 @@ SCSS version:
     $fontSizeSmall:         $baseFontSize * 0.85; // ~12px
     $fontSizeMini:          $baseFontSize * 0.75; // ~11px
 
-    $paddingLarge:          11px 19px; // 44px
-    $paddingSmall:          2px 10px;  // 26px
-    $paddingMini:           1px 6px;   // 24px
+    $paddingLarge:          11px 19px !default; // 44px
+    $paddingSmall:          2px 10px !default;  // 26px
+    $paddingMini:           0px 6px !default;   // 22px
 
-    $baseBorderRadius:      4px;
-    $borderRadiusLarge:     6px;
-    $borderRadiusSmall:     3px;
+    $baseBorderRadius:      4px !default;
+    $borderRadiusLarge:     6px !default;
+    $borderRadiusSmall:     3px !default;
 
 
     // Tables
@@ -619,7 +619,7 @@ SCSS version:
 
     // Horizontal forms & lists
     // -------------------------
-    $horizontalComponentOffset:       180px;
+    $horizontalComponentOffset:       180px !default;
 
 
     // Wells
