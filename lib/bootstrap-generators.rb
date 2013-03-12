@@ -13,4 +13,3 @@ module Bootstrap
     end
   end
 end
-
