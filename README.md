@@ -6,11 +6,11 @@ Bootstrap-generators provides [Twitter Bootstrap](http://twitter.github.com/boot
 
 In your Gemfile, add this line:
 
-    gem 'bootstrap-generators', '~> 2.2'
+    gem 'bootstrap-generators', '~> 2.3'
 
 Or you can install from latest build:
 
-    gem 'bootstrap-generators', '~> 2.2', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
+    gem 'bootstrap-generators', '~> 2.3', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
 
 By default Bootstrap Generators requires [SimpleForm 2.0](https://github.com/plataformatec/simple_form). Add the dependency on your Gemfile:
 
@@ -234,7 +234,7 @@ LESS version:
     // -------------------------
     @btnBackground:                     @white;
     @btnBackgroundHighlight:            darken(@white, 10%);
-    @btnBorder:                         #bbb;
+    @btnBorder:                         #ccc;
 
     @btnPrimaryBackground:              @linkColor;
     @btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
@@ -538,7 +538,7 @@ SCSS version:
     // -------------------------
     $btnBackground:                     $white !default;
     $btnBackgroundHighlight:            darken($white, 10%) !default;
-    $btnBorder:                         #bbb !default;
+    $btnBorder:                         #ccc !default;
 
     $btnPrimaryBackground:              $linkColor !default;
     $btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20%) !default;
@@ -578,7 +578,7 @@ SCSS version:
 
     $dropdownLinkColor:             $grayDark !default;
     $dropdownLinkColorHover:        $white !default;
-    $dropdownLinkColorActive:       $dropdownLinkColor !default;
+    $dropdownLinkColorActive:       $white !default;
 
     $dropdownLinkBackgroundActive:  $linkColor !default;
     $dropdownLinkBackgroundHover:   $dropdownLinkBackgroundActive !default;
