@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://decioferreira.github.com/bootstrap-generators/"
   s.summary     = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1.}
   s.description = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 3.1. Checkout http://twitter.github.com/bootstrap.}
+  s.license     = "MIT"
 
   s.rubyforge_project = "bootstrap-generators"
 
