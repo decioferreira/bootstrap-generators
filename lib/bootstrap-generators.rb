@@ -2,14 +2,11 @@ require 'rails'
 
 module Bootstrap
   module Generators
-    class Railtie < ::Rails::Railtie
-      if ::Rails.version < "3.1"
-        require 'bootstrap/generators/railtie'
-      else
-        config.app_generators.stylesheets false
-        require 'bootstrap/generators/engine'
+    class Engine < Rails::Engine
+      initializer 'bootstrap-generators.setup' do
+        config.less.paths << File.join(config.root, 'vendor', 'twitter', 'bootstrap', 'less') if config.respond_to?(:less)
+        config.assets.paths << File.join(config.root, 'vendor', 'twitter', 'bootstrap', 'sass') if config.respond_to?(:sass)
       end
-      require 'bootstrap/generators/version'
     end
   end
 end

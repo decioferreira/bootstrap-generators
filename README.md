@@ -1,6 +1,6 @@
 # Bootstrap Generators
 
-Bootstrap-generators provides [Twitter Bootstrap](http://twitter.github.com/bootstrap/) generators for Rails 3.1. Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites. Checkout http://decioferreira.github.com/bootstrap-generators.
+Bootstrap-generators provides [Twitter Bootstrap](http://twitter.github.com/bootstrap/) generators for Rails 4 (for older releases, check the related branch). Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites. Checkout http://decioferreira.github.com/bootstrap-generators.
 
 ## Installing Gem
 
