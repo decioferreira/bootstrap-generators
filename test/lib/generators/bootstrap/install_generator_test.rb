@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class Bootstrap::Generators::InstallGeneratorTest < ::Rails::Generators::TestCase
-  destination File.join(Rails.root)
+class InstallGeneratorTest < Rails::Generators::TestCase
   tests Bootstrap::Generators::InstallGenerator
+  destination File.join(Rails.root)
   arguments %w(--template-engine erb)
 
   setup :prepare_destination

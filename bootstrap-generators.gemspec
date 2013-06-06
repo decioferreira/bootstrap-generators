@@ -24,8 +24,7 @@ Gem::Specification.new do |s|
   # s.add_runtime_dependency "rest-client"
 
   s.add_development_dependency "bundler", "~> 1.0"
-  s.add_development_dependency "test-unit", "~> 2.5.5"
-  s.add_development_dependency "rails", ">= 3.1"
+  s.add_development_dependency "rails", "4.0.0.rc1"
 
   s.add_runtime_dependency "railties", ">= 3.1"
 end
