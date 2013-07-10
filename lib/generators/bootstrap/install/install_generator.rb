@@ -2,7 +2,7 @@ require 'rails'
 
 module Bootstrap
   module Generators
-    class InstallGenerator < Rails::Generators::Base
+    class InstallGenerator < ::Rails::Generators::Base
       desc 'Copy BootstrapGenerators default files'
       source_root File.expand_path('../templates', __FILE__)
       class_option :layout, :desc => 'Bootstrap layout templates (hero or fluid)', :default => 'hero', :type => :string

@@ -2,7 +2,7 @@ require 'rails'
 
 module Bootstrap
   module Generators
-    class Engine < Rails::Engine
+    class Engine < ::Rails::Engine
       config.app_generators.stylesheets false
 
       initializer 'bootstrap-generators.setup' do |app|
