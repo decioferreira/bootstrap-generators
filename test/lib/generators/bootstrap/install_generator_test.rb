@@ -44,7 +44,15 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   test "should require javascript bootstrap file" do
     run_generator
 
-    assert_file "app/assets/javascripts/application.js", /require bootstrap/ 
+    assert_file "app/assets/javascripts/application.js", /require bootstrap/
+  end
+
+  test "should work when there is no application.js file" do
+    File.delete(File.join(destination_root, "app/assets/javascripts/application.js"))
+
+    assert_nothing_raised Errno::ENOENT do
+      run_generator
+    end
   end
 
   test "should copy css files" do
