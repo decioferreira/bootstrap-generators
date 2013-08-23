@@ -143,6 +143,5 @@ Since Bootstrap Generators installs its templates under lib/templates, you can g
 
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap)
 * [Twitter Bootstrap - Sass Conversion](https://github.com/jlong/sass-twitter-bootstrap)
-* [SimpleForm](https://github.com/plataformatec/simple_form)
 
 [customize]: #customize
