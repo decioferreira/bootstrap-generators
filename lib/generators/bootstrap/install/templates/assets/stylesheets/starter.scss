@@ -2,14 +2,7 @@
 @import "bootstrap.scss";
 
 body {
-  padding-top: $navbarHeight + 20px;
-  padding-bottom: 40px;
-}
-
-@import "responsive";
-
-.sidebar-nav {
-  padding: 9px 0;
+  padding-top: $navbar-height;
 }
 
 .page-header {

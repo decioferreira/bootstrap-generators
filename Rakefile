@@ -64,5 +64,9 @@ namespace :bootstrap do
 
     FileUtils.rm Dir.glob("#{bootstrap_sass_dir}/*.scss")
     FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/lib/*.scss"), bootstrap_sass_dir
+
+    # Copy bootstrap variables
+    FileUtils.cp "#{bootstrap_less_dir}/variables.less", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.less"
+    FileUtils.cp "#{bootstrap_sass_dir}/_variables.scss", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.scss"
   end
 end

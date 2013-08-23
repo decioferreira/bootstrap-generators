@@ -1,13 +1,13 @@
 .page-header
-  = link_to <%= index_helper %>_path, :class => 'btn' do
-    %i.icon-list-alt
+  = link_to <%= index_helper %>_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
     Back
   = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-primary' do
-    %i.icon-pencil.icon-white
+    %span.glyphicon.glyphicon-pencil
     Edit
-  %h1 Listing <%= plural_table_name %>
+  %h1 Show <%= singular_table_name %>
 
-%dl
+%dl.dl-horizontal
   <%- for attribute in attributes -%>
   %dt <%= attribute.human_name %>:
   %dd= @<%= singular_table_name %>.<%= attribute.name %>

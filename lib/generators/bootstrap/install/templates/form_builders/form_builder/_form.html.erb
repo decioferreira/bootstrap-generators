@@ -1,8 +1,8 @@
 <%%= form_for(@<%= singular_table_name %>, :html => { :class => "form-horizontal" }) do |f| %>
   <%% if @<%= singular_table_name %>.errors.any? %>
-    <div class="alert alert-error">
-      <a class="close" data-dismiss="alert" href="#">×</a>
-      <h4 class="alert-heading"><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h4>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h4>
 
       <ul>
       <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
@@ -13,14 +13,16 @@
   <%% end %>
 
 <% attributes.each do |attribute| -%>
-  <div class="control-group">
-    <%%= f.label :<%= attribute.name %>, :class => "control-label" %>
-    <div class="controls">
-      <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "input-xxlarge" %>
+  <div class="form-group">
+    <%%= f.label :<%= attribute.name %>, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "form-control" %>
     </div>
   </div>
 <% end -%>
-  <div class="form-actions">
-    <%%= f.submit :class => "btn btn-primary" %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%%= f.submit :class => "btn btn-primary" %>
+    </div>
   </div>
 <%% end %>
