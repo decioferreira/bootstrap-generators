@@ -59,6 +59,9 @@ namespace :bootstrap do
     FileUtils.rm Dir.glob("#{bootstrap_fonts_dir}/*")
     FileUtils.cp Dir.glob("#{twitter_bootstrap_dir}/fonts/*"), bootstrap_fonts_dir
 
+    # Reset Twitter Bootstrap CSS file
+    FileUtils.cp "#{twitter_bootstrap_dir}/dist/css/bootstrap.css", "vendor/assets/stylesheets/bootstrap.css"
+
     # Reset Twitter Bootstrap LESS files
     bootstrap_less_dir = 'vendor/twitter/bootstrap/less'
 
@@ -76,7 +79,7 @@ namespace :bootstrap do
     FileUtils.cp "#{bootstrap_sass_dir}/_variables.scss", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.scss"
 
     # Change icon-font-path
-    ["lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.less", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.scss"].each do |filepath|
+    ["vendor/assets/stylesheets/bootstrap.css", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.less", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.scss"].each do |filepath|
       file_content = File.read(filepath).gsub("../fonts/", "/assets/")
       File.open(filepath, 'w') { |file| file.puts file_content }
     end
