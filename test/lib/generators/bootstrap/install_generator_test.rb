@@ -64,14 +64,14 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   test "should copy scss files" do
     run_generator %w(--stylesheet-engine scss)
 
-    assert_file "app/assets/stylesheets/bootstrap-generators.css.scss"
-    assert_file "app/assets/stylesheets/bootstrap-variables.css.scss"
+    assert_file "app/assets/stylesheets/bootstrap-generators.scss"
+    assert_file "app/assets/stylesheets/bootstrap-variables.scss"
   end
 
   test "should copy less files" do
     run_generator %w(--stylesheet-engine less)
 
-    assert_file "app/assets/stylesheets/bootstrap-generators.css.less"
+    assert_file "app/assets/stylesheets/bootstrap-generators.less"
     assert_file "app/assets/stylesheets/bootstrap-variables.less"
   end
 
@@ -85,35 +85,5 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     run_generator %w(--template-engine haml)
 
     assert_file "app/views/layouts/application.html.haml"
-  end
-
-  test "should create fluid erb layout" do
-    run_generator %w(--layout fluid)
-
-    assert_file "app/views/layouts/application.html.erb"
-  end
-
-  test "should create fluid haml layout" do
-    run_generator %w(--template-engine haml --layout fluid)
-
-    assert_file "app/views/layouts/application.html.haml"
-  end
-
-  test "should create erb form partial with simple_form form builder" do
-    run_generator %w(--form-builder simple_form)
-
-    assert_file "lib/templates/erb/scaffold/_form.html.erb"
-  end
-
-  test "should create haml form partial with simple_form form builder" do
-    run_generator %w(--form-builder simple_form --template-engine haml)
-
-    assert_file "lib/templates/haml/scaffold/_form.html.haml"
-  end
-
-  test "should copy config when simple_form form builder selected" do
-    run_generator %w(--form-builder simple_form)
-
-    assert_file "config/initializers/simple_form.rb"
   end
 end
