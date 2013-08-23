@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
   <title>Starter Template for Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <%%= javascript_include_tag "bootstrap-ie" %>
+  <![endif]-->
+
   <%%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%%= csrf_meta_tags %>
@@ -28,6 +37,13 @@
     </div>
   </div>
   <div class="container">
+    <%% flash.each do |name, msg| %>
+      <%%= content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable" do %>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%%= msg %>
+      <%% end %>
+    <%% end %>
+
     <%%= yield %>
   </div>
 </body>

@@ -83,5 +83,9 @@ namespace :bootstrap do
       file_content = File.read(filepath).gsub("../fonts/", "/assets/")
       File.open(filepath, 'w') { |file| file.puts file_content }
     end
+
+    # IE
+    FileUtils.cp "#{twitter_bootstrap_dir}/assets/js/html5shiv.js", "vendor/assets/javascripts/bootstrap-ie/html5shiv.js"
+    FileUtils.cp "#{twitter_bootstrap_dir}/assets/js/respond.min.js", "vendor/assets/javascripts/bootstrap-ie/respond.min.js"
   end
 end
