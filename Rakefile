@@ -46,9 +46,19 @@ namespace :bootstrap do
     FileUtils.rm Dir.glob("#{bootstrap_javascript_dir}/*.js")
     FileUtils.cp Dir.glob("#{twitter_bootstrap_dir}/js/*.js"), bootstrap_javascript_dir
 
+    # Rewrite base bootstrap.js
+    require_files = []
+    Dir.glob("#{bootstrap_javascript_dir}/*.js") do |js_file|
+      require_files << File.basename(js_file, '.*')
+    end
+
+    # Make sure that tooltip.js is before popover.js (Popover requires tooltip.js)
+    tooltip_position = require_files.index('tooltip')
+    popover_position = require_files.index('popover')
+    require_files.insert(popover_position, require_files.delete_at(tooltip_position))
+
     File.open(bootstrap_main_javascript, 'w') do |file|
-      Dir.glob("#{bootstrap_javascript_dir}/*.js") do |js_file|
-        require_file = File.basename(js_file, '.*')
+      require_files.each do |require_file|
         file.write("//= require bootstrap/#{require_file}\n")
       end
     end
@@ -87,5 +97,22 @@ namespace :bootstrap do
     # IE
     FileUtils.cp "#{twitter_bootstrap_dir}/assets/js/html5shiv.js", "vendor/assets/javascripts/bootstrap-ie/html5shiv.js"
     FileUtils.cp "#{twitter_bootstrap_dir}/assets/js/respond.min.js", "vendor/assets/javascripts/bootstrap-ie/respond.min.js"
+
+    # Generate README.md
+    require 'erb'
+
+    bootstrap_version = "3.0.0"
+    striped_bootstrap_generators_version = "3.0"
+
+    javascript_bootstrap_content_code = ""
+    File.open(bootstrap_main_javascript, 'r').each_line do |line|
+      javascript_bootstrap_content_code += "    #{line}"
+    end
+
+    template = ERB.new File.read("readme-template.md.erb")
+
+    File.open('README.md', 'w') do |file|
+      file.write(template.result(binding))
+    end
   end
 end

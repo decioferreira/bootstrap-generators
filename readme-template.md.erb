@@ -6,13 +6,13 @@ Bootstrap-generators provides [Twitter Bootstrap](http://twitter.github.com/boot
 
 ## Current Twitter Bootstrap version
 
-The current version of Twitter Bootstrap is 3.0.0.
+The current version of Twitter Bootstrap is <%= bootstrap_version %>.
 
 ## Installing Gem
 
 In your Gemfile, add this line:
 
-    gem 'bootstrap-generators', '~> 3.0'
+    gem 'bootstrap-generators', '~> <%= striped_bootstrap_generators_version %>'
 
 Or you can install from latest build:
 
@@ -120,18 +120,7 @@ Select all jQuery plugins (`app/assets/javascripts/bootstrap.js`)
 
 Or quickly add only the necessary javascript (Transitions: required for any animation; Popovers: requires Tooltips)
 
-    //= require bootstrap/transition
-    //= require bootstrap/collapse
-    //= require bootstrap/carousel
-    //= require bootstrap/button
-    //= require bootstrap/tooltip
-    //= require bootstrap/popover
-    //= require bootstrap/alert
-    //= require bootstrap/affix
-    //= require bootstrap/modal
-    //= require bootstrap/tab
-    //= require bootstrap/scrollspy
-    //= require bootstrap/dropdown
+<%= javascript_bootstrap_content_code %>
 
 ## Customizing Templates
 

@@ -2,8 +2,8 @@
 //= require bootstrap/collapse
 //= require bootstrap/carousel
 //= require bootstrap/button
-//= require bootstrap/popover
 //= require bootstrap/tooltip
+//= require bootstrap/popover
 //= require bootstrap/alert
 //= require bootstrap/affix
 //= require bootstrap/modal
