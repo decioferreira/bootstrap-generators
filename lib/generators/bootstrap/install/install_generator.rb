@@ -1,4 +1,4 @@
-require 'rails'
+require 'rails/generators'
 
 module Bootstrap
   module Generators
