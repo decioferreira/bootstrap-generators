@@ -120,18 +120,19 @@ Select all jQuery plugins (`app/assets/javascripts/bootstrap.js`)
 
 Or quickly add only the necessary javascript (Transitions: required for any animation; Popovers: requires Tooltips)
 
-    //= require bootstrap/transition
+    //= require bootstrap/affix
+    //= require bootstrap/scrollspy
     //= require bootstrap/collapse
-    //= require bootstrap/carousel
+    //= require bootstrap/alert
+    //= require bootstrap/dropdown
     //= require bootstrap/button
+    //= require bootstrap/modal
+    //= require bootstrap/carousel
     //= require bootstrap/tooltip
     //= require bootstrap/popover
-    //= require bootstrap/alert
-    //= require bootstrap/affix
-    //= require bootstrap/modal
+    //= require bootstrap/transition
     //= require bootstrap/tab
-    //= require bootstrap/scrollspy
-    //= require bootstrap/dropdown
+
 
 ## Customizing Templates
 

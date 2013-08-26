@@ -12,9 +12,13 @@ task :default => :test
 namespace :bootstrap do
   desc "Update to a new version of Twitter Bootstrap"
   task :update do
-    twitter_latest_dist_zip_url = 'https://github.com/twbs/bootstrap/archive/v3.0.0.zip'
-    twitter_bootstrap_dir = 'tmp/bootstrap-3.0.0'
-    twitter_sass_bootstrap_dir = 'tmp/sass-bootstrap-3.0.0-sass2'
+    bootstrap_version = "3.0.0"
+    striped_bootstrap_generators_version = "3.0"
+
+    twitter_latest_dist_zip_url = "https://github.com/twbs/bootstrap/archive/v#{bootstrap_version}.zip"
+    twitter_sass_lastest_dist_zip_url = "https://github.com/jlong/sass-bootstrap/archive/v#{bootstrap_version}.zip"
+    twitter_bootstrap_dir = "tmp/bootstrap-#{bootstrap_version}"
+    twitter_sass_bootstrap_dir = "tmp/sass-bootstrap-#{bootstrap_version}"
 
     # Make sure tmp/ dir exists
     Dir.mkdir('tmp') unless File.exists?('tmp')
@@ -23,7 +27,7 @@ namespace :bootstrap do
       puts "Twitter Bootstrap already downloaded."
     else
       # Download the latest version of Twitter Bootstrap
-      `wget -O tmp/bootstrap.zip https://github.com/twbs/bootstrap/archive/v3.0.0.zip`
+      `wget -O tmp/bootstrap.zip #{twitter_latest_dist_zip_url}`
 
       # Extract Twitter Bootstrap
       `unzip -d tmp tmp/bootstrap.zip`
@@ -33,7 +37,7 @@ namespace :bootstrap do
       puts "Twitter Bootstrap Sass already downloaded."
     else
       # Download the latest version of Twitter Bootstrap Sass
-      `wget -O tmp/sass-bootstrap.zip https://github.com/jlong/sass-bootstrap/archive/v3.0.0-sass2.zip`
+      `wget -O tmp/sass-bootstrap.zip #{twitter_sass_lastest_dist_zip_url}`
 
       # Extract Twitter Bootstrap
       `unzip -d tmp tmp/sass-bootstrap.zip`
@@ -100,9 +104,6 @@ namespace :bootstrap do
 
     # Generate README.md
     require 'erb'
-
-    bootstrap_version = "3.0.0"
-    striped_bootstrap_generators_version = "3.0"
 
     javascript_bootstrap_content_code = ""
     File.open(bootstrap_main_javascript, 'r').each_line do |line|
