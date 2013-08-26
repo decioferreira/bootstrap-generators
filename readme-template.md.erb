@@ -6,13 +6,13 @@ Bootstrap-generators provides [Twitter Bootstrap](http://twitter.github.com/boot
 
 ## Current Twitter Bootstrap version
 
-The current version of Twitter Bootstrap is 2.3.2.
+The current version of Twitter Bootstrap is <%= bootstrap_version %>.
 
 ## Installing Gem
 
 In your Gemfile, add this line:
 
-    gem 'bootstrap-generators', '~> 2.3'
+    gem 'bootstrap-generators', '~> <%= striped_bootstrap_generators_version %>'
 
 Or you can install from latest build:
 
@@ -74,8 +74,8 @@ To print the options and usage run the command `rails generate bootstrap:install
 
 There are the two available layouts, based on Bootstrap's quick-start examples:
 
-* [Basic marketing site](http://getbootstrap.com/2.3.2/examples/hero.html) (default)
-* [Fluid layout](http://getbootstrap.com/2.3.2/examples/fluid.html)
+* [Basic marketing site](http://getbootstrap.com/<%= bootstrap_version %>/examples/hero.html) (default)
+* [Fluid layout](http://getbootstrap.com/<%= bootstrap_version %>/examples/fluid.html)
 
 To select one of these layouts just pass the option `--layout=LAYOUT` to the install generator.
 
@@ -162,20 +162,7 @@ Select all jQuery plugins (`app/assets/javascripts/bootstrap.js`)
 
 Or quickly add only the necessary javascript (Transitions: required for any animation; Popovers: requires Tooltips)
 
-    //= require bootstrap-transition
-    //= require bootstrap-modal
-    //= require bootstrap-tooltip
-    //= require bootstrap-popover
-    //= require bootstrap-alert
-    //= require bootstrap-collapse
-    //= require bootstrap-tab
-    //= require bootstrap-dropdown
-    //= require bootstrap-typeahead
-    //= require bootstrap-scrollspy
-    //= require bootstrap-button
-    //= require bootstrap-affix
-    //= require bootstrap-carousel
-
+<%= javascript_bootstrap_content_code %>
 
 ## Customizing Templates
 
