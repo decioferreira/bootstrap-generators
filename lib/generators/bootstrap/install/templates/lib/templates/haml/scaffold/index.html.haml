@@ -8,9 +8,9 @@
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
-  <% for attribute in attributes -%>
+<% for attribute in attributes -%>
         %th <%= attribute.human_name %>
-  <% end -%>
+<% end -%>
         %th
         %th
         %th
@@ -18,9 +18,9 @@
     %tbody
       - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
         %tr
-  <% for attribute in attributes -%>
+<% for attribute in attributes -%>
           %td= <%= singular_table_name %>.<%= attribute.name %>
-  <% end -%>
+<% end -%>
           %td= link_to 'Show', <%= singular_table_name %>
           %td= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
           %td= link_to 'Destroy', <%= singular_table_name %>, :data => { confirm: 'Are you sure?' }, :method => :delete
