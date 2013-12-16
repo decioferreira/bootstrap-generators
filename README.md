@@ -2,17 +2,17 @@
 
 [![Build Status](https://travis-ci.org/decioferreira/bootstrap-generators.png?branch=master)](https://travis-ci.org/decioferreira/bootstrap-generators)
 
-Bootstrap-generators provides [Twitter Bootstrap](http://twitter.github.com/bootstrap/) generators for Rails 4 (supported Rails >= 3.1). Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites.
+Bootstrap-generators provides [Twitter Bootstrap](http://getbootstrap.com/) generators for Rails 4 (supported Rails >= 3.1). Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites.
 
 ## Current Twitter Bootstrap version
 
-The current version of Twitter Bootstrap is 3.0.0.
+The current version of Twitter Bootstrap is 3.0.2.
 
 ## Installing Gem
 
 In your Gemfile, add this line:
 
-    gem 'bootstrap-generators', '~> 3.0'
+    gem 'bootstrap-generators', '~> 3.0.2'
 
 Or you can install from latest build:
 
@@ -120,18 +120,18 @@ Select all jQuery plugins (`app/assets/javascripts/bootstrap.js`)
 
 Or quickly add only the necessary javascript (Transitions: required for any animation; Popovers: requires Tooltips)
 
-    //= require bootstrap/affix
     //= require bootstrap/scrollspy
-    //= require bootstrap/collapse
-    //= require bootstrap/alert
     //= require bootstrap/dropdown
+    //= require bootstrap/tab
     //= require bootstrap/button
+    //= require bootstrap/collapse
     //= require bootstrap/modal
     //= require bootstrap/carousel
+    //= require bootstrap/alert
+    //= require bootstrap/transition
     //= require bootstrap/tooltip
     //= require bootstrap/popover
-    //= require bootstrap/transition
-    //= require bootstrap/tab
+    //= require bootstrap/affix
 
 
 ## Customizing Templates

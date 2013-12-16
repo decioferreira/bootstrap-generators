@@ -12,8 +12,8 @@ task :default => :test
 namespace :bootstrap do
   desc "Update to a new version of Twitter Bootstrap"
   task :update do
-    bootstrap_version = "3.0.0"
-    striped_bootstrap_generators_version = "3.0"
+    bootstrap_version = "3.0.2"
+    striped_bootstrap_generators_version = "3.0.2"
 
     twitter_latest_dist_zip_url = "https://github.com/twbs/bootstrap/archive/v#{bootstrap_version}.zip"
     twitter_sass_lastest_dist_zip_url = "https://github.com/jlong/sass-bootstrap/archive/v#{bootstrap_version}.zip"
@@ -59,7 +59,7 @@ namespace :bootstrap do
     # Make sure that tooltip.js is before popover.js (Popover requires tooltip.js)
     tooltip_position = require_files.index('tooltip')
     popover_position = require_files.index('popover')
-    require_files.insert(popover_position, require_files.delete_at(tooltip_position))
+    require_files.insert(tooltip_position, require_files.delete_at(popover_position)) if tooltip_position > popover_position
 
     File.open(bootstrap_main_javascript, 'w') do |file|
       require_files.each do |require_file|
@@ -97,10 +97,6 @@ namespace :bootstrap do
       file_content = File.read(filepath).gsub("../fonts/", "/assets/")
       File.open(filepath, 'w') { |file| file.puts file_content }
     end
-
-    # IE
-    FileUtils.cp "#{twitter_bootstrap_dir}/assets/js/html5shiv.js", "vendor/assets/javascripts/bootstrap-ie/html5shiv.js"
-    FileUtils.cp "#{twitter_bootstrap_dir}/assets/js/respond.min.js", "vendor/assets/javascripts/bootstrap-ie/respond.min.js"
 
     # Generate README.md
     require 'erb'
