@@ -14,13 +14,24 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
     assert_file "lib/templates/erb/controller/view.html.erb"
     assert_no_file "lib/templates/haml/controller/view.html.haml"
+    assert_no_file "lib/templates/slim/controller/view.html.slim"
   end
+
+  test "should copy controller slim templates" do
+    run_generator %w(--template-engine slim)
+
+    assert_file "lib/templates/slim/controller/view.html.slim"
+    assert_no_file "lib/templates/erb/controller/view.html.erb"
+    assert_no_file "lib/templates/haml/controller/view.html.haml"
+  end
+
 
   test "should copy controller haml templates" do
     run_generator %w(--template-engine haml)
 
     assert_file "lib/templates/haml/controller/view.html.haml"
     assert_no_file "lib/templates/erb/controller/view.html.erb"
+    assert_no_file "lib/templates/slim/controller/view.html.slim"
   end
 
   test "should copy scaffold erb templates" do
@@ -29,8 +40,20 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     %w(index edit new show _form).each { |view|
       assert_file "lib/templates/erb/scaffold/#{view}.html.erb"
       assert_no_file "lib/templates/haml/scaffold/#{view}.html.haml"
+      assert_no_file "lib/templates/slim/scaffold/#{view}.html.slim"
     }
   end
+
+  test "should copy scaffold slim templates" do
+    run_generator %w(--template-engine slim)
+
+    %w(index edit new show _form).each { |view|
+      assert_file "lib/templates/slim/scaffold/#{view}.html.slim"
+      assert_no_file "lib/templates/erb/scaffold/#{view}.html.erb"
+      assert_no_file "lib/templates/haml/scaffold/#{view}.html.haml"
+    }
+  end
+
 
   test "should copy scaffold haml templates" do
     run_generator %w(--template-engine haml)
@@ -38,6 +61,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     %w(index edit new show _form).each { |view|
       assert_file "lib/templates/haml/scaffold/#{view}.html.haml"
       assert_no_file "lib/templates/erb/scaffold/#{view}.html.erb"
+      assert_no_file "lib/templates/slim/scaffold/#{view}.html.slim"
     }
   end
 
@@ -75,8 +99,14 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     assert_file "app/assets/stylesheets/bootstrap-variables.less"
   end
 
+	test "should create slim layout" do
+		run_generator %w(--template-engine slim)
+
+		assert_file "app/views/layouts/application.html.slim"
+	end
+
   test "should create erb layout" do
-    run_generator
+		run_generator 
 
     assert_file "app/views/layouts/application.html.erb"
   end
