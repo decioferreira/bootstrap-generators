@@ -1,45 +1,31 @@
 .page-header
-  |  <ruby code="%= link_to new_
-  = singular_table_name
-  | _path, :class => 'btn btn-primary' do "> 
-  span.glyphicon.glyphicon-plus
-  |  New 
-  = human_name
-  - % end
+  = link_to new_<%= singular_table_name %>_path, :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-plus
+    |  New <%= human_name %>
   h1
-    | Listing 
-    = plural_table_name
+    | Listing <%= plural_table_name %>
+
 .table-responsive
   table.table.table-striped.table-bordered.table-hover
     thead
       tr
-        - attributes.each do |attribute|
-          th
-            = attribute.human_name
+<%- for attribute in attributes -%>
+        th
+          | <%= attribute.human_name %>
+<%- end -%>
         th
         th
         th
     tbody
-      |  <ruby code="%= content_tag_for(:tr, @
-      = plural_table_name
-      | ) do |
-      = singular_table_name
-      | | "> 
-      - attributes.each do |attribute|
-        td
-          - %= <%= singular_table_name
-          | .
-          = attribute.name
-          |  %>
-      td
-        - %= link_to 'Show', <%= singular_table_name
-        |  %>
-      td
-        - %= link_to 'Edit', edit_<%= singular_table_name
-        | _path(
-        = singular_table_name
-        | ) %>
-      td
-        - %= link_to 'Destroy', <%= singular_table_name
-        | , method: :delete, data: { confirm: 'Are you sure?' } %>
-      - % end
+      - @<%= plural_table_name %>.each do | <%= singular_table_name %> |
+        tr
+<%- for attribute in attributes -%>
+          td
+            = <%= singular_table_name %>.<%= attribute.name %>
+<%- end -%>
+          td
+            = link_to 'Show', <%= singular_table_name %>
+          td
+            = link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>) 
+          td
+            = link_to 'Destroy', <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } 

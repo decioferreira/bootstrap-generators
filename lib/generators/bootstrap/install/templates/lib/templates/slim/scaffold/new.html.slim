@@ -1,11 +1,9 @@
 .page-header
-  |  <ruby code="%= link_to 
-  = index_helper
-  | _path, :class => 'btn btn-default' do "> 
-  span.glyphicon.glyphicon-list-alt
-  |  Back 
-  - % end
+  = link_to <%= index_helper %>_path, :class => 'btn btn-default' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Back 
   h1
     | New 
-    = singular_table_name
-- %= render 'form'
+    <%= singular_table_name %>
+
+= render 'form'
