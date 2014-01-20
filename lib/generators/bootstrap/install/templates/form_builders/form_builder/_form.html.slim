@@ -1,0 +1,18 @@
+= form_for(@<%= singular_table_name %>, :html => { :class => "form-horizontal" }) do |f|
+  - if @<%= singular_table_name %>.errors.any?
+    .alert.alert-danger.alert-dismissable
+      button.close type="button" data-dismiss="alert" aria-hidden="true" 
+        | &times;
+      h4= "#{pluralize(@<%= singular_table_name %>.errors.count,"error")} prohibited this <%= singular_table_name %> from being saved:"
+      ul
+        - @<%= singular_table_name %>.errors.full_messages.each do |msg|
+          li= msg
+<%-  attributes.each do |attribute| -%>
+  .form-group
+    = f.label :<%= attribute.name %>, :class => "col-lg-2 control-label"
+    .col-lg-10
+      = f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "form-control"
+<%- end -%>
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit :class => "btn btn-primary"
