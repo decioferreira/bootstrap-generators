@@ -106,7 +106,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 	end
 
   test "should create erb layout" do
-		run_generator 
+		run_generator
 
     assert_file "app/views/layouts/application.html.erb"
   end
