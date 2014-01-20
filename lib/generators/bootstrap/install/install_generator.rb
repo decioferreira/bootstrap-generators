@@ -4,7 +4,7 @@ module Bootstrap
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
       desc 'Copy BootstrapGenerators default files'
-      source_root File.expand_path('../templates', __FILE__)
+      source_root ::File.expand_path('../templates', __FILE__)
 
       class_option :template_engine
       class_option :stylesheet_engine
@@ -34,7 +34,7 @@ module Bootstrap
       def inject_backbone
         application_js_path = "app/assets/javascripts/application.js"
 
-        if File.exists?(File.join(destination_root, application_js_path))
+        if ::File.exists?(::File.join(destination_root, application_js_path))
           inject_into_file application_js_path, :before => "//= require_tree" do
             "//= require bootstrap\n"
           end
