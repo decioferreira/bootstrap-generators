@@ -12,13 +12,13 @@ task :default => :test
 namespace :bootstrap do
   desc "Update to a new version of Twitter Bootstrap"
   task :update do
-    bootstrap_version = "3.0.2"
-    striped_bootstrap_generators_version = "3.0.2"
+    bootstrap_version = "3.1.0"
+    striped_bootstrap_generators_version = "3.1.0"
 
     twitter_latest_dist_zip_url = "https://github.com/twbs/bootstrap/archive/v#{bootstrap_version}.zip"
-    twitter_sass_lastest_dist_zip_url = "https://github.com/jlong/sass-bootstrap/archive/v#{bootstrap_version}.zip"
+    twitter_sass_lastest_dist_zip_url = "https://github.com/twbs/bootstrap-sass/archive/v#{bootstrap_version}.zip"
     twitter_bootstrap_dir = "tmp/bootstrap-#{bootstrap_version}"
-    twitter_sass_bootstrap_dir = "tmp/sass-bootstrap-#{bootstrap_version}"
+    twitter_sass_bootstrap_dir = "tmp/bootstrap-sass-#{bootstrap_version}"
 
     # Make sure tmp/ dir exists
     Dir.mkdir('tmp') unless File.exists?('tmp')
@@ -71,7 +71,8 @@ namespace :bootstrap do
     bootstrap_fonts_dir = 'vendor/assets/fonts'
 
     FileUtils.rm Dir.glob("#{bootstrap_fonts_dir}/*")
-    FileUtils.cp Dir.glob("#{twitter_bootstrap_dir}/fonts/*"), bootstrap_fonts_dir
+    Dir.mkdir("#{bootstrap_fonts_dir}/bootstrap")
+    FileUtils.cp Dir.glob("#{twitter_bootstrap_dir}/fonts/*"), "#{bootstrap_fonts_dir}/bootstrap"
 
     # Reset Twitter Bootstrap CSS file
     FileUtils.cp "#{twitter_bootstrap_dir}/dist/css/bootstrap.css", "vendor/assets/stylesheets/bootstrap.css"
@@ -86,7 +87,7 @@ namespace :bootstrap do
     bootstrap_sass_dir = 'vendor/twitter/bootstrap/sass'
 
     FileUtils.rm Dir.glob("#{bootstrap_sass_dir}/*.scss")
-    FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/lib/*.scss"), bootstrap_sass_dir
+    FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/vendor/assets/stylesheets/bootstrap/*.scss"), bootstrap_sass_dir
 
     # Copy bootstrap variables
     FileUtils.cp "#{bootstrap_less_dir}/variables.less", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.less"

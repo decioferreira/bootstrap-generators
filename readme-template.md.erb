@@ -64,6 +64,9 @@ Supported template engines:
 
 * ERB
 * Haml
+* Slim
+
+##### Haml
 
 Add the dependency on your Gemfile:
 
@@ -72,6 +75,17 @@ Add the dependency on your Gemfile:
 And then run:
 
     rails generate bootstrap:install --template-engine=haml
+
+##### Slim
+
+Add the dependency on your Gemfile:
+
+    gem 'slim-rails'
+
+And then run:
+
+    rails generate bootstrap:install --template-engine=slim
+
 
 #### Stylesheet engines
 
