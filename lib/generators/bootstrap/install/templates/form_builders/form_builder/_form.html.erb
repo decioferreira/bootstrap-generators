@@ -14,14 +14,14 @@
 
 <% attributes.each do |attribute| -%>
   <div class="form-group">
-    <%%= f.label :<%= attribute.name %>, :class => "col-lg-2 control-label" %>
-    <div class="col-lg-10">
+    <%%= f.label :<%= attribute.name %>, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
       <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "form-control" %>
     </div>
   </div>
 <% end -%>
   <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
+    <div class="col-sm-offset-2 col-sm-10">
       <%%= f.submit :class => "btn btn-primary" %>
     </div>
   </div>

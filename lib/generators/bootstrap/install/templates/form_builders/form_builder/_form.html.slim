@@ -9,10 +9,10 @@
           li= msg
 <%-  attributes.each do |attribute| -%>
   .form-group
-    = f.label :<%= attribute.name %>, :class => "col-lg-2 control-label"
-    .col-lg-10
+    = f.label :<%= attribute.name %>, :class => "col-sm-2 control-label"
+    .col-sm-10
       = f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "form-control"
 <%- end -%>
   .form-group
-    .col-lg-offset-2.col-lg-10
+    .col-sm-offset-2.col-sm-10
       = f.submit :class => "btn btn-primary"
