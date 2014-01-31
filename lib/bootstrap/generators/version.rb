@@ -1,5 +1,5 @@
 module Bootstrap
   module Generators
-    VERSION = "3.0.2.2"
+    VERSION = "3.1.0"
   end
 end
