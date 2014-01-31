@@ -120,8 +120,6 @@ Now you can customize the look and feel of Bootstrap.
 
 ## Assets
 
-<a name="customize"></a>
-
 ### Customize and extend Bootstrap
 
 If you select LESS or SCSS as your stylesheet engine, you will get an `app/assets/stylesheets/bootstrap-variables.[less|scss]` file with all of the default variables of Bootstrap. This way you can customize the look and feel of Bootstrap without having to download any extra file.
@@ -156,7 +154,4 @@ Since Bootstrap Generators installs its templates under lib/templates, you can g
 
 ## Credits
 
-* [Twitter Bootstrap](http://twitter.github.com/bootstrap)
-* [Twitter Bootstrap - Sass Conversion](https://github.com/jlong/sass-twitter-bootstrap)
-
-[customize]: #customize
+* [Twitter Bootstrap](http://getbootstrap.com)

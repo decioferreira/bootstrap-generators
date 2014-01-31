@@ -68,11 +68,10 @@ namespace :bootstrap do
     end
 
     # Reset Twitter Bootstrap Fonts
-    bootstrap_fonts_dir = 'vendor/assets/fonts'
+    bootstrap_fonts_dir = 'vendor/assets/fonts/bootstrap'
 
     FileUtils.rm Dir.glob("#{bootstrap_fonts_dir}/*")
-    Dir.mkdir("#{bootstrap_fonts_dir}/bootstrap")
-    FileUtils.cp Dir.glob("#{twitter_bootstrap_dir}/fonts/*"), "#{bootstrap_fonts_dir}/bootstrap"
+    FileUtils.cp Dir.glob("#{twitter_bootstrap_dir}/fonts/*"), bootstrap_fonts_dir
 
     # Reset Twitter Bootstrap CSS file
     FileUtils.cp "#{twitter_bootstrap_dir}/dist/css/bootstrap.css", "vendor/assets/stylesheets/bootstrap.css"
