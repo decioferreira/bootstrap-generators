@@ -1,30 +1,27 @@
-$:.push File.expand_path("../lib", __FILE__)
-
-# Maintain your gem's version:
+# coding: utf-8
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "bootstrap/generators/version"
 
-# Describe your gem and declare its dependencies:
-Gem::Specification.new do |s|
-  s.name        = "bootstrap-generators"
-  s.version     = Bootstrap::Generators::VERSION
-  s.authors     = ["Décio Ferreira"]
-  s.email       = ["decio.ferreira@decioferreira.com"]
-  s.homepage    = "https://github.com/decioferreira/bootstrap-generators/"
-  s.summary     = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 4 (supported Rails >= 3.1).}
-  s.description = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 4 (supported Rails >= 3.1). Checkout http://twitter.github.com/bootstrap.}
-  s.license     = "MIT"
+Gem::Specification.new do |spec|
+  spec.name          = "bootstrap-generators"
+  spec.version       = Bootstrap::Generators::VERSION
+  spec.authors       = ["Décio Ferreira"]
+  spec.email         = ["decio.ferreira@decioferreira.com"]
+  spec.summary       = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 4 (supported Rails >= 3.1).}
+  spec.description   = %q{Bootstrap-generators provides Twitter Bootstrap generators for Rails 4 (supported Rails >= 3.1). Checkout http://getbootstrap.com.}
+  spec.homepage      = "https://github.com/decioferreira/bootstrap-generators"
+  spec.license       = "MIT"
 
-  s.rubyforge_project = "bootstrap-generators"
+  spec.rubyforge_project = "bootstrap-generators"
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  spec.files         = `git ls-files`.split($/)
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ["lib"]
 
-  s.add_development_dependency "bundler", "~> 1.3"
-  s.add_development_dependency "rake"
+  spec.add_development_dependency "bundler", "~> 1.5"
+  spec.add_development_dependency "rake"
 
-  s.add_development_dependency "rails", ">= 3.1"
-
-  s.add_runtime_dependency "railties", ">= 3.1"
+  spec.add_runtime_dependency "railties", ">= 3.1.0"
 end
