@@ -3,7 +3,7 @@ require 'generators/bootstrap/install/install_generator'
 
 class InstallGeneratorTest < Rails::Generators::TestCase
   tests Bootstrap::Generators::InstallGenerator
-  destination File.expand_path("../../../../tmp", __FILE__)
+  destination File.expand_path('../../../../tmp', __FILE__)
   arguments %w(-f)
 
   setup do
@@ -11,11 +11,11 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     prepare_dummy_app
   end
 
-  test "precompile assets" do
-    generator.application "config.assets.initialize_on_precompile = false"
+  test 'precompile assets' do
+    generator.application 'config.assets.initialize_on_precompile = false'
     run_generator %W(-f --stylesheet-engine scss)
-    # quietly { generator.rake "assets:precompile" }
-    generator.rake "assets:precompile" # temporarily display errors
+    # quietly { generator.rake 'assets:precompile' }
+    generator.rake 'assets:precompile' # temporarily display errors
     assert_equal 0, $?.exitstatus
   end
 
@@ -48,10 +48,10 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     end
   end
 
-  test "should copy css files" do
+  test 'should copy css files' do
     run_generator %w(-f --stylesheet-engine css)
 
-    assert_file "app/assets/stylesheets/bootstrap-generators.css"
+    assert_file 'app/assets/stylesheets/bootstrap-generators.css'
   end
 
   css_preprocessors = %w{scss less}
@@ -64,14 +64,14 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     end
   end
 
-  test "should require javascript bootstrap file" do
+  test 'should require javascript bootstrap file' do
     run_generator
 
-    assert_file "app/assets/javascripts/application.js", /require bootstrap/
+    assert_file 'app/assets/javascripts/application.js', /require bootstrap/
   end
 
-  test "should work when there is no application.js file" do
-    File.delete(File.join(destination_root, "app/assets/javascripts/application.js"))
+  test 'should work when there is no application.js file' do
+    File.delete(File.join(destination_root, 'app/assets/javascripts/application.js'))
 
     assert_nothing_raised Errno::ENOENT do
       run_generator
@@ -81,6 +81,6 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   private
 
   def prepare_dummy_app
-    FileUtils.cp_r("test/dummy/.", destination_root)
+    FileUtils.cp_r('test/dummy/.', destination_root)
   end
 end
