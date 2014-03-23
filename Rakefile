@@ -99,6 +99,11 @@ namespace :bootstrap do
       File.open(filepath, 'w') { |file| file.puts file_content }
     end
 
+    ["vendor/assets/stylesheets/bootstrap.css", "vendor/twitter/bootstrap/sass/_glyphicons.scss", "vendor/twitter/bootstrap/sass/_mixins.scss", "vendor/twitter/bootstrap/less/mixins.less", "vendor/twitter/bootstrap/less/glyphicons.less"].each do |filepath|
+      file_content = File.read(filepath).gsub("url(", "asset-url(")
+      File.open(filepath, 'w') { |file| file.puts file_content }
+    end
+
     # Generate README.md
     require 'erb'
 
