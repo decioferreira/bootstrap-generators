@@ -5,16 +5,22 @@ gemspec
 
 # Dummy application
 rails_version = ENV["RAILS_VERSION"] || "default"
-rails = case rails_version
+case rails_version
 when "master"
-  { github: "rails/rails" }
+  rails = { github: "rails/rails" }
+  gem 'sass-rails', '>= 4.0.2'
 when "default"
-  ">= 3.1.0"
+  rails = ">= 3.1.0"
+  gem 'sass-rails'
 else
-  "~> #{rails_version}"
+  rails = "~> #{rails_version}"
+
+  if rails_version[0] == '4'
+    gem 'sass-rails', '>= 4.0.2'
+  else
+    gem 'sass-rails'
+  end
 end
 
-gem "rails", rails
-
-gem 'sass-rails'
+gem 'rails', rails
 gem 'uglifier'
