@@ -75,7 +75,7 @@ namespace :bootstrap do
     FileUtils.cp Dir.glob("#{twitter_bootstrap_dir}/fonts/*"), bootstrap_fonts_dir
 
     # Reset Twitter Bootstrap CSS file
-    FileUtils.cp "#{twitter_bootstrap_dir}/dist/css/bootstrap.css", "vendor/assets/stylesheets/bootstrap.css"
+    FileUtils.cp "#{twitter_bootstrap_dir}/dist/css/bootstrap.css", "vendor/assets/stylesheets/bootstrap.css.erb"
 
     # Reset Twitter Bootstrap LESS files
     bootstrap_less_dir = 'vendor/twitter/bootstrap/less'
@@ -93,14 +93,47 @@ namespace :bootstrap do
     FileUtils.cp "#{bootstrap_less_dir}/variables.less", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.less"
     FileUtils.cp "#{bootstrap_sass_dir}/_variables.scss", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.scss"
 
-    # Change icon-font-path
-    ["vendor/assets/stylesheets/bootstrap.css", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.less", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.scss"].each do |filepath|
-      file_content = File.read(filepath).gsub("../fonts/", "/assets/")
+    # Asset helpers
+    Dir.glob('**/*.css.erb').each do |filepath|
+      file_content = File.read(filepath)
+
+      # Remove fonts path
+      file_content.gsub!("../fonts/", "bootstrap/")
+
+      # Asset helpers for fonts
+      file_content.gsub!(%r{(["'][\w\-@{}$#\/]+\.(eot|woff|ttf|svg)["'])}, '\'<%= font_path(\1) %>\'')
+      file_content.gsub!(%r{(["'])([\w\-@{}$#\/]+\.(eot|woff|ttf|svg))(\??#[\w\-@{}$#]+["'])}, '\'<%= font_path(\1\2\1) %>\4')
+
       File.open(filepath, 'w') { |file| file.puts file_content }
     end
 
-    ["vendor/assets/stylesheets/bootstrap.css", "vendor/twitter/bootstrap/sass/_glyphicons.scss", "vendor/twitter/bootstrap/sass/_mixins.scss", "vendor/twitter/bootstrap/less/mixins.less", "vendor/twitter/bootstrap/less/glyphicons.less"].each do |filepath|
-      file_content = File.read(filepath).gsub("url(", "asset-url(")
+    Dir.glob('**/*.scss').each do |filepath|
+      file_content = File.read(filepath)
+
+      # Remove fonts path
+      file_content.gsub!("../fonts/", "bootstrap/")
+
+      # Asset helpers for fonts
+      file_content.gsub!(%r{(["'\w\-@{}$#\/]+\.(eot|woff|ttf|svg)(\??#[\w\-@{}$#]+)?["'])}, 'font-path(\1)')
+
+      # Asset helpers for images
+      file_content.gsub!(%r{image: url\(}, 'image: image-url(')
+
+      File.open(filepath, 'w') { |file| file.puts file_content }
+    end
+
+    Dir.glob('**/*.less').each do |filepath|
+      file_content = File.read(filepath)
+
+      # Remove fonts path
+      file_content.gsub!("../fonts/", "bootstrap/")
+
+      # Asset helpers for fonts
+      file_content.gsub!(%r{~"url\(([^)]+)\)( [^"]*)?"}, 'font-url(~"\1")\2')
+
+      # Asset helpers for images
+      file_content.gsub!(%r{image: url\(}, 'image: image-url(')
+
       File.open(filepath, 'w') { |file| file.puts file_content }
     end
 
