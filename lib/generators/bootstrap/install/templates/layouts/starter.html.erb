@@ -12,8 +12,13 @@
     <%%= javascript_include_tag "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js", "https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js" %>
   <![endif]-->
 
-  <%%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%- if options[:skip_turbolinks] -%>
+  <%%= stylesheet_link_tag    'application', media: 'all' %>
+  <%%= javascript_include_tag 'application' %>
+  <%- else -%>
+  <%%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%- end -%>
   <%%= csrf_meta_tags %>
 </head>
 <body>

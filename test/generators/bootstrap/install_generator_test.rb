@@ -46,6 +46,24 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
       assert_file "app/views/layouts/application.html.#{templating_system}"
     end
+
+    test "should not skip turbolinks by default (#{templating_system} layout)" do
+      run_generator %W(-f --template-engine #{templating_system})
+
+      assert_file "app/views/layouts/application.html.#{templating_system}" do |contents|
+        assert_match(/stylesheet_link_tag\s+'application', media: 'all', 'data-turbolinks-track' => true/, contents)
+        assert_match(/javascript_include_tag\s+'application', 'data-turbolinks-track' => true/, contents)
+      end
+    end
+
+    test "should skip turbolinks (#{templating_system} layout)" do
+      run_generator %W(-f --template-engine #{templating_system} --skip-turbolinks)
+
+      assert_file "app/views/layouts/application.html.#{templating_system}" do |contents|
+        assert_no_match(/stylesheet_link_tag\s+'application', media: 'all', 'data-turbolinks-track' => true/, contents)
+        assert_no_match(/javascript_include_tag\s+'application', 'data-turbolinks-track' => true/, contents)
+      end
+    end
   end
 
   test 'should copy css files' do
