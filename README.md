@@ -6,7 +6,7 @@ Bootstrap-generators provides [Twitter Bootstrap](http://getbootstrap.com/) gene
 
 ## Current Twitter Bootstrap version
 
-The current version of Twitter Bootstrap is 3.1.1.
+The current supported version of Twitter Bootstrap is 3.1.1.
 
 ## Installing Gem
 
