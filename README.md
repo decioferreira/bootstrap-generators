@@ -40,19 +40,21 @@ You can easily customize colors, grid system, fonts, and much more by editing `b
 
 To print the options and usage run the command `rails generate bootstrap:install --help`
 
-    rails generate bootstrap:install [options]
+    Usage:
+      rails generate bootstrap:install [options]
 
     Options:
-      -e, [--template-engine=TEMPLATE_ENGINE]       # Indicates when to generate template engine
-                                                    # Default: erb
-      -se, [--stylesheet-engine=STYLESHEET_ENGINE]  # Indicates when to generate stylesheet engine
-                                                    # Default: scss
+      -e, [--template-engine=TEMPLATE_ENGINE]          # Indicates when to generate template engine
+                                                       # Default: erb
+      -se, [--stylesheet-engine=STYLESHEET_ENGINE]     # Indicates when to generate stylesheet engine
+                                                       # Default: scss
+          [--skip-turbolinks], [--no-skip-turbolinks]  # Indicates when to generate skip turbolinks
 
     Runtime options:
-      -f, [--force]    # Overwrite files that already exist
-      -p, [--pretend]  # Run but do not make any changes
-      -q, [--quiet]    # Supress status output
-      -s, [--skip]     # Skip files that already exist
+      -f, [--force]                    # Overwrite files that already exist
+      -p, [--pretend], [--no-pretend]  # Run but do not make any changes
+      -q, [--quiet], [--no-quiet]      # Suppress status output
+      -s, [--skip], [--no-skip]        # Skip files that already exist
 
     Copy BootstrapGenerators default files
 
@@ -95,6 +97,8 @@ Supported stylesheet engines:
 * SCSS
 * LESS
 
+##### SCSS
+
 Make sure you have `sass-rails` dependency on your Gemfile:
 
     gem 'sass-rails'
@@ -105,7 +109,7 @@ And then run:
 
 Now you can customize the look and feel of Bootstrap.
 
-* LESS
+##### LESS
 
 Add the dependency on your Gemfile:
 
@@ -117,6 +121,10 @@ And then run:
     rails generate bootstrap:install --stylesheet-engine=less
 
 Now you can customize the look and feel of Bootstrap.
+
+#### Skip turbolinks
+
+Run the generator with option `--skip-turbolinks` to remove turbolinks references from the generated layout.
 
 ## Assets
 
