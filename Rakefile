@@ -13,8 +13,8 @@ task :default => :test
 namespace :bootstrap do
   desc "Update to a new version of Twitter Bootstrap"
   task :update do
-    bootstrap_version = "3.1.1"
-    striped_bootstrap_generators_version = "3.1.1"
+    bootstrap_version = "3.2.0"
+    striped_bootstrap_generators_version = "3.2.0"
 
     twitter_latest_dist_zip_url = "https://github.com/twbs/bootstrap/archive/v#{bootstrap_version}.zip"
     twitter_sass_lastest_dist_zip_url = "https://github.com/twbs/bootstrap-sass/archive/v#{bootstrap_version}.zip"
@@ -80,14 +80,16 @@ namespace :bootstrap do
     # Reset Twitter Bootstrap LESS files
     bootstrap_less_dir = 'vendor/twitter/bootstrap/less'
 
-    FileUtils.rm Dir.glob("#{bootstrap_less_dir}/*.less")
+    FileUtils.rm Dir.glob("#{bootstrap_less_dir}/**/*.less")
     FileUtils.cp Dir.glob("#{twitter_bootstrap_dir}/less/*.less"), bootstrap_less_dir
+    FileUtils.cp Dir.glob("#{twitter_bootstrap_dir}/less/mixins/*.less"), "#{bootstrap_less_dir}/mixins"
 
     # Reset Twitter Bootstrap SASS files
     bootstrap_sass_dir = 'vendor/twitter/bootstrap/sass'
 
-    FileUtils.rm Dir.glob("#{bootstrap_sass_dir}/*.scss")
-    FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/vendor/assets/stylesheets/bootstrap/*.scss"), bootstrap_sass_dir
+    FileUtils.rm Dir.glob("#{bootstrap_sass_dir}/**/*.scss")
+    FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/assets/stylesheets/bootstrap/*.scss"), bootstrap_sass_dir
+    FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/assets/stylesheets/bootstrap/mixins/*.scss"), "#{bootstrap_sass_dir}/mixins"
 
     # Copy bootstrap variables
     FileUtils.cp "#{bootstrap_less_dir}/variables.less", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.less"
