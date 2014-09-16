@@ -2,8 +2,8 @@ language: ruby
 rvm:
   - 2.1.0
 env:
-  - "RAILS_VERSION=3.1.0"
-  - "RAILS_VERSION=3.2.0"
-  - "RAILS_VERSION=4.0.0"
-  - "RAILS_VERSION=4.1.0.rc2"
+  - "RAILS_VERSION=3.1.12"
+  - "RAILS_VERSION=3.2.19"
+  - "RAILS_VERSION=4.0.10"
+  - "RAILS_VERSION=4.1.6"
   - "RAILS_VERSION=master"
