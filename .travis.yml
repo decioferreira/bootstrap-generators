@@ -6,4 +6,3 @@ env:
   - "RAILS_VERSION=3.2.19"
   - "RAILS_VERSION=4.0.10"
   - "RAILS_VERSION=4.1.6"
-  - "RAILS_VERSION=master"
