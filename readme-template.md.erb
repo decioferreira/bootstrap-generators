@@ -26,7 +26,9 @@ Run bundle install:
 
 Get started:
 
-    rails generate bootstrap:install -f
+    rails generate bootstrap:install
+
+To overwrite files that already exist, pass the `--force` (`-f`) option.
 
 Once you've done that, any time you generate a controller or scaffold, you'll get [Bootstrap](http://twitter.github.com/bootstrap/) templates.
 
