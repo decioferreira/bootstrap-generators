@@ -13,8 +13,8 @@ task :default => :test
 namespace :bootstrap do
   desc "Update to a new version of Twitter Bootstrap"
   task :update do
-    bootstrap_version = "3.2.0"
-    striped_bootstrap_generators_version = "3.2.0"
+    bootstrap_version = "3.3.1"
+    striped_bootstrap_generators_version = "3.3.1"
 
     twitter_latest_dist_zip_url = "https://github.com/twbs/bootstrap/archive/v#{bootstrap_version}.zip"
     twitter_sass_lastest_dist_zip_url = "https://github.com/twbs/bootstrap-sass/archive/v#{bootstrap_version}.zip"
@@ -57,17 +57,6 @@ namespace :bootstrap do
       require_files << File.basename(js_file, '.*')
     end
 
-    # Make sure that tooltip.js is before popover.js (Popover requires tooltip.js)
-    tooltip_position = require_files.index('tooltip')
-    popover_position = require_files.index('popover')
-    require_files.insert(tooltip_position, require_files.delete_at(popover_position)) if tooltip_position > popover_position
-
-    File.open(bootstrap_main_javascript, 'w') do |file|
-      require_files.each do |require_file|
-        file.write("//= require bootstrap/#{require_file}\n")
-      end
-    end
-
     # Reset Twitter Bootstrap Fonts
     bootstrap_fonts_dir = 'vendor/assets/fonts/bootstrap'
 
@@ -88,12 +77,13 @@ namespace :bootstrap do
     bootstrap_sass_dir = 'vendor/twitter/bootstrap/sass'
 
     FileUtils.rm Dir.glob("#{bootstrap_sass_dir}/**/*.scss")
-    FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/assets/stylesheets/bootstrap/*.scss"), bootstrap_sass_dir
-    FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/assets/stylesheets/bootstrap/mixins/*.scss"), "#{bootstrap_sass_dir}/mixins"
+    FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/assets/stylesheets/*.scss"), bootstrap_sass_dir
+    FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/assets/stylesheets/bootstrap/*.scss"), "#{bootstrap_sass_dir}/bootstrap"
+    FileUtils.cp Dir.glob("#{twitter_sass_bootstrap_dir}/assets/stylesheets/bootstrap/mixins/*.scss"), "#{bootstrap_sass_dir}/bootstrap/mixins"
 
     # Copy bootstrap variables
     FileUtils.cp "#{bootstrap_less_dir}/variables.less", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.less"
-    FileUtils.cp "#{bootstrap_sass_dir}/_variables.scss", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.scss"
+    FileUtils.cp "#{bootstrap_sass_dir}/bootstrap/_variables.scss", "lib/generators/bootstrap/install/templates/assets/stylesheets/bootstrap-variables.scss"
 
     # Asset helpers
     Dir.glob('**/*.css.erb').each do |filepath|
@@ -113,10 +103,10 @@ namespace :bootstrap do
       file_content = File.read(filepath)
 
       # Remove fonts path
-      file_content.gsub!("../fonts/", "bootstrap/")
+      file_content.gsub!("../fonts/", "")
 
       # Asset helpers for fonts
-      file_content.gsub!(%r{(["'\w\-@{}$#\/]+\.(eot|woff|ttf|svg)(\??#[\w\-@{}$#]+)?["'])}, 'font-path(\1)')
+      file_content.gsub!(%r{(["'\w\-@{}$#\/]+\.(eot|woff|ttf|svg)(\??#[\w\-@{}$#]+)?["'])}, '\1')
 
       # Asset helpers for images
       file_content.gsub!(%r{image: url\(}, 'image: image-url(')
