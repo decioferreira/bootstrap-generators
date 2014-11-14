@@ -1,7 +1,7 @@
-<%%= form_for(@<%= singular_table_name %>, :html => { :class => "form-horizontal" }) do |f| %>
+<%%= form_for(@<%= singular_table_name %>, :html => { :class => "form-horizontal", :role => "form" }) do |f| %>
   <%% if @<%= singular_table_name %>.errors.any? %>
-    <div class="alert alert-danger alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
       <h4><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h4>
 
       <ul>
