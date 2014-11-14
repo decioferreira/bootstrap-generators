@@ -65,6 +65,7 @@ namespace :bootstrap do
 
     # Reset Twitter Bootstrap CSS file
     FileUtils.cp "#{twitter_bootstrap_dir}/dist/css/bootstrap.css", "vendor/assets/stylesheets/bootstrap.css.erb"
+    FileUtils.cp "#{twitter_bootstrap_dir}/dist/css/bootstrap.css.map", "vendor/assets/stylesheets/bootstrap.css.map"
 
     # Reset Twitter Bootstrap LESS files
     bootstrap_less_dir = 'vendor/twitter/bootstrap/less'
