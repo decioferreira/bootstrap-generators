@@ -1,3 +1,4 @@
+<%%- model_class = <%= singular_table_name.to_s.titleize.split(" ").join.to_s.constantize %> %>
 <div class="page-header">
   <%%= link_to <%= index_helper %>_path, :class => 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
@@ -12,7 +13,8 @@
 
 <dl class="dl-horizontal">
   <%- attributes.each do |attribute| -%>
-  <dt><%= attribute.human_name %>:</dt>
+
+  <dt><%%= model_class.human_attribute_name "<%= attribute.name.to_s %>" %>:</dt>
   <dd><%%= @<%= singular_table_name %>.<%= attribute.name %> %></dd>
 
   <%- end -%>
