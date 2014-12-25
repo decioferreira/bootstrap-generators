@@ -1,4 +1,5 @@
-<%%- model_class = <%= singular_table_name.to_s.titleize.constantize %> %>
+
+<%%- model_class = <%= singular_table_name.to_s.titleize.split(" ").join.to_s.constantize %> %>
 <div class="page-header">
   <%%= link_to new_<%= singular_table_name %>_path, :class => 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
