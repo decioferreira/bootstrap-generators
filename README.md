@@ -160,6 +160,15 @@ In Rails 3.0 and above, generators don’t just look in the source root for temp
 
 Since Bootstrap Generators installs its templates under lib/templates, you can go and customize them.
 
+## generator don't work?
+
+try to add below codes into config/application.rb
+
+    config.generators do |g|
+      g.template_engine :erb
+    end
+
+
 ## Credits
 
 * [Twitter Bootstrap](http://getbootstrap.com)
