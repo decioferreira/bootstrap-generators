@@ -2,8 +2,8 @@
   -if @<%= singular_table_name %>.errors.any?
     .alert.alert-danger.alert-dismissable{:role => "alert"}
       %button.close{:type => "button", :data => {:dismiss => "alert"} }
-        span{:aria => {:hidden => "true"} } &times;
-        span.sr-only Close
+        %span{:aria => {:hidden => "true"} } &times;
+        %span.sr-only Close
       %h4= "#{pluralize(@<%= singular_table_name %>.errors.count, "error")} prohibited this <%= singular_table_name %> from being saved:"
 
       %ul
