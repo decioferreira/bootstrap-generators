@@ -8,7 +8,7 @@ Rake::TestTask.new do |t|
   t.verbose = false
 end
 
-task :default => :test
+task default: :test
 
 namespace :bootstrap do
   desc "Update to a new version of Twitter Bootstrap"

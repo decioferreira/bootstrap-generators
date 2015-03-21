@@ -1,8 +1,8 @@
-= form_for @<%= singular_table_name %>, :html => { :class => "form-horizontal", :role => "form" } do |f|
+= form_for @<%= singular_table_name %>, html: { class: "form-horizontal", role: "form" } do |f|
   -if @<%= singular_table_name %>.errors.any?
-    .alert.alert-danger.alert-dismissable{:role => "alert"}
-      %button.close{:type => "button", :data => {:dismiss => "alert"} }
-        %span{:aria => {:hidden => "true"} } &times;
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
         %span.sr-only Close
       %h4= "#{pluralize(@<%= singular_table_name %>.errors.count, "error")} prohibited this <%= singular_table_name %> from being saved:"
 
@@ -12,10 +12,10 @@
 
 <% for attribute in attributes -%>
   .form-group
-    = f.label :<%= attribute.name %>, :class => 'col-sm-2 control-label'
+    = f.label :<%= attribute.name %>, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.<%= attribute.field_type %> :<%= attribute.name %>, :class => 'form-control'
+      = f.<%= attribute.field_type %> :<%= attribute.name %>, class: 'form-control'
 <% end -%>
   .form-group
     .col-sm-offset-2.col-sm-10
-      = f.submit :class => 'btn btn-primary'
+      = f.submit class: 'btn btn-primary'

@@ -16,7 +16,7 @@ In your Gemfile, add this line:
 
 Or you can install from latest build:
 
-    gem 'bootstrap-generators', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
+    gem 'bootstrap-generators', git: 'git://github.com/decioferreira/bootstrap-generators.git'
 
 Run bundle install:
 
