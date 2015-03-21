@@ -1,11 +1,11 @@
 !!!
 %html
   %head
-    %meta{:charset => "utf-8"}
-    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
-    %meta{:content => "", :name => "description"}
-    %meta{:content => "", :name => "author"}
+    %meta{charset: "utf-8"}
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
+    %meta{content: "", name: "description"}
+    %meta{content: "", name: "author"}
     %title Starter Template for Bootstrap
 
     / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -21,28 +21,28 @@
     <%- end -%>
     = csrf_meta_tags
   %body
-    %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+    %nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
       .container
         .navbar-header
-          %button.navbar-toggle.collapsed{:type => "button", :data => {:toggle => "collapse", :target => "#navbar"}, :aria => {:expanded => "false", :controls => "navbar"} }
+          %button.navbar-toggle.collapsed{type: "button", data: {toggle: "collapse", target: "#navbar"}, aria: {expanded: "false", controls: "navbar"} }
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to "Project name", "#", :class => "navbar-brand"
+          = link_to "Project name", "#", class: "navbar-brand"
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "#"} Home
+              %a{href: "#"} Home
             %li
-              %a{:href => "#about"} About
+              %a{href: "#about"} About
             %li
-              %a{:href => "#contact"} Contact
+              %a{href: "#contact"} Contact
     .container
       - flash.each do |name, msg|
-        = content_tag :div, :class => "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do
-          %button.close{:type => "button", :data => {:dismiss => "alert"} }
-            %span{:aria => {:hidden => "true"} } &times;
+        = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
+          %button.close{type: "button", data: {dismiss: "alert"} }
+            %span{aria: {hidden: "true"} } &times;
             %span.sr-only Close
           = msg
       = yield

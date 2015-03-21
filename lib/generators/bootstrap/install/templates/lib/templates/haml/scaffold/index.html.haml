@@ -1,5 +1,5 @@
 .page-header
-  = link_to new_<%= singular_table_name %>_path, :class => 'btn btn-primary' do
+  = link_to new_<%= singular_table_name %>_path, class: 'btn btn-primary' do
     %span.glyphicon.glyphicon-plus
     New <%= human_name %>
   %h1 Listing <%= plural_table_name %>
@@ -23,4 +23,4 @@
 <% end -%>
           %td= link_to 'Show', <%= singular_table_name %>
           %td= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
-          %td= link_to 'Destroy', <%= singular_table_name %>, :data => { confirm: 'Are you sure?' }, :method => :delete
+          %td= link_to 'Destroy', <%= singular_table_name %>, data: { confirm: 'Are you sure?' }, method: :delete
