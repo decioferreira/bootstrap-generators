@@ -11,7 +11,7 @@ module Bootstrap
 
         app.config.assets.paths << ::Rails.root.join('app', 'assets', 'fonts')
 
-        app.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+        app.config.assets.precompile << /\.(?:svg|eot|woff|woff2|ttf)$/
       end
     end
   end

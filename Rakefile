@@ -13,8 +13,8 @@ task default: :test
 namespace :bootstrap do
   desc "Update to a new version of Twitter Bootstrap"
   task :update do
-    bootstrap_version = "3.3.1"
-    striped_bootstrap_generators_version = "3.3.1"
+    bootstrap_version = "3.3.4"
+    striped_bootstrap_generators_version = "3.3.4"
 
     twitter_latest_dist_zip_url = "https://github.com/twbs/bootstrap/archive/v#{bootstrap_version}.zip"
     twitter_sass_lastest_dist_zip_url = "https://github.com/twbs/bootstrap-sass/archive/v#{bootstrap_version}.zip"

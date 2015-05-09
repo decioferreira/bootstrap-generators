@@ -6,13 +6,13 @@ Bootstrap-generators provides [Twitter Bootstrap](http://getbootstrap.com/) gene
 
 ## Current Twitter Bootstrap version
 
-The current supported version of Twitter Bootstrap is 3.3.1.
+The current supported version of Twitter Bootstrap is 3.3.4.
 
 ## Installing Gem
 
 In your Gemfile, add this line:
 
-    gem 'bootstrap-generators', '~> 3.3.1'
+    gem 'bootstrap-generators', '~> 3.3.4'
 
 Or you can install from latest build:
 
