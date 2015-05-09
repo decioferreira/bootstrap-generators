@@ -162,6 +162,14 @@ In Rails 3.0 and above, generators don’t just look in the source root for temp
 
 Since Bootstrap Generators installs its templates under lib/templates, you can go and customize them.
 
+## Update Bootstrap Version
+
+To update the version of Bootstrap on this Gem you can run the following command:
+
+    rake bootstrap:update
+
+There might be some manual changes needed after running this command. But most of the process is automatic.
+
 ## Credits
 
 * [Twitter Bootstrap](http://getbootstrap.com)
