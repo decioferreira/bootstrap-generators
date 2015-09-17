@@ -43,7 +43,7 @@ html
                 | Contact
     .container
       - flash.each do |name, msg|
-        = content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
+        = content_tag :div, class: "alert alert-#{ name == "error" ? "danger" : "success" } alert-dismissable", role: "alert" do
           button.close type="button" data-dismiss="alert"
             span aria-hidden="true"
               | &times;
