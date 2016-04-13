@@ -34,6 +34,8 @@ Once you've done that, any time you generate a controller or scaffold, you'll ge
 
 ### Give it a try
 
+In Rails >= 4.1 you need to run `spring stop` so than Rails preloader knows about new templates.
+
     rails generate scaffold post title body:text published:boolean
 
 You can easily customize colors, grid system, fonts, and much more by editing `bootstrap-variables.[less|scss]` on your application assets folder.
