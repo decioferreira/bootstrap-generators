@@ -14,10 +14,21 @@
 
 <% attributes.each do |attribute| -%>
   <div class="form-group">
-    <%%= f.label :<%= attribute.name %>, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, class: "form-control" %>
-    </div>
+    <% if attribute.field_type == :check_box %>
+      <div class="col-sm-offset-2 col-sm-10"> 
+        <div class="checkbox">
+          <label>
+            <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
+            <%= attribute.human_name %>      
+          </label>
+        </div>
+      </div>
+    <% else %>
+      <%%= f.label :<%= attribute.name %>, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, class: "form-control" %>
+      </div>
+    <% end %>
   </div>
 <% end -%>
   <div class="form-group">
