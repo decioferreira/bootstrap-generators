@@ -11,7 +11,9 @@ module Bootstrap
 
         app.config.assets.paths << ::Rails.root.join('app', 'assets', 'fonts')
 
-        app.config.assets.precompile << /\.(?:svg|eot|woff|woff2|ttf)$/
+        %w(eot svg ttf woff woff2).each do |ext|
+          app.config.assets.precompile << "bootstrap/glyphicons-halflings-regular.#{ext}"
+        end
       end
     end
   end
